@@ -1,0 +1,371 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>在Google Sheet上使用query、if、isna将符合条件的分表数据汇总到总表 | Gilgamel&#39;s Notepad</title>
+<link rel="shortcut icon" href="https://gilgamel.github.io/favicon.ico?v=1614280015029">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://gilgamel.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="在Google Sheet上使用query、if、isna将符合条件的分表数据汇总到总表 | Gilgamel&#39;s Notepad - Atom Feed" href="https://gilgamel.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="因为工作的缘故，需要将各个平台的宣传日期都放在一张google sheet上，然后 通过检测关键词，将关键的event自动pop up到总表上。得到这个需求的时候，脑海里立刻想到的是VBA，然而google sheet上压根没VBA啊！
+于..." />
+    <meta name="keywords" content="sheet,query,function" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://gilgamel.github.io">
+  <img class="avatar" src="https://gilgamel.github.io/images/avatar.png?v=1614280015029" alt="">
+  </a>
+  <h1 class="site-title">
+    Gilgamel&#39;s Notepad
+  </h1>
+  <p class="site-description">
+    
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              在Google Sheet上使用query、if、isna将符合条件的分表数据汇总到总表
+            </h2>
+            <div class="post-info">
+              <span>
+                2019-08-21
+              </span>
+              <span>
+                6 min read
+              </span>
+              
+                <a href="https://gilgamel.github.io/tag/7L-ONKx-lT/" class="post-tag">
+                  # sheet
+                </a>
+              
+                <a href="https://gilgamel.github.io/tag/VbEovx3fNE/" class="post-tag">
+                  # query
+                </a>
+              
+                <a href="https://gilgamel.github.io/tag/TIaOiNR4KA/" class="post-tag">
+                  # function
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>因为工作的缘故，需要将各个平台的宣传日期都放在一张google sheet上，然后 <strong>通过检测关键词，将关键的event自动pop up到总表上</strong>。得到这个需求的时候，脑海里立刻想到的是VBA，然而google sheet上压根没VBA啊！</p>
+<p>于是想着是否能用 vlookup/hlookup/index &amp; match解决问题，最后发现果然还是解决不了：）最后在朋友的提醒下，开始摸索着使用 <strong>query</strong>。</p>
+<h2 id="query">Query</h2>
+<p>根据 Google 简陋的说明，query 是对数据运行一项采用 Google Visualization API 查询语言的查询。</p>
+<!-- more -->
+<h3 id="用法示例">用法示例</h3>
+<pre><code class="language-Excel">QUERY(A2:E6,&quot;select avg(A) pivot B&quot;)
+
+QUERY(A2:E6,F2,FALSE)
+</code></pre>
+<h3 id="语法">语法</h3>
+<p><strong>Query（数据，查询，[标题数]）</strong></p>
+<ul>
+<li><strong>数据</strong> - 要执行查询的单元格范围。
+<ul>
+<li>每列<strong>数据</strong>中的数值类型只能是布尔值、数字（包括日期/时间类型）或字符串。</li>
+<li>如果有多种数据类型掺杂在单个列中，为便于查询，该列的数据类型由其中大多数数据的类型决定。其他少数数据的类型则被视为空值。</li>
+</ul>
+</li>
+<li><strong>查询</strong> - 要执行的查询操作，以 <strong>Google Visualization API查询语言</strong>编写。
+<ul>
+<li><strong>查询</strong>的值必须括在<strong>引号</strong>中，否则该值必须是指向包含相关文本的单元格的引用。</li>
+</ul>
+</li>
+<li><strong>标题数</strong> - [可选]- <code>数据</code>上方的标题行的数目。如果省略或设置为<code>-1</code>，将根据<strong>数据</strong>的内容估算该值。</li>
+</ul>
+<h3 id="可以怎么用">可以怎么用？</h3>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>dept</th>
+<th>lunchTime</th>
+<th>salary</th>
+<th>hireDate</th>
+<th>age</th>
+<th>isSenior</th>
+<th>seniorityStartTime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>John</td>
+<td>Eng</td>
+<td>12:00:00</td>
+<td>1000</td>
+<td>3/19/2005</td>
+<td>35</td>
+<td>TRUE</td>
+<td>12/2/2007 15:56:00</td>
+</tr>
+<tr>
+<td>Dave</td>
+<td>Eng</td>
+<td>12:00:00</td>
+<td>500</td>
+<td>4/19/2006</td>
+<td>27</td>
+<td>FALSE</td>
+<td>null</td>
+</tr>
+<tr>
+<td>Sally</td>
+<td>Eng</td>
+<td>13:00:00</td>
+<td>600</td>
+<td>10/10/2005</td>
+<td>30</td>
+<td>FALSE</td>
+<td>null</td>
+</tr>
+<tr>
+<td>Ben</td>
+<td>Sales</td>
+<td>12:00:00</td>
+<td>400</td>
+<td>10/10/2002</td>
+<td>32</td>
+<td>TRUE</td>
+<td>3/9/2005 12:30:00</td>
+</tr>
+<tr>
+<td>Dana</td>
+<td>Sales</td>
+<td>12:00:00</td>
+<td>350</td>
+<td>9/8/2004</td>
+<td>25</td>
+<td>FALSE</td>
+<td>null</td>
+</tr>
+<tr>
+<td>Mike</td>
+<td>Marketing</td>
+<td>13:00:00</td>
+<td>800</td>
+<td>1/10/2005</td>
+<td>24</td>
+<td>TRUE</td>
+<td>12/30/2007 14:40:00</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>使用<strong>Select</strong>和<strong>Where</strong>橘子返回满足指定条件的行。</li>
+</ol>
+<pre><code class="language-Excel">QUERY('Example Data'!$A$2:$H$7, &quot;select A where (B&lt;&gt;'Eng' and G=true) or (D &gt; &quot;&amp;A2&amp;&quot;)&quot;)
+</code></pre>
+<ol start="2">
+<li>使用<strong>Select</strong>和<strong>Group by</strong>子句统计所有行的<strong>工资</strong>数据</li>
+</ol>
+<pre><code class="language-Excel">QUERY('Example Data'!$A$2:$H$7, &quot;select B, MAX(D) group by B&quot;)
+</code></pre>
+<ol start="3">
+<li>将各列不重复的值转换到新列中。</li>
+</ol>
+<pre><code class="language-Excel">QUERY('Example Data'!$A$2:$H$7, &quot;select avg(D) pivot B&quot;)
+</code></pre>
+<ol start="4">
+<li>统计各行的<strong>部门</strong>值，并按<strong>工资</strong>的最大值进行排序。</li>
+</ol>
+<pre><code class="language-Excel">QUERY('Example Data'!$A$2:$H$7, &quot;select B, MAX(D) group by B order by MAX(D)&quot;)
+</code></pre>
+<ol start="5">
+<li>指定输入范围中的标题行数目，这让函数能够将带多个标题行的输入转换为单个标题行的输入。</li>
+</ol>
+<pre><code class="language-Excel"># Male
+QUERY(A1:E4, &quot;select B where (D&gt;175 and E&gt;53)&quot;, 1)
+
+# Male height
+QUERY(A1:E4, &quot;select B where (D&gt;175 and E&gt;53)&quot;, 2)
+</code></pre>
+<p>其实以上都不是重点，只是我想Mark一下而已。</p>
+<h2 id="利用-query-where-contains-自从筛选出符合条件的-event">利用 Query 、Where、Contains 自从筛选出符合条件的 Event</h2>
+<p>由于当时设计timeline只考虑到好看（easy to read）的问题，所以基本上将 Google Sheet 当成了画板使用，这也导致了 timeline 的设计从数据分析的逻辑上来看是十分辣鸡的；但木得办法，老板要“好看”，所以只能基于原有timeline的基础上去做到老板想要的需求。</p>
+<p>以下为“好看”（easy to read) 的timeline示例：</p>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/08/23/OvHFniK8xLrat4f.png" alt="image.png" loading="lazy"></figure>
+<p>考虑到 Google Sheet 只能默认某一列的日期是一致的，所以没办法一口气将所有区域选上并且进行筛选，所以只能用一个笨方法：将range设置为一周。</p>
+<p>举个例子：假设12月23日 - 12月29日的 range 为 C174:I180，Monday 代表C列，我需要在总表上代表12月23日的一格输入以下代码：</p>
+<pre><code class="language-Excel">query(xxxx!$C$174:$I$180,&quot;select C where C contains '线下'&quot;)
+
+# 在$C$174:$I$180的范围内，自从标记出在C列里包含着线下这两个关键字的内容
+# 同理线下可以切换为线上或执行
+</code></pre>
+<p>到了这一步，问题得到了解决。</p>
+<p>但新的问题又出现了</p>
+<h3 id="用-isna-if-function-将在没有关键性-event-的格子里会出现-na-提示去掉">用 isna 、if function 将在没有关键性 Event 的格子里会出现 #N/A 提示去掉</h3>
+<p>这个提示是由 query function 直接产生的，所以无法使用 conditional format 进行标白处理，因此在朋友的提示下，我选择使用 <strong>isna</strong> function.</p>
+<p><strong>isna</strong> function 是用来检查某个值是否为错误值 #N/A 的。</p>
+<ul>
+<li><strong>ISNA（值）</strong>
+<ul>
+<li><strong>值</strong> - 要与错误值 #N/A 进行比较的值</li>
+<li>如果<strong>值</strong>为**#N/A<strong>或指向包含</strong>#N/A<strong>的单元格的引用，则</strong>ISNA**将返回TRUE，否则返回FALSE</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-Excel">isna(query(UTSG!$M$4:$S$10,&quot;select O where O contains '线下'&quot;))
+
+# 检测 query(UTSG!$M$4:$S$10,&quot;select O where O contains '线下'&quot;) 的返回值是否为 #N/A， 如果是返回TRUE， 否则返回 FALSE
+</code></pre>
+<p>当 query function 指向 #N/A 时，会自动返回 TRUE， 此时已达到将 #N/A 去掉的目的。之后可配合 <strong>if function</strong> 将TURE值转换为空格。</p>
+<pre><code class="language-Excel">if(isna(query(UTSG!$M$4:$S$10,&quot;select O where O contains '线下'&quot;)),&quot; &quot;, query(UTSG!$M$4:$S$10,&quot;select O where O contains '线下'&quot;))
+
+# 如果 ISNA 返回的值为TURE，则将TRUE 变为空格，否则显示qury function 返回值。
+</code></pre>
+<p>至此，老板的需求已经完成。让我大吼一句 Google Sheet 真好玩。</p>
+<h3 id="其他">其他</h3>
+<p>在Google Sheet 上可使用 CTRL + ` 来显示出 formula，然后使用 formula replace 一键替换公式里的关键词。</p>
+<p>Ref:</p>
+<blockquote>
+<p>https://support.google.com/docs/answer/3093343?hl=zh-Hans</p>
+<p>https://support.google.com/docs/answer/3093293?hl=zh-Hans</p>
+<p>https://infoinspired.com/google-docs/spreadsheet/contains-substring-match-in-google-sheets-query-for-partial-match/</p>
+</blockquote>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#query">Query</a>
+<ul>
+<li><a href="#%E7%94%A8%E6%B3%95%E7%A4%BA%E4%BE%8B">用法示例</a></li>
+<li><a href="#%E8%AF%AD%E6%B3%95">语法</a></li>
+<li><a href="#%E5%8F%AF%E4%BB%A5%E6%80%8E%E4%B9%88%E7%94%A8">可以怎么用？</a></li>
+</ul>
+</li>
+<li><a href="#%E5%88%A9%E7%94%A8-query-where-contains-%E8%87%AA%E4%BB%8E%E7%AD%9B%E9%80%89%E5%87%BA%E7%AC%A6%E5%90%88%E6%9D%A1%E4%BB%B6%E7%9A%84-event">利用 Query 、Where、Contains 自从筛选出符合条件的 Event</a>
+<ul>
+<li><a href="#%E7%94%A8-isna-if-function-%E5%B0%86%E5%9C%A8%E6%B2%A1%E6%9C%89%E5%85%B3%E9%94%AE%E6%80%A7-event-%E7%9A%84%E6%A0%BC%E5%AD%90%E9%87%8C%E4%BC%9A%E5%87%BA%E7%8E%B0-na-%E6%8F%90%E7%A4%BA%E5%8E%BB%E6%8E%89">用 isna 、if function 将在没有关键性 Event 的格子里会出现 #N/A 提示去掉</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96">其他</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://gilgamel.github.io/post/Removeduplicate/">
+              <h3 class="post-title">
+                Excel Remove Duplicate
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://gilgamel.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
