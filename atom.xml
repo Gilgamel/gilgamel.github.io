@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gilgamel.github.io</id>
     <title>Gilgamel&apos;s Notepad</title>
-    <updated>2021-02-25T22:03:00.372Z</updated>
+    <updated>2021-02-25T22:04:48.209Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gilgamel.github.io"/>
     <link rel="self" href="https://gilgamel.github.io/atom.xml"/>
@@ -61,11 +61,78 @@
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Excel Remove Duplicate]]></title>
+        <id>https://gilgamel.github.io/post/Removeduplicate/</id>
+        <link href="https://gilgamel.github.io/post/Removeduplicate/">
+        </link>
+        <updated>2019-08-20T03:25:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>最近一直在做活动，报名方式为麦客单表，但由于经常性会出现重复性报名情况，所以需要在统计之前对数据进行清洗。</p>
+<p>出现重复报名的情况一般如下：</p>
+<ol>
+<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>B活动&amp;A活动</strong></li>
+<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>C活动</strong></li>
+<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>A活动&amp;B活动&amp;C活动</strong></li>
+<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>A活动&amp;C活动&amp;D活动</strong></li>
+</ol>
+]]></summary>
+        <content type="html"><![CDATA[<p>最近一直在做活动，报名方式为麦客单表，但由于经常性会出现重复性报名情况，所以需要在统计之前对数据进行清洗。</p>
+<p>出现重复报名的情况一般如下：</p>
+<ol>
+<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>B活动&amp;A活动</strong></li>
+<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>C活动</strong></li>
+<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>A活动&amp;B活动&amp;C活动</strong></li>
+<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>A活动&amp;C活动&amp;D活动</strong></li>
+</ol>
+<!-- more -->
+<h2 id="思路">思路</h2>
+<h3 id="合并去掉重复行">合并/去掉重复行</h3>
+<p>根据报名表的设置，一般都会有 <strong>姓名、手机、微信、邮箱、参与活动</strong> 这几项，而其中姓名跟手机是大概率是唯一，which means不会重复的，所以将使用姓名/手机作为检测项</p>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/08/22/vNIyXZYmdtxBoWS.png" alt="Snipaste_2019-08-21_23-54-49.png" loading="lazy"></figure>
+<p>在以姓名作为检测项对齐进行排列后，可以看出这个叫 Ada 的少年一口气重复报名了三次，并且第二、三次报得是完全一样的，现在要做的就是 <strong>将同一个姓名的人选择参加的活动全部合并在一起</strong></p>
+<p>在活动后面一列起个小标题 <strong>1</strong> 写上以下code：</p>
+<pre><code class="language-Excel">=if(A2=A1, F1&amp;&quot;;&quot;&amp;E2, E2)
+
+# 如果 A2=A1，就将F1跟E2内容合并到一块，中间用；来表示，否则就显示E2
+</code></pre>
+<p>完事儿将公式拉完这一列。 在 <strong>列1</strong> 后面再弄一个 <strong>列2</strong>，写上以下code：</p>
+<pre><code class="language-Excel">=if(A2&lt;&gt;A3, &quot;Merged Value&quot;, &quot; &quot;)
+
+# 如果 A2 不等于 A3，那么就显示为 Merged Value，否则显示空白
+</code></pre>
+<p>同理，将公式拉满 <strong>列2</strong>；接着将 <strong>列1&amp;列2</strong> 都选上，然后 <strong>copy &amp; paste value only</strong>，将这两列的数值都变为plain text</p>
+<p>接下来将 <strong>列2</strong> 选中，并且进行 <strong>自定义排序</strong></p>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/08/22/rQgEpokvaZxhbYt.png" alt="image.png" loading="lazy"></figure>
+<p>选择 <strong>扩展选定区域</strong>，然后将主要关键字选为 <strong>2</strong>，次序为 <strong>降序</strong></p>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/08/22/NkeDbcPUOSME1xY.png" alt="image.png" loading="lazy"></figure>
+<p>最后将 <strong>列2</strong> 最下方显示为 <strong>空白</strong>的几行删掉即可。</p>
+<h3 id="去掉重复活动remove-duplicate">去掉重复活动（Remove Duplicate）</h3>
+<p>在VBA上新建Module，输入以下code：</p>
+<pre><code class="language-Excel">Function RemoveDupes2(txt As String, Optional delim As String = &quot; &quot;) As String
+    Dim x
+    'Updateby20140924
+    With CreateObject(&quot;Scripting.Dictionary&quot;)
+        .CompareMode = vbTextCompare
+        For Each x In Split(txt, delim)
+            If Trim(x) &lt;&gt; &quot;&quot; And Not .exists(Trim(x)) Then .Add Trim(x), Nothing
+        Next
+        If .Count &gt; 0 Then RemoveDupes2 = Join(.keys, delim)
+    End With
+End Function
+</code></pre>
+<p>Module创建完毕后，在新的空白列上输入以下code：</p>
+<pre><code class="language-Excel">=removedupes2(E2,&quot;;&quot;)
+
+# remove deplicate from E2, ; is seperator
+</code></pre>
+<p>最后将新列上的数据 <em><em>copy &amp;</em> paste value only</em>*以后，即可删掉之前合并的重复活动列。</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[在Google Sheet上使用query、if、isna将符合条件的分表数据汇总到总表]]></title>
         <id>https://gilgamel.github.io/post/google-sheet-query/</id>
         <link href="https://gilgamel.github.io/post/google-sheet-query/">
         </link>
-        <updated>2019-08-20T04:35:27.000Z</updated>
+        <updated>2019-08-19T16:35:27.000Z</updated>
         <summary type="html"><![CDATA[<p>因为工作的缘故，需要将各个平台的宣传日期都放在一张google sheet上，然后 <strong>通过检测关键词，将关键的event自动pop up到总表上</strong>。得到这个需求的时候，脑海里立刻想到的是VBA，然而google sheet上压根没VBA啊！</p>
 <p>于是想着是否能用 vlookup/hlookup/index &amp; match解决问题，最后发现果然还是解决不了：）最后在朋友的提醒下，开始摸索着使用 <strong>query</strong>。</p>
 <h2 id="query">Query</h2>
@@ -246,73 +313,6 @@ QUERY(A1:E4, &quot;select B where (D&gt;175 and E&gt;53)&quot;, 2)
 <p>https://support.google.com/docs/answer/3093293?hl=zh-Hans</p>
 <p>https://infoinspired.com/google-docs/spreadsheet/contains-substring-match-in-google-sheets-query-for-partial-match/</p>
 </blockquote>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Excel Remove Duplicate]]></title>
-        <id>https://gilgamel.github.io/post/Removeduplicate/</id>
-        <link href="https://gilgamel.github.io/post/Removeduplicate/">
-        </link>
-        <updated>2019-08-20T03:25:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>最近一直在做活动，报名方式为麦客单表，但由于经常性会出现重复性报名情况，所以需要在统计之前对数据进行清洗。</p>
-<p>出现重复报名的情况一般如下：</p>
-<ol>
-<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>B活动&amp;A活动</strong></li>
-<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>C活动</strong></li>
-<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>A活动&amp;B活动&amp;C活动</strong></li>
-<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>A活动&amp;C活动&amp;D活动</strong></li>
-</ol>
-]]></summary>
-        <content type="html"><![CDATA[<p>最近一直在做活动，报名方式为麦客单表，但由于经常性会出现重复性报名情况，所以需要在统计之前对数据进行清洗。</p>
-<p>出现重复报名的情况一般如下：</p>
-<ol>
-<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>B活动&amp;A活动</strong></li>
-<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>C活动</strong></li>
-<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>A活动&amp;B活动&amp;C活动</strong></li>
-<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>A活动&amp;C活动&amp;D活动</strong></li>
-</ol>
-<!-- more -->
-<h2 id="思路">思路</h2>
-<h3 id="合并去掉重复行">合并/去掉重复行</h3>
-<p>根据报名表的设置，一般都会有 <strong>姓名、手机、微信、邮箱、参与活动</strong> 这几项，而其中姓名跟手机是大概率是唯一，which means不会重复的，所以将使用姓名/手机作为检测项</p>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/08/22/vNIyXZYmdtxBoWS.png" alt="Snipaste_2019-08-21_23-54-49.png" loading="lazy"></figure>
-<p>在以姓名作为检测项对齐进行排列后，可以看出这个叫 Ada 的少年一口气重复报名了三次，并且第二、三次报得是完全一样的，现在要做的就是 <strong>将同一个姓名的人选择参加的活动全部合并在一起</strong></p>
-<p>在活动后面一列起个小标题 <strong>1</strong> 写上以下code：</p>
-<pre><code class="language-Excel">=if(A2=A1, F1&amp;&quot;;&quot;&amp;E2, E2)
-
-# 如果 A2=A1，就将F1跟E2内容合并到一块，中间用；来表示，否则就显示E2
-</code></pre>
-<p>完事儿将公式拉完这一列。 在 <strong>列1</strong> 后面再弄一个 <strong>列2</strong>，写上以下code：</p>
-<pre><code class="language-Excel">=if(A2&lt;&gt;A3, &quot;Merged Value&quot;, &quot; &quot;)
-
-# 如果 A2 不等于 A3，那么就显示为 Merged Value，否则显示空白
-</code></pre>
-<p>同理，将公式拉满 <strong>列2</strong>；接着将 <strong>列1&amp;列2</strong> 都选上，然后 <strong>copy &amp; paste value only</strong>，将这两列的数值都变为plain text</p>
-<p>接下来将 <strong>列2</strong> 选中，并且进行 <strong>自定义排序</strong></p>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/08/22/rQgEpokvaZxhbYt.png" alt="image.png" loading="lazy"></figure>
-<p>选择 <strong>扩展选定区域</strong>，然后将主要关键字选为 <strong>2</strong>，次序为 <strong>降序</strong></p>
-<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/08/22/NkeDbcPUOSME1xY.png" alt="image.png" loading="lazy"></figure>
-<p>最后将 <strong>列2</strong> 最下方显示为 <strong>空白</strong>的几行删掉即可。</p>
-<h3 id="去掉重复活动remove-duplicate">去掉重复活动（Remove Duplicate）</h3>
-<p>在VBA上新建Module，输入以下code：</p>
-<pre><code class="language-Excel">Function RemoveDupes2(txt As String, Optional delim As String = &quot; &quot;) As String
-    Dim x
-    'Updateby20140924
-    With CreateObject(&quot;Scripting.Dictionary&quot;)
-        .CompareMode = vbTextCompare
-        For Each x In Split(txt, delim)
-            If Trim(x) &lt;&gt; &quot;&quot; And Not .exists(Trim(x)) Then .Add Trim(x), Nothing
-        Next
-        If .Count &gt; 0 Then RemoveDupes2 = Join(.keys, delim)
-    End With
-End Function
-</code></pre>
-<p>Module创建完毕后，在新的空白列上输入以下code：</p>
-<pre><code class="language-Excel">=removedupes2(E2,&quot;;&quot;)
-
-# remove deplicate from E2, ; is seperator
-</code></pre>
-<p>最后将新列上的数据 <em><em>copy &amp;</em> paste value only</em>*以后，即可删掉之前合并的重复活动列。</p>
 ]]></content>
     </entry>
     <entry>
