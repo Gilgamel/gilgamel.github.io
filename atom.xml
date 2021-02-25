@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gilgamel.github.io</id>
     <title>Gilgamel&apos;s Notepad</title>
-    <updated>2021-02-25T19:07:31.642Z</updated>
+    <updated>2021-02-25T19:08:29.091Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gilgamel.github.io"/>
     <link rel="self" href="https://gilgamel.github.io/atom.xml"/>
@@ -14,20 +14,16 @@
         <id>https://gilgamel.github.io/post/milky-way-editing/</id>
         <link href="https://gilgamel.github.io/post/milky-way-editing/">
         </link>
-        <updated>2019-08-26T02:00:40.000Z</updated>
-        <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/08/27/49ZwuCrkXDdfx1S.jpg" alt="IMG_2121-Pano-bbb4 reduce size.jpg" loading="lazy"></figure>
-]]></summary>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/08/27/49ZwuCrkXDdfx1S.jpg" alt="IMG_2121-Pano-bbb4 reduce size.jpg" loading="lazy"></figure>
-<!-- more -->
-<p>抓住19年拍银河的小尾巴，跟特特还有海王去了 Toronto Barren 拍银河。</p>
+        <updated>2019-08-25T14:00:40.000Z</updated>
+        <content type="html"><![CDATA[<p>抓住19年拍银河的小尾巴，跟特特还有海王去了 Toronto Barren 拍银河。</p>
 <p>俗话说得好：拍摄一时爽，后期火葬场。</p>
 <p>用来拍摄的单反是 long time ago 的60D，由于是APS-C画幅，所以拍摄时的思路是用 <strong>高感 + 大光圈 + 慢快门</strong> 尽可能将更多的星星拍摄进去。然而忽略了机子的问题，等看到RAW的时候发现噪点十分多，修起来真的是太难了。在找了好多个preset以后发现颜色出来都不大自然（至少比我目前修出来的还不自然），所以无法偷懒的自己开始不断 google 着。</p>
 <p>用的参数是 3200 ISO + f2.8 + 30s，拍摄6张以后拼接在一起。原图大概是这个亚子的：</p>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/08/27/NRu19LOZD7KmnAt.jpg" alt="BIBBB-2.jpg" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/08/27/NRu19LOZD7KmnAt.jpg" alt="BIBBB-2.jpg" loading="lazy"></figure>
 <h2 id="camera-raw-基修">Camera RAW 基修</h2>
 <p>在LR里将6张图拼接导出以后，用 Camera RAW 打开了图片。由于在LR里已经预先将图片都进行了镜头校对，所以在 Camera RAW 里就省去这一步了。</p>
 <p>直接对对比度、高光、阴影、白色、黑色进行修改，重点是将图片调灰</p>
-<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/08/27/g6XyOVDNb5RolhL.png" alt="image.png" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/08/27/g6XyOVDNb5RolhL.png" alt="image.png" loading="lazy"></figure>
 <p><strong>高光</strong></p>
 <p>提高高光可以使银心更加明亮，</p>
 <p><strong>阴影</strong></p>
@@ -42,7 +38,7 @@
 <h3 id="降噪">降噪</h3>
 <p>将 Camera RAW 调到细节，然后开始降噪</p>
 <p>注意蒙版需要稍微调大一点，颜色也需要降噪，否则会出现噪点过多的问题</p>
-<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/08/27/wa1cR4VgHOfMbtz.png" alt="image.png" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/08/27/wa1cR4VgHOfMbtz.png" alt="image.png" loading="lazy"></figure>
 <h2 id="photoshop-修饰">Photoshop 修饰</h2>
 <h3 id="明暗修饰">明暗修饰</h3>
 <h4 id="亮部修饰">亮部修饰</h4>
@@ -50,14 +46,14 @@
 <p>这时画面上会出现闪闪发亮的就是高光部位，然后用调整层工具 <strong>曲线</strong> 进行修饰</p>
 <p>由于我们现在选取了高光部位，所以操作仅仅会针对亮的部分进行。</p>
 <p>通过拖动曲线，让亮的地方更亮，把比较灰的地方拉下来。</p>
-<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2019/08/27/2SFZaTUIGe7vuOq.png" alt="image.png" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/08/27/2SFZaTUIGe7vuOq.png" alt="image.png" loading="lazy"></figure>
 <h4 id="暗部修饰">暗部修饰</h4>
 <p>按着曲线部分的蒙版（曲线）选区，CTRL + ALT +2 选择高光部位后，然后在菜单栏选择 <strong>反选</strong>，接着再加曲线。</p>
 <p>这时需要将暗部提亮，但是比较暗的地方需要继续压下去</p>
-<figure data-type="image" tabindex="6"><img src="https://i.loli.net/2019/08/27/lypVeYR97vSEUhA.png" alt="image.png" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2019/08/27/lypVeYR97vSEUhA.png" alt="image.png" loading="lazy"></figure>
 <h4 id="整体层次修整">整体层次修整</h4>
 <p>在不选择高光部位的情况下，添加曲线，对整体明暗进行修饰</p>
-<figure data-type="image" tabindex="7"><img src="https://i.loli.net/2019/08/27/jArR4msZYCFIoEi.png" alt="image.png" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://i.loli.net/2019/08/27/jArR4msZYCFIoEi.png" alt="image.png" loading="lazy"></figure>
 <p>Ref：</p>
 <blockquote>
 <p>https://www.xinpianchang.com/a71314?from=ArticleList</p>
