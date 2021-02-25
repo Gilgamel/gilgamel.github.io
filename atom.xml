@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gilgamel.github.io</id>
     <title>Gilgamel&apos;s Notepad</title>
-    <updated>2021-02-25T19:08:58.088Z</updated>
+    <updated>2021-02-25T21:47:44.877Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gilgamel.github.io"/>
     <link rel="self" href="https://gilgamel.github.io/atom.xml"/>
@@ -65,7 +65,7 @@
         <id>https://gilgamel.github.io/post/google-sheet-query/</id>
         <link href="https://gilgamel.github.io/post/google-sheet-query/">
         </link>
-        <updated>2019-08-21T04:35:27.000Z</updated>
+        <updated>2019-08-20T16:35:27.000Z</updated>
         <summary type="html"><![CDATA[<p>因为工作的缘故，需要将各个平台的宣传日期都放在一张google sheet上，然后 <strong>通过检测关键词，将关键的event自动pop up到总表上</strong>。得到这个需求的时候，脑海里立刻想到的是VBA，然而google sheet上压根没VBA啊！</p>
 <p>于是想着是否能用 vlookup/hlookup/index &amp; match解决问题，最后发现果然还是解决不了：）最后在朋友的提醒下，开始摸索着使用 <strong>query</strong>。</p>
 <h2 id="query">Query</h2>
@@ -253,7 +253,7 @@ QUERY(A1:E4, &quot;select B where (D&gt;175 and E&gt;53)&quot;, 2)
         <id>https://gilgamel.github.io/post/Removeduplicate/</id>
         <link href="https://gilgamel.github.io/post/Removeduplicate/">
         </link>
-        <updated>2019-08-21T03:25:00.000Z</updated>
+        <updated>2019-08-20T15:25:00.000Z</updated>
         <summary type="html"><![CDATA[<p>最近一直在做活动，报名方式为麦客单表，但由于经常性会出现重复性报名情况，所以需要在统计之前对数据进行清洗。</p>
 <p>出现重复报名的情况一般如下：</p>
 <ol>
