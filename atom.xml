@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gilgamel.github.io</id>
     <title>Gilgamel&apos;s Notepad</title>
-    <updated>2021-02-26T08:00:51.538Z</updated>
+    <updated>2021-02-26T08:01:45.695Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gilgamel.github.io"/>
     <link rel="self" href="https://gilgamel.github.io/atom.xml"/>
@@ -14,7 +14,7 @@
         <id>https://gilgamel.github.io/post/github_page_ssl/</id>
         <link href="https://gilgamel.github.io/post/github_page_ssl/">
         </link>
-        <updated>2021-02-22T22:25:53.000Z</updated>
+        <updated>2021-02-22T09:25:53.000Z</updated>
         <content type="html"><![CDATA[<p>最近发现了 Gridea 这个静态博客，感觉十分方便，重新将持续性写 blog 提上日程</p>
 <p>就算是2021年立一个 flag 吧。</p>
 <p>Gridea 真的是一个非常方便的静态博客，连自定义域名的方式都非常的傻瓜。</p>
