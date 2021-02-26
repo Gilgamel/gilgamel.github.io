@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gilgamel.github.io</id>
     <title>Gilgamel&apos;s Notepad</title>
-    <updated>2021-02-26T04:28:12.211Z</updated>
+    <updated>2021-02-26T04:30:53.769Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gilgamel.github.io"/>
     <link rel="self" href="https://gilgamel.github.io/atom.xml"/>
@@ -14,7 +14,7 @@
         <id>https://gilgamel.github.io/post/github_page_ssl/</id>
         <link href="https://gilgamel.github.io/post/github_page_ssl/">
         </link>
-        <updated>2021-02-25T15:25:53.000Z</updated>
+        <updated>2021-02-25T02:25:53.000Z</updated>
         <content type="html"><![CDATA[<h2 id="ref">Ref</h2>
 <blockquote>
 <p>https://i.loli.net/2021/02/26/uBPf1r6z5LYSdgD.jpg</p>
