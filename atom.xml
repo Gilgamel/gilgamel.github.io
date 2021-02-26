@@ -2,13 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gilgamel.github.io</id>
     <title>Gilgamel&apos;s Notepad</title>
-    <updated>2021-02-26T04:16:53.546Z</updated>
+    <updated>2021-02-26T04:26:50.681Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gilgamel.github.io"/>
     <link rel="self" href="https://gilgamel.github.io/atom.xml"/>
     <logo>https://gilgamel.github.io/images/avatar.png</logo>
     <icon>https://gilgamel.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Gilgamel&apos;s Notepad</rights>
+    <entry>
+        <title type="html"><![CDATA[为 Github Pages 自定义域名并开启 https]]></title>
+        <id>https://gilgamel.github.io/post/github_page_ssl/</id>
+        <link href="https://gilgamel.github.io/post/github_page_ssl/">
+        </link>
+        <updated>2021-02-25T15:25:53.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="ref">Ref</h2>
+<blockquote>
+<p>https://i.loli.net/2021/02/26/uBPf1r6z5LYSdgD.jpg</p>
+</blockquote>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[银河后期]]></title>
         <id>https://gilgamel.github.io/post/milky-way-editing/</id>
