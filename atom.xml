@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gilgamel.github.io</id>
     <title>Gilgamel&apos;s Notepad</title>
-    <updated>2021-02-26T19:53:24.622Z</updated>
+    <updated>2021-02-27T01:44:36.673Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gilgamel.github.io"/>
     <link rel="self" href="https://gilgamel.github.io/atom.xml"/>
@@ -14,8 +14,15 @@
         <id>https://gilgamel.github.io/post/nespresso-vertuo-coffee-capsules-kou-wei-ji-lu/</id>
         <link href="https://gilgamel.github.io/post/nespresso-vertuo-coffee-capsules-kou-wei-ji-lu/">
         </link>
-        <updated>2021-02-25T17:41:28.000Z</updated>
+        <updated>2021-02-25T04:41:28.000Z</updated>
         <content type="html"><![CDATA[<h2 id="solelio">Solelio</h2>
+<ul>
+<li>Intensity: 2/10</li>
+<li>Cup Size: 230ml</li>
+<li>Aromatic Profile: Fruity and Light-Bodied</li>
+<li>Aromatic Notes: Citric, Cereal</li>
+</ul>
+<p>整体口感温和，烘培感跟果味的平衡恰到好处，但在冷却后酸度会大为提升。</p>
 ]]></content>
     </entry>
     <entry>
