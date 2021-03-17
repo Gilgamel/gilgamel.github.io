@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gilgamel.github.io</id>
     <title>Gilgamel&apos;s Notepad</title>
-    <updated>2021-03-13T05:04:50.434Z</updated>
+    <updated>2021-03-17T05:45:33.319Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gilgamel.github.io"/>
     <link rel="self" href="https://gilgamel.github.io/atom.xml"/>
@@ -14,7 +14,7 @@
         <id>https://gilgamel.github.io/post/202103_daily/</id>
         <link href="https://gilgamel.github.io/post/202103_daily/">
         </link>
-        <updated>2021-02-27T18:23:17.000Z</updated>
+        <updated>2021-02-27T05:23:17.000Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>2021/3/1：3月的第一天养成好习惯，每天给自己记录一句话吧</li>
 <li>2021/3/2：微信给我姐发了句“生日快乐”，除此以外好像也没什么好说的。</li>
@@ -28,6 +28,7 @@
 <li>2021/3/10：荷尔蒙上头</li>
 <li>2021/3/11：荷尔蒙上头中带着一点愧疚</li>
 <li>2021/3/12：今天听了少楠关于产品沉思录的 podcast 觉得挺有意思，利用项目管理去分解恐惧；将焦虑转化为恐惧。</li>
+<li>2021/3/17：时间像是被吞掉，中间的时间不知道哪儿去了。今天放弃了QNAP的ARIA，安装了TRANSMISSION，从此我也能用NAS做下载鸡了。好耶</li>
 </ul>
 ]]></content>
     </entry>
