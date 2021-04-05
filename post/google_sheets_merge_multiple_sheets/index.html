@@ -2,21 +2,19 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>为 Gridea Github Page 自定义域名并开启 https | Gilgamel&#39;s Notepad</title>
+<title>通过 Query、Importrange、Select、Where 将多张 Google Sheets 合并到一起 | Gilgamel&#39;s Notepad</title>
 <link rel="shortcut icon" href="https://gilgamel.github.io/favicon.ico?v=1617662842231">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://gilgamel.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="为 Gridea Github Page 自定义域名并开启 https | Gilgamel&#39;s Notepad - Atom Feed" href="https://gilgamel.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="通过 Query、Importrange、Select、Where 将多张 Google Sheets 合并到一起 | Gilgamel&#39;s Notepad - Atom Feed" href="https://gilgamel.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="最近发现了 Gridea 这个静态博客，感觉十分方便，重新将持续性写 blog 提上日程
-就算是2021年立一个 flag 吧。
-Gridea 真的是一个非常方便的静态博客，连自定义域名的方式都非常的傻瓜。
-具体操作
-在 Gridea 左侧..." />
-    <meta name="keywords" content="Github,SSL,Gridea" />
+    <meta name="description" content="背景
+公司每个学期所做的 Budget 都放在 Google Sheet，大概每2-4周会出现频繁修改的情况，因此需要实时保持更新并连接到 PBI Service 上。
+在之前曾经试过 Custom Goolge Sheet Connect..." />
+    <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -78,56 +76,53 @@ Gridea 真的是一个非常方便的静态博客，连自定义域名的方式�
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              为 Gridea Github Page 自定义域名并开启 https
+              通过 Query、Importrange、Select、Where 将多张 Google Sheets 合并到一起
             </h2>
             <div class="post-info">
               <span>
-                2021-02-21
+                2021-04-03
               </span>
               <span>
-                1 min read
+                2 min read
               </span>
-              
-                <a href="https://gilgamel.github.io/tag/Z14sESfJX/" class="post-tag">
-                  # Github
-                </a>
-              
-                <a href="https://gilgamel.github.io/tag/3dCvzMrDuY/" class="post-tag">
-                  # SSL
-                </a>
-              
-                <a href="https://gilgamel.github.io/tag/i4C0BMuav/" class="post-tag">
-                  # Gridea
-                </a>
               
             </div>
             
-              <img class="post-feature-image" src="https://i.loli.net/2021/02/26/RkUJp8Qh6eYEvtL.jpg" alt="">
+              <img class="post-feature-image" src="https://i.loli.net/2021/04/06/Fjt9QerB5lm31so.jpg" alt="">
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>最近发现了 Gridea 这个静态博客，感觉十分方便，重新将持续性写 blog 提上日程</p>
-<p>就算是2021年立一个 flag 吧。</p>
-<p>Gridea 真的是一个非常方便的静态博客，连自定义域名的方式都非常的傻瓜。</p>
-<h2 id="具体操作">具体操作</h2>
-<p>在 Gridea 左侧选择<strong>远程</strong>，然后直接在** CNAME** 输入自己的域名，点击保存同步即可。</p>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/02/26/q2FPwmiz7ajsS3O.png" alt="gridea_setting.png" loading="lazy"></figure>
-<p>登陆 GITHUB，看到多了一个 CNAME 文件即代表同步成功。</p>
-<p>点击 <strong>Setting</strong> 拖到下方，确认域名已经被填写进去，并且 **ENFORCE HTTPS **已被勾选成功。</p>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2021/02/26/zyaxo9NQlfJVB7L.png" alt="GITHUB_PAGE_SETTING.png" loading="lazy"></figure>
-<h2 id="其他">其他</h2>
-<p>其实一开始有在搜了很多教程，包括在 github page 直接 create new file CNAME， 然后输入域名。</p>
-<p>后来发现这个操作在 Gridea 更新同步后，CNAME file 会被删除，因此作罢。</p>
-<p>其后试过直接在 Gridea 源目录下新建 CNAME file，但发现同步不成功。</p>
-<p>最后发现 Gridea 十分贴心的在客户端已经自带了设置。</p>
+                <h2 id="背景">背景</h2>
+<p>公司每个学期所做的 Budget 都放在 Google Sheet，大概每2-4周会出现频繁修改的情况，因此需要实时保持更新并连接到 PBI Service 上。</p>
+<p>在之前曾经试过 Custom Goolge Sheet Connector，但由于 Connector 只能在 Desktop 使用，会影响将报表 push 到 PBI Service 后的刷新；也曾经试过将 Power Query 写到 PBI Service 上，但由于 credential 问题，会导致后续无法刷新。</p>
+<p>由于每个分公司的 Budget 都会在一张 spreadsheet 上，基于保密因此需要先将分公司的 Budget 有选择性地抓到同一张表上，再连接到 PBI Service 上。</p>
+</br>
+<h2 id="总结">总结</h2>
+<p>基于以上背景，可简单总结为以下两个目的：</p>
+<ol>
+<li>Merge Multiple Sheets into One Sheet</li>
+<li>Connect Goolge Sheet to PBI Service and Schedule Refresh</li>
+</ol>
+</br>
+<h2 id="step-1-merge-multiple-sheets">STEP 1. Merge Multiple Sheets</h2>
+<h2 id="ref">Ref</h2>
+<blockquote>
+<p>https://stackoverflow.com/questions/45945815/how-to-connect-google-sheet-with-power-bi</p>
+<p>https://webapps.stackexchange.com/questions/85101/queryimportrange-function-to-skip-columns</p>
+<p>https://webapps.stackexchange.com/questions/93002/unable-to-parse-query-string-for-function-query-when-using-importrange</p>
+<p>https://blog.coupler.io/combine-sheets-into-one/</p>
+<p>https://blog.coupler.io/query-importrange/#What_you_can_do_with_IMPORTRANGEQUERY_functions_real-life_formula_examples</p>
+</blockquote>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#%E5%85%B7%E4%BD%93%E6%93%8D%E4%BD%9C">具体操作</a></li>
-<li><a href="#%E5%85%B6%E4%BB%96">其他</a></li>
+<li><a href="#%E8%83%8C%E6%99%AF">背景</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+<li><a href="#step-1-merge-multiple-sheets">STEP 1. Merge Multiple Sheets</a></li>
+<li><a href="#ref">Ref</a></li>
 </ul>
 </li>
 </ul>
@@ -140,9 +135,9 @@ Gridea 真的是一个非常方便的静态博客，连自定义域名的方式�
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://gilgamel.github.io/post/milky-way-editing/">
+            <a href="https://gilgamel.github.io/post/202103_daily/">
               <h3 class="post-title">
-                银河后期
+                202103
               </h3>
             </a>
           </div>

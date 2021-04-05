@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gilgamel.github.io</id>
     <title>Gilgamel&apos;s Notepad</title>
-    <updated>2021-04-05T20:44:58.995Z</updated>
+    <updated>2021-04-05T22:47:24.493Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gilgamel.github.io"/>
     <link rel="self" href="https://gilgamel.github.io/atom.xml"/>
@@ -11,11 +11,31 @@
     <rights>All rights reserved 2021, Gilgamel&apos;s Notepad</rights>
     <entry>
         <title type="html"><![CDATA[通过 Query、Importrange、Select、Where 将多张 Google Sheets 合并到一起]]></title>
-        <id>https://gilgamel.github.io/post/tong-guo-queryimportrangeselectwhere-jiang-duo-zhang-google-sheets-he-bing-dao-yi-qi/</id>
-        <link href="https://gilgamel.github.io/post/tong-guo-queryimportrangeselectwhere-jiang-duo-zhang-google-sheets-he-bing-dao-yi-qi/">
+        <id>https://gilgamel.github.io/post/google_sheets_merge_multiple_sheets/</id>
+        <link href="https://gilgamel.github.io/post/google_sheets_merge_multiple_sheets/">
         </link>
-        <updated>2021-04-05T08:20:46.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="目的">目的</h2>
+        <updated>2021-04-03T08:20:46.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="背景">背景</h2>
+<p>公司每个学期所做的 Budget 都放在 Google Sheet，大概每2-4周会出现频繁修改的情况，因此需要实时保持更新并连接到 PBI Service 上。</p>
+<p>在之前曾经试过 Custom Goolge Sheet Connector，但由于 Connector 只能在 Desktop 使用，会影响将报表 push 到 PBI Service 后的刷新；也曾经试过将 Power Query 写到 PBI Service 上，但由于 credential 问题，会导致后续无法刷新。</p>
+<p>由于每个分公司的 Budget 都会在一张 spreadsheet 上，基于保密因此需要先将分公司的 Budget 有选择性地抓到同一张表上，再连接到 PBI Service 上。</p>
+</br>
+<h2 id="总结">总结</h2>
+<p>基于以上背景，可简单总结为以下两个目的：</p>
+<ol>
+<li>Merge Multiple Sheets into One Sheet</li>
+<li>Connect Goolge Sheet to PBI Service and Schedule Refresh</li>
+</ol>
+</br>
+<h2 id="step-1-merge-multiple-sheets">STEP 1. Merge Multiple Sheets</h2>
+<h2 id="ref">Ref</h2>
+<blockquote>
+<p>https://stackoverflow.com/questions/45945815/how-to-connect-google-sheet-with-power-bi</p>
+<p>https://webapps.stackexchange.com/questions/85101/queryimportrange-function-to-skip-columns</p>
+<p>https://webapps.stackexchange.com/questions/93002/unable-to-parse-query-string-for-function-query-when-using-importrange</p>
+<p>https://blog.coupler.io/combine-sheets-into-one/</p>
+<p>https://blog.coupler.io/query-importrange/#What_you_can_do_with_IMPORTRANGEQUERY_functions_real-life_formula_examples</p>
+</blockquote>
 ]]></content>
     </entry>
     <entry>
