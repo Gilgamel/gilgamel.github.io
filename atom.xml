@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gilgamel.github.io</id>
     <title>Gilgamel&apos;s Notepad</title>
-    <updated>2021-04-06T16:40:30.183Z</updated>
+    <updated>2021-04-06T16:41:03.119Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gilgamel.github.io"/>
     <link rel="self" href="https://gilgamel.github.io/atom.xml"/>
@@ -295,7 +295,7 @@ End Function
         <id>https://gilgamel.github.io/post/google-sheet-query/</id>
         <link href="https://gilgamel.github.io/post/google-sheet-query/">
         </link>
-        <updated>2019-08-18T16:35:27.000Z</updated>
+        <updated>2019-08-18T04:35:27.000Z</updated>
         <summary type="html"><![CDATA[<p>因为工作的缘故，需要将各个平台的宣传日期都放在一张google sheet上，然后 <strong>通过检测关键词，将关键的event自动pop up到总表上</strong>。得到这个需求的时候，脑海里立刻想到的是VBA，然而google sheet上压根没VBA啊！<br>
 </br><br>
 于是想着是否能用 vlookup/hlookup/index &amp; match解决问题，最后发现果然还是解决不了：）最后在朋友的提醒下，开始摸索着使用 <strong>query</strong>。</p>
@@ -407,7 +407,7 @@ QUERY(A2:E6,F2,FALSE)
 </tbody>
 </table>
 <ol>
-<li>使用<strong>Select</strong>和<strong>Where</strong>橘子返回满足指定条件的行。</li>
+<li>使用<strong>Select</strong>和<strong>Where</strong>返回满足指定条件的行。</li>
 </ol>
 <pre><code class="language-Excel">QUERY('Example Data'!$A$2:$H$7, &quot;select A where (B&lt;&gt;'Eng' and G=true) or (D &gt; &quot;&amp;A2&amp;&quot;)&quot;)
 </code></pre>
