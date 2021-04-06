@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gilgamel.github.io</id>
     <title>Gilgamel&apos;s Notepad</title>
-    <updated>2021-04-06T18:00:44.328Z</updated>
+    <updated>2021-04-06T22:05:12.703Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gilgamel.github.io"/>
     <link rel="self" href="https://gilgamel.github.io/atom.xml"/>
@@ -14,7 +14,7 @@
         <id>https://gilgamel.github.io/post/google_sheets_merge_multiple_sheets/</id>
         <link href="https://gilgamel.github.io/post/google_sheets_merge_multiple_sheets/">
         </link>
-        <updated>2021-04-04T20:20:46.000Z</updated>
+        <updated>2021-04-04T08:20:46.000Z</updated>
         <content type="html"><![CDATA[<h2 id="背景">背景</h2>
 <p>公司每个学期所做的 Budget 都放在 Google Sheet，大概每2-4周会出现频繁修改的情况，因此需要实时保持更新并连接到 PBI。</p>
 <p>在之前曾经试过 Custom Goolge Sheet Connector，但由于 Connector 只能在 Desktop 使用，会影响将报表 push 到 PBI Service 后的刷新；也曾经试过将 Power Query 写到 PBI Service 上，但由于 credential 问题，会导致后续无法刷新。</p>
