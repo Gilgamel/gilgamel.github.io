@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gilgamel.github.io</id>
     <title>Gilgamel&apos;s Notepad</title>
-    <updated>2021-04-06T16:29:20.122Z</updated>
+    <updated>2021-04-06T16:40:30.183Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gilgamel.github.io"/>
     <link rel="self" href="https://gilgamel.github.io/atom.xml"/>
@@ -14,7 +14,7 @@
         <id>https://gilgamel.github.io/post/google_sheets_merge_multiple_sheets/</id>
         <link href="https://gilgamel.github.io/post/google_sheets_merge_multiple_sheets/">
         </link>
-        <updated>2021-04-01T20:20:46.000Z</updated>
+        <updated>2021-04-01T08:20:46.000Z</updated>
         <content type="html"><![CDATA[<h2 id="背景">背景</h2>
 <p>公司每个学期所做的 Budget 都放在 Google Sheet，大概每2-4周会出现频繁修改的情况，因此需要实时保持更新并连接到 PBI。</p>
 <p>在之前曾经试过 Custom Goolge Sheet Connector，但由于 Connector 只能在 Desktop 使用，会影响将报表 push 到 PBI Service 后的刷新；也曾经试过将 Power Query 写到 PBI Service 上，但由于 credential 问题，会导致后续无法刷新。</p>
@@ -24,7 +24,7 @@
 <p>基于以上背景，可简单总结为以下两个目的：</p>
 <ol>
 <li>Merge Multiple Sheets into One Sheet</li>
-<li>Connect Goolge Sheet to PBI Service and Schedule Refresh</li>
+<li>Connect Goolge Sheet to PBI Service and Configure Scheduled Refresh</li>
 </ol>
 </br>
 <h2 id="step-1-merge-multiple-sheets">STEP 1. Merge Multiple Sheets</h2>
@@ -93,6 +93,10 @@
 <p>使用 Query + Select + Where + Importrange 时，第一次会出现错误，原因是没有获取读取表格的 access，因此需要先在新的表上读取一次 importrange，再将 importrange function 放进 query里。</p>
 <p>第一次用 importrange 读取新表会出现以前情况，点击<strong>Allow access</strong>即可。<br>
 <img src="https://gilgamel.github.io/post-images/1617726487957.png" alt="" loading="lazy"></p>
+<p>自此，合并各分公司表格工作完成。<br>
+开始第二步：将数据放到 PBI Service 上，让数据能够定时刷新。</p>
+</br>
+<h2 id="step-2-connect-goolge-sheet-to-pbi-service-and-configure-scheduled-refresh">STEP 2. Connect Goolge Sheet to PBI Service and Configure Scheduled Refresh</h2>
 </br>
 <h2 id="ref">Ref</h2>
 <blockquote>
@@ -291,7 +295,7 @@ End Function
         <id>https://gilgamel.github.io/post/google-sheet-query/</id>
         <link href="https://gilgamel.github.io/post/google-sheet-query/">
         </link>
-        <updated>2019-08-19T04:35:27.000Z</updated>
+        <updated>2019-08-18T16:35:27.000Z</updated>
         <summary type="html"><![CDATA[<p>因为工作的缘故，需要将各个平台的宣传日期都放在一张google sheet上，然后 <strong>通过检测关键词，将关键的event自动pop up到总表上</strong>。得到这个需求的时候，脑海里立刻想到的是VBA，然而google sheet上压根没VBA啊！<br>
 </br><br>
 于是想着是否能用 vlookup/hlookup/index &amp; match解决问题，最后发现果然还是解决不了：）最后在朋友的提醒下，开始摸索着使用 <strong>query</strong>。</p>

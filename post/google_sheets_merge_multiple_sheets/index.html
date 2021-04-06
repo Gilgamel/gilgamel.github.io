@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>通过 Query、Importrange、Select、Where 将多张 Google Sheets 合并到一起 | Gilgamel&#39;s Notepad</title>
-<link rel="shortcut icon" href="https://gilgamel.github.io/favicon.ico?v=1617726556562">
+<link rel="shortcut icon" href="https://gilgamel.github.io/favicon.ico?v=1617727226638">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://gilgamel.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="通过 Query、Importrange、Select、Where 将多张 Google Sheets 合并到一起 | Gilgamel&#39;s Notepad - Atom Feed" href="https://gilgamel.github.io/atom.xml">
@@ -14,7 +14,7 @@
     <meta name="description" content="背景
 公司每个学期所做的 Budget 都放在 Google Sheet，大概每2-4周会出现频繁修改的情况，因此需要实时保持更新并连接到 PBI。
 在之前曾经试过 Custom Goolge Sheet Connector，但由于 Con..." />
-    <meta name="keywords" content="" />
+    <meta name="keywords" content="google sheet,PBI,query" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -23,7 +23,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://gilgamel.github.io">
-  <img class="avatar" src="https://gilgamel.github.io/images/avatar.png?v=1617726556562" alt="">
+  <img class="avatar" src="https://gilgamel.github.io/images/avatar.png?v=1617727226638" alt="">
   </a>
   <h1 class="site-title">
     Gilgamel&#39;s Notepad
@@ -86,6 +86,18 @@
                 5 min read
               </span>
               
+                <a href="https://gilgamel.github.io/tag/Ilq-W8aVo/" class="post-tag">
+                  # google sheet
+                </a>
+              
+                <a href="https://gilgamel.github.io/tag/OUhNyVFqmD/" class="post-tag">
+                  # PBI
+                </a>
+              
+                <a href="https://gilgamel.github.io/tag/VbEovx3fNE/" class="post-tag">
+                  # query
+                </a>
+              
             </div>
             
               <img class="post-feature-image" src="https://i.loli.net/2021/04/06/Fjt9QerB5lm31so.jpg" alt="">
@@ -101,7 +113,7 @@
 <p>基于以上背景，可简单总结为以下两个目的：</p>
 <ol>
 <li>Merge Multiple Sheets into One Sheet</li>
-<li>Connect Goolge Sheet to PBI Service and Schedule Refresh</li>
+<li>Connect Goolge Sheet to PBI Service and Configure Scheduled Refresh</li>
 </ol>
 </br>
 <h2 id="step-1-merge-multiple-sheets">STEP 1. Merge Multiple Sheets</h2>
@@ -170,6 +182,10 @@
 <p>使用 Query + Select + Where + Importrange 时，第一次会出现错误，原因是没有获取读取表格的 access，因此需要先在新的表上读取一次 importrange，再将 importrange function 放进 query里。</p>
 <p>第一次用 importrange 读取新表会出现以前情况，点击<strong>Allow access</strong>即可。<br>
 <img src="https://gilgamel.github.io/post-images/1617726487957.png" alt="" loading="lazy"></p>
+<p>自此，合并各分公司表格工作完成。<br>
+开始第二步：将数据放到 PBI Service 上，让数据能够定时刷新。</p>
+</br>
+<h2 id="step-2-connect-goolge-sheet-to-pbi-service-and-configure-scheduled-refresh">STEP 2. Connect Goolge Sheet to PBI Service and Configure Scheduled Refresh</h2>
 </br>
 <h2 id="ref">Ref</h2>
 <blockquote>
@@ -199,6 +215,7 @@
 </li>
 </ul>
 </li>
+<li><a href="#step-2-connect-goolge-sheet-to-pbi-service-and-configure-scheduled-refresh">STEP 2. Connect Goolge Sheet to PBI Service and Configure Scheduled Refresh</a></li>
 <li><a href="#ref">Ref</a></li>
 </ul>
 </li>
