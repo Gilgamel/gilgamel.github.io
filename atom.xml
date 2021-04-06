@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gilgamel.github.io</id>
     <title>Gilgamel&apos;s Notepad</title>
-    <updated>2021-04-06T05:05:24.558Z</updated>
+    <updated>2021-04-06T16:29:20.122Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gilgamel.github.io"/>
     <link rel="self" href="https://gilgamel.github.io/atom.xml"/>
@@ -14,7 +14,7 @@
         <id>https://gilgamel.github.io/post/google_sheets_merge_multiple_sheets/</id>
         <link href="https://gilgamel.github.io/post/google_sheets_merge_multiple_sheets/">
         </link>
-        <updated>2021-04-02T08:20:46.000Z</updated>
+        <updated>2021-04-01T20:20:46.000Z</updated>
         <content type="html"><![CDATA[<h2 id="背景">背景</h2>
 <p>公司每个学期所做的 Budget 都放在 Google Sheet，大概每2-4周会出现频繁修改的情况，因此需要实时保持更新并连接到 PBI。</p>
 <p>在之前曾经试过 Custom Goolge Sheet Connector，但由于 Connector 只能在 Desktop 使用，会影响将报表 push 到 PBI Service 后的刷新；也曾经试过将 Power Query 写到 PBI Service 上，但由于 credential 问题，会导致后续无法刷新。</p>
@@ -30,6 +30,13 @@
 <h2 id="step-1-merge-multiple-sheets">STEP 1. Merge Multiple Sheets</h2>
 <h3 id="step-11-filter-importrange失败的尝试">STEP 1.1 Filter + Importrange，失败的尝试</h3>
 </br>
+<p><strong>Filter Synatax</strong><br>
+<code>FILTER(range, condition1, [condition2, ...])</code></p>
+<ul>
+<li><strong>range</strong> - The data to be filtered</li>
+<li><strong>condition1</strong> - A column or row containing true or false values corresponding to the first column or row of range, or an array formula evaluating to true or false.</li>
+</ul>
+</br>
 <pre><code>= {
     FILTER(IMPORTRANGE(&quot;{Spreadsheet_link1}&quot;,&quot;Sheet_name!A2:A&quot;),
     LEN(IMPORTRANGE(&quot;{Spreadsheet_link},&quot;Sheet_name!H2:H))&gt;0;
@@ -37,18 +44,55 @@
     LEN(IMPORTRANGE(&quot;{Spreadsheet_link2}&quot;,&quot;Sheet_name!H3:H&quot;))&gt;0)
 }
 </code></pre>
+</br>
 <ul>
 <li><strong>{Spreadsheet_link1}</strong> 分公司A的 Google Sheet Link</li>
 <li><strong>{Spreadsheet_link2}</strong> 分公司B的 Google Sheet Link</li>
 <li><strong>Sheet_name1!A2:A</strong>由于是第一次抓表，因此需要将标题也一同抓取。在这次的 Budget 表里第二行为标题，因此公司A的表格从A2开始抓起</li>
 <li><strong>Sheet_name2!A3:A</strong>接着是 merge 公司B的表格，由于此时已不需要标题了，因此可以由 A3 开始抓起</li>
 <li>通过 FILTER以及LEN 将已经没有填写完成的内容暂时放弃抓取，LEN里的 <strong>filter</strong> 判定行数需要跟 <strong>importrange</strong> 保持一致<br>
-</br><br>
-到此为止，其实已经可以成功将各分公司的表格合并到一起。但出于信息安全保密问题，因此需要跳列只抓取最为重要的几列，以确保及时资料外泄对方也不知道具体产品的对应 Budget 是多少。</li>
+</br></li>
 </ul>
+<p>到此为止，其实已经可以成功将各分公司的表格合并到一起。但出于信息安全保密问题，因此需要跳列只抓取最为重要的几列，以确保及时资料外泄对方也不知道具体产品的对应 Budget 是多少。</p>
 <p>由于 filter 跟 importrange 均无法跳列，因此开始尝试使用 query + select + where + importrange 的组合进行数据抓取。<br>
 </br></p>
 <h3 id="step-12-query-importrange-select-where">STEP 1.2 Query + Importrange + Select + Where</h3>
+<p><strong>Query Syntax</strong><br>
+<code>Query(data, query, [headers])</code></p>
+<ul>
+<li>**data **- The range of cells to perform the query on</li>
+<li><strong>query</strong> - The query to perform, written in the Google Visualization API Query Language</li>
+<li><strong>headers</strong> - [OPTIONAL] - The number of header rows at the top of data. If omitted or set to -1, the value is guessed based on the content of data</li>
+</ul>
+<p><strong>Importrange Syntax</strong><br>
+<code>IMPORTRANGE(spreadsheet_url, range_string)</code></p>
+<ul>
+<li><strong>spreadsheet_url</strong> - The URL of the spreadsheet from where data will be imported</li>
+<li><strong>range_string</strong> - A string, of the format &quot;[sheet_name!]range&quot; (e.g. &quot;Sheet1!A2:B6&quot; or &quot;A2:B6&quot;) specifying the range to import</li>
+</ul>
+</br>
+<pre><code>= {
+    =QUERY({IMPORTRANGE(&quot;{Spreadsheet_ID1}&quot;,
+    &quot;Sheet_name1!A:V&quot;);
+    IMPORTRANGE(&quot;{Spreadsheet_ID2}&quot;,&quot;Sheet_name2!A:V&quot;);
+    IMPORTRANGE(&quot;{Spreadsheet_ID3}&quot;,&quot;Sheet_name3!A:V&quot;)},
+    &quot;SELECT Col1,Col8,Col10,Col16,Col17,Col18,Col20,Col22 WHERE Col10 &gt; 0&quot;,2)
+}
+</code></pre>
+<ul>
+<li><strong>Spreadsheet_ID1</strong> https://docs.google.com/spreadsheets/d/{Spreadsheet_ID}/edit#gid=0
+<ul>
+<li>在写 Query 的过程中发现只填写 Spreadsheet_ID 也能成功读取</li>
+</ul>
+</li>
+<li>SELECT ... WHERE 典型的 SQL 用法</li>
+<li>在 Google Sheet 里 Col 代表着 Column，一般情况下输入 A, B, C 或 Column1, Column2, Column3 均会被认为找不到该 Column</li>
+</ul>
+</br>
+<h4 id="note">Note</h4>
+<p>使用 Query + Select + Where + Importrange 时，第一次会出现错误，原因是没有获取读取表格的 access，因此需要先在新的表上读取一次 importrange，再将 importrange function 放进 query里。</p>
+<p>第一次用 importrange 读取新表会出现以前情况，点击<strong>Allow access</strong>即可。<br>
+<img src="https://gilgamel.github.io/post-images/1617726487957.png" alt="" loading="lazy"></p>
 </br>
 <h2 id="ref">Ref</h2>
 <blockquote>
@@ -57,6 +101,8 @@
 <p>https://webapps.stackexchange.com/questions/93002/unable-to-parse-query-string-for-function-query-when-using-importrange</p>
 <p>https://blog.coupler.io/combine-sheets-into-one/</p>
 <p>https://blog.coupler.io/query-importrange/#What_you_can_do_with_IMPORTRANGEQUERY_functions_real-life_formula_examples</p>
+<p>https://support.google.com/docs/answer/3093343?hl=en</p>
+<p>https://support.google.com/docs/answer/3093197?hl=en</p>
 </blockquote>
 ]]></content>
     </entry>
