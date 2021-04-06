@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>通过 Query、Importrange、Select、Where 将多张 Google Sheets 合并到一起 | Gilgamel&#39;s Notepad</title>
-<link rel="shortcut icon" href="https://gilgamel.github.io/favicon.ico?v=1617662842231">
+<link rel="shortcut icon" href="https://gilgamel.github.io/favicon.ico?v=1617675021995">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://gilgamel.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="通过 Query、Importrange、Select、Where 将多张 Google Sheets 合并到一起 | Gilgamel&#39;s Notepad - Atom Feed" href="https://gilgamel.github.io/atom.xml">
@@ -12,8 +12,8 @@
 
 
     <meta name="description" content="背景
-公司每个学期所做的 Budget 都放在 Google Sheet，大概每2-4周会出现频繁修改的情况，因此需要实时保持更新并连接到 PBI Service 上。
-在之前曾经试过 Custom Goolge Sheet Connect..." />
+公司每个学期所做的 Budget 都放在 Google Sheet，大概每2-4周会出现频繁修改的情况，因此需要实时保持更新并连接到 PBI。
+在之前曾经试过 Custom Goolge Sheet Connector，但由于 Con..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -23,7 +23,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://gilgamel.github.io">
-  <img class="avatar" src="https://gilgamel.github.io/images/avatar.png?v=1617662842231" alt="">
+  <img class="avatar" src="https://gilgamel.github.io/images/avatar.png?v=1617675021995" alt="">
   </a>
   <h1 class="site-title">
     Gilgamel&#39;s Notepad
@@ -80,10 +80,10 @@
             </h2>
             <div class="post-info">
               <span>
-                2021-04-03
+                2021-04-02
               </span>
               <span>
-                2 min read
+                3 min read
               </span>
               
             </div>
@@ -93,7 +93,7 @@
             <div class="post-content-wrapper">
               <div class="post-content">
                 <h2 id="背景">背景</h2>
-<p>公司每个学期所做的 Budget 都放在 Google Sheet，大概每2-4周会出现频繁修改的情况，因此需要实时保持更新并连接到 PBI Service 上。</p>
+<p>公司每个学期所做的 Budget 都放在 Google Sheet，大概每2-4周会出现频繁修改的情况，因此需要实时保持更新并连接到 PBI。</p>
 <p>在之前曾经试过 Custom Goolge Sheet Connector，但由于 Connector 只能在 Desktop 使用，会影响将报表 push 到 PBI Service 后的刷新；也曾经试过将 Power Query 写到 PBI Service 上，但由于 credential 问题，会导致后续无法刷新。</p>
 <p>由于每个分公司的 Budget 都会在一张 spreadsheet 上，基于保密因此需要先将分公司的 Budget 有选择性地抓到同一张表上，再连接到 PBI Service 上。</p>
 </br>
@@ -105,6 +105,28 @@
 </ol>
 </br>
 <h2 id="step-1-merge-multiple-sheets">STEP 1. Merge Multiple Sheets</h2>
+<h3 id="step-11-filter-importrange失败的尝试">STEP 1.1 Filter + Importrange，失败的尝试</h3>
+</br>
+<pre><code>= {
+    FILTER(IMPORTRANGE(&quot;{Spreadsheet_link1}&quot;,&quot;Sheet_name!A2:A&quot;),
+    LEN(IMPORTRANGE(&quot;{Spreadsheet_link},&quot;Sheet_name!H2:H))&gt;0;
+    FILTER(IMPORTRANGE(&quot;{Spreadsheet_link2}&quot;,&quot;Sheet_name!A3:A&quot;),
+    LEN(IMPORTRANGE(&quot;{Spreadsheet_link2}&quot;,&quot;Sheet_name!H3:H&quot;))&gt;0)
+}
+</code></pre>
+<ul>
+<li><strong>{Spreadsheet_link1}</strong> 分公司A的 Google Sheet Link</li>
+<li><strong>{Spreadsheet_link2}</strong> 分公司B的 Google Sheet Link</li>
+<li><strong>Sheet_name1!A2:A</strong>由于是第一次抓表，因此需要将标题也一同抓取。在这次的 Budget 表里第二行为标题，因此公司A的表格从A2开始抓起</li>
+<li><strong>Sheet_name2!A3:A</strong>接着是 merge 公司B的表格，由于此时已不需要标题了，因此可以由 A3 开始抓起</li>
+<li>通过 FILTER以及LEN 将已经没有填写完成的内容暂时放弃抓取，LEN里的 <strong>filter</strong> 判定行数需要跟 <strong>importrange</strong> 保持一致<br>
+</br><br>
+到此为止，其实已经可以成功将各分公司的表格合并到一起。但出于信息安全保密问题，因此需要跳列只抓取最为重要的几列，以确保及时资料外泄对方也不知道具体产品的对应 Budget 是多少。</li>
+</ul>
+<p>由于 filter 跟 importrange 均无法跳列，因此开始尝试使用 query + select + where + importrange 的组合进行数据抓取。<br>
+</br></p>
+<h3 id="step-12-query-importrange-select-where">STEP 1.2 Query + Importrange + Select + Where</h3>
+</br>
 <h2 id="ref">Ref</h2>
 <blockquote>
 <p>https://stackoverflow.com/questions/45945815/how-to-connect-google-sheet-with-power-bi</p>
@@ -121,7 +143,12 @@
 <ul>
 <li><a href="#%E8%83%8C%E6%99%AF">背景</a></li>
 <li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
-<li><a href="#step-1-merge-multiple-sheets">STEP 1. Merge Multiple Sheets</a></li>
+<li><a href="#step-1-merge-multiple-sheets">STEP 1. Merge Multiple Sheets</a>
+<ul>
+<li><a href="#step-11-filter-importrange%E5%A4%B1%E8%B4%A5%E7%9A%84%E5%B0%9D%E8%AF%95">STEP 1.1 Filter + Importrange，失败的尝试</a></li>
+<li><a href="#step-12-query-importrange-select-where">STEP 1.2 Query + Importrange + Select + Where</a></li>
+</ul>
+</li>
 <li><a href="#ref">Ref</a></li>
 </ul>
 </li>
