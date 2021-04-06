@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gilgamel.github.io</id>
     <title>Gilgamel&apos;s Notepad</title>
-    <updated>2021-04-06T16:45:07.020Z</updated>
+    <updated>2021-04-06T17:55:52.998Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gilgamel.github.io"/>
     <link rel="self" href="https://gilgamel.github.io/atom.xml"/>
@@ -14,7 +14,7 @@
         <id>https://gilgamel.github.io/post/google_sheets_merge_multiple_sheets/</id>
         <link href="https://gilgamel.github.io/post/google_sheets_merge_multiple_sheets/">
         </link>
-        <updated>2021-04-04T08:20:46.000Z</updated>
+        <updated>2021-04-03T20:20:46.000Z</updated>
         <content type="html"><![CDATA[<h2 id="背景">背景</h2>
 <p>公司每个学期所做的 Budget 都放在 Google Sheet，大概每2-4周会出现频繁修改的情况，因此需要实时保持更新并连接到 PBI。</p>
 <p>在之前曾经试过 Custom Goolge Sheet Connector，但由于 Connector 只能在 Desktop 使用，会影响将报表 push 到 PBI Service 后的刷新；也曾经试过将 Power Query 写到 PBI Service 上，但由于 credential 问题，会导致后续无法刷新。</p>
@@ -97,6 +97,58 @@
 开始第二步：将数据放到 PBI Service 上，让数据能够定时刷新。</p>
 </br>
 <h2 id="step-2-connect-goolge-sheet-to-pbi-service-and-configure-scheduled-refresh">STEP 2. Connect Goolge Sheet to PBI Service and Configure Scheduled Refresh</h2>
+<p>在将合并好的 Google Sheet 设置成 “Anyone can view with link”以后，原本想直接在 PBI Service 上直接通过 Web/Web API 的形式进行连接，但一直显示需要需要安装并选择网关才能设置成功。由于安装网关对电脑负荷过大，因此一样采取老办法：尝试利用 Power Query 抓取数据。</p>
+<h3 id="step-21-修改-shareable-link">STEP 2.1 修改 shareable link</h3>
+<p>根据 Stackoverflow 上的Solution，需要将 shareable link 作出以下修改：</p>
+</br>
+<p><strong>From</strong><br>
+<code>https://docs.google.com/spreadsheets/d/{spreadsheet_ID}/edit#gid=0</code></p>
+<blockquote>
+</br>
+</blockquote>
+<p><strong>To</strong><br>
+<code>https://docs.google.com/spreadsheets/d/{spreadsheet_ID}/export?format=xlsx&amp;id={spreadsheet_ID}</code></p>
+</br>
+<ul>
+<li><strong>export?format=xlsx&amp;id={spreadsheet_ID}</strong> - 将已经分享出来的 Google Sheet 输出为 xlsx 格式；且再次 identify spreadsheet via spreadsheet_ID</li>
+</ul>
+<h3 id="step-22-攥写-power-query">STEP 2.2 攥写 Power Query</h3>
+<ol>
+<li>打开 app.powerbi.com</li>
+<li>打开相对应的 Workspace。根据个人习惯，我建立了一个叫 DATAFLOW 的 Workspace，专门用于刷新数据</li>
+<li>选择<strong>新建数据流</strong>，见下图</li>
+</ol>
+<p><img src="https://gilgamel.github.io/post-images/1617730510237.png" alt="" loading="lazy"><br>
+4. 由于这是我第一次尝试从 Google Sheet 抓取数据，我选择<strong>定义新表</strong></p>
+<p><img src="https://gilgamel.github.io/post-images/1617730529275.png" alt="" loading="lazy"><br>
+5. 选择最下方的<strong>空白查询</strong></p>
+<figure data-type="image" tabindex="1"><img src="https://gilgamel.github.io/post-images/1617730575163.png" alt="" loading="lazy"></figure>
+<p>输入以下 Query Code：</p>
+<pre><code>let 
+    Source = Excel.Workbook(Web.Contents(&quot;the-link-in-step-2.1&quot;), null, true）
+in 
+    Source
+</code></pre>
+<ol start="6">
+<li>重命名并保存退出</li>
+<li>返回到 DATAFLOW 界面，选择刚才创建的数据流，并选择<strong>设置</strong></li>
+</ol>
+<p><img src="https://gilgamel.github.io/post-images/1617730834159.png" alt="" loading="lazy"><br>
+8. 数据源凭证 — 编辑凭据 — 勾选“<strong>跳过测试连接</strong>“</p>
+<figure data-type="image" tabindex="2"><img src="https://gilgamel.github.io/post-images/1617730938911.png" alt="" loading="lazy"></figure>
+<p>自此，通过 Power Query 在 PBI Service 上抓取 Google Sheet 的目的已完成。<br>
+最后一步便是设置定时刷新。</p>
+<h3 id="step-23-configure-scheduled-refresh">STEP 2.3 Configure Scheduled Refresh</h3>
+<p>PBI Pro Lincense 每天可以设置8次定时刷新，因此我一般选择每三个小时刷新一次。</p>
+<p>操作如下：</p>
+<ul>
+<li>数据流设置 — 计划的更新 — 选择相对应的时区及刷新频率 — 选择需要刷新的时间段</li>
+</ul>
+</br>
+<h2 id="other">Other</h2>
+<p>在查询如何通过Power Query 过程中发现还有一种方法，即通过 Google BigQuery 将数据存储到上面，再利用 Power Query 抓取 BigQuery 上的数据。</p>
+<p>BigQuery 被誉为 <strong>secure method</strong>，而目前使用的方法则相对的 <strong>insecure</strong>，后续迭代可以尝试一下。</p>
+<p>另外一个发现，移动 Google Sheet 的位置并不会影响它的spreadsheet_ID，因此在 Personal Drive 上测试完以后基于共享，后续将 Google Sheet 移动到 Shared Drive 也毫无障碍，这点必须好评。</p>
 </br>
 <h2 id="ref">Ref</h2>
 <blockquote>
@@ -107,6 +159,8 @@
 <p>https://blog.coupler.io/query-importrange/#What_you_can_do_with_IMPORTRANGEQUERY_functions_real-life_formula_examples</p>
 <p>https://support.google.com/docs/answer/3093343?hl=en</p>
 <p>https://support.google.com/docs/answer/3093197?hl=en</p>
+<p>https://gist.github.com/Spencer-Easton/78f9867a691e549c9c70</p>
+<p>https://www.excelinppc.com/using-google-sheets-as-data-source-in-power-query</p>
 </blockquote>
 ]]></content>
     </entry>

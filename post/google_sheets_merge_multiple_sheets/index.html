@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>通过 Query、Importrange、Select、Where 将多张 Google Sheets 合并到一起 | Gilgamel&#39;s Notepad</title>
-<link rel="shortcut icon" href="https://gilgamel.github.io/favicon.ico?v=1617727504855">
+<link rel="shortcut icon" href="https://gilgamel.github.io/favicon.ico?v=1617731678915">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://gilgamel.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="通过 Query、Importrange、Select、Where 将多张 Google Sheets 合并到一起 | Gilgamel&#39;s Notepad - Atom Feed" href="https://gilgamel.github.io/atom.xml">
@@ -23,7 +23,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://gilgamel.github.io">
-  <img class="avatar" src="https://gilgamel.github.io/images/avatar.png?v=1617727504855" alt="">
+  <img class="avatar" src="https://gilgamel.github.io/images/avatar.png?v=1617731678915" alt="">
   </a>
   <h1 class="site-title">
     Gilgamel&#39;s Notepad
@@ -80,10 +80,10 @@
             </h2>
             <div class="post-info">
               <span>
-                2021-04-04
+                2021-04-03
               </span>
               <span>
-                5 min read
+                7 min read
               </span>
               
                 <a href="https://gilgamel.github.io/tag/Ilq-W8aVo/" class="post-tag">
@@ -186,6 +186,58 @@
 开始第二步：将数据放到 PBI Service 上，让数据能够定时刷新。</p>
 </br>
 <h2 id="step-2-connect-goolge-sheet-to-pbi-service-and-configure-scheduled-refresh">STEP 2. Connect Goolge Sheet to PBI Service and Configure Scheduled Refresh</h2>
+<p>在将合并好的 Google Sheet 设置成 “Anyone can view with link”以后，原本想直接在 PBI Service 上直接通过 Web/Web API 的形式进行连接，但一直显示需要需要安装并选择网关才能设置成功。由于安装网关对电脑负荷过大，因此一样采取老办法：尝试利用 Power Query 抓取数据。</p>
+<h3 id="step-21-修改-shareable-link">STEP 2.1 修改 shareable link</h3>
+<p>根据 Stackoverflow 上的Solution，需要将 shareable link 作出以下修改：</p>
+</br>
+<p><strong>From</strong><br>
+<code>https://docs.google.com/spreadsheets/d/{spreadsheet_ID}/edit#gid=0</code></p>
+<blockquote>
+</br>
+</blockquote>
+<p><strong>To</strong><br>
+<code>https://docs.google.com/spreadsheets/d/{spreadsheet_ID}/export?format=xlsx&amp;id={spreadsheet_ID}</code></p>
+</br>
+<ul>
+<li><strong>export?format=xlsx&amp;id={spreadsheet_ID}</strong> - 将已经分享出来的 Google Sheet 输出为 xlsx 格式；且再次 identify spreadsheet via spreadsheet_ID</li>
+</ul>
+<h3 id="step-22-攥写-power-query">STEP 2.2 攥写 Power Query</h3>
+<ol>
+<li>打开 app.powerbi.com</li>
+<li>打开相对应的 Workspace。根据个人习惯，我建立了一个叫 DATAFLOW 的 Workspace，专门用于刷新数据</li>
+<li>选择<strong>新建数据流</strong>，见下图</li>
+</ol>
+<p><img src="https://gilgamel.github.io/post-images/1617730510237.png" alt="" loading="lazy"><br>
+4. 由于这是我第一次尝试从 Google Sheet 抓取数据，我选择<strong>定义新表</strong></p>
+<p><img src="https://gilgamel.github.io/post-images/1617730529275.png" alt="" loading="lazy"><br>
+5. 选择最下方的<strong>空白查询</strong></p>
+<figure data-type="image" tabindex="1"><img src="https://gilgamel.github.io/post-images/1617730575163.png" alt="" loading="lazy"></figure>
+<p>输入以下 Query Code：</p>
+<pre><code>let 
+    Source = Excel.Workbook(Web.Contents(&quot;the-link-in-step-2.1&quot;), null, true）
+in 
+    Source
+</code></pre>
+<ol start="6">
+<li>重命名并保存退出</li>
+<li>返回到 DATAFLOW 界面，选择刚才创建的数据流，并选择<strong>设置</strong></li>
+</ol>
+<p><img src="https://gilgamel.github.io/post-images/1617730834159.png" alt="" loading="lazy"><br>
+8. 数据源凭证 — 编辑凭据 — 勾选“<strong>跳过测试连接</strong>“</p>
+<figure data-type="image" tabindex="2"><img src="https://gilgamel.github.io/post-images/1617730938911.png" alt="" loading="lazy"></figure>
+<p>自此，通过 Power Query 在 PBI Service 上抓取 Google Sheet 的目的已完成。<br>
+最后一步便是设置定时刷新。</p>
+<h3 id="step-23-configure-scheduled-refresh">STEP 2.3 Configure Scheduled Refresh</h3>
+<p>PBI Pro Lincense 每天可以设置8次定时刷新，因此我一般选择每三个小时刷新一次。</p>
+<p>操作如下：</p>
+<ul>
+<li>数据流设置 — 计划的更新 — 选择相对应的时区及刷新频率 — 选择需要刷新的时间段</li>
+</ul>
+</br>
+<h2 id="other">Other</h2>
+<p>在查询如何通过Power Query 过程中发现还有一种方法，即通过 Google BigQuery 将数据存储到上面，再利用 Power Query 抓取 BigQuery 上的数据。</p>
+<p>BigQuery 被誉为 <strong>secure method</strong>，而目前使用的方法则相对的 <strong>insecure</strong>，后续迭代可以尝试一下。</p>
+<p>另外一个发现，移动 Google Sheet 的位置并不会影响它的spreadsheet_ID，因此在 Personal Drive 上测试完以后基于共享，后续将 Google Sheet 移动到 Shared Drive 也毫无障碍，这点必须好评。</p>
 </br>
 <h2 id="ref">Ref</h2>
 <blockquote>
@@ -196,6 +248,8 @@
 <p>https://blog.coupler.io/query-importrange/#What_you_can_do_with_IMPORTRANGEQUERY_functions_real-life_formula_examples</p>
 <p>https://support.google.com/docs/answer/3093343?hl=en</p>
 <p>https://support.google.com/docs/answer/3093197?hl=en</p>
+<p>https://gist.github.com/Spencer-Easton/78f9867a691e549c9c70</p>
+<p>https://www.excelinppc.com/using-google-sheets-as-data-source-in-power-query</p>
 </blockquote>
 
               </div>
@@ -215,7 +269,14 @@
 </li>
 </ul>
 </li>
-<li><a href="#step-2-connect-goolge-sheet-to-pbi-service-and-configure-scheduled-refresh">STEP 2. Connect Goolge Sheet to PBI Service and Configure Scheduled Refresh</a></li>
+<li><a href="#step-2-connect-goolge-sheet-to-pbi-service-and-configure-scheduled-refresh">STEP 2. Connect Goolge Sheet to PBI Service and Configure Scheduled Refresh</a>
+<ul>
+<li><a href="#step-21-%E4%BF%AE%E6%94%B9-shareable-link">STEP 2.1 修改 shareable link</a></li>
+<li><a href="#step-22-%E6%94%A5%E5%86%99-power-query">STEP 2.2 攥写 Power Query</a></li>
+<li><a href="#step-23-configure-scheduled-refresh">STEP 2.3 Configure Scheduled Refresh</a></li>
+</ul>
+</li>
+<li><a href="#other">Other</a></li>
 <li><a href="#ref">Ref</a></li>
 </ul>
 </li>
