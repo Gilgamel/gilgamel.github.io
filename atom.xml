@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gilgamel.github.io</id>
     <title>Gilgamel&apos;s Notepad</title>
-    <updated>2021-04-06T22:05:12.703Z</updated>
+    <updated>2021-04-07T13:13:34.055Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gilgamel.github.io"/>
     <link rel="self" href="https://gilgamel.github.io/atom.xml"/>
@@ -209,15 +209,15 @@ in
         <id>https://gilgamel.github.io/post/github_page_ssl/</id>
         <link href="https://gilgamel.github.io/post/github_page_ssl/">
         </link>
-        <updated>2021-02-21T20:25:53.000Z</updated>
+        <updated>2021-02-21T07:25:53.000Z</updated>
         <content type="html"><![CDATA[<p>最近发现了 Gridea 这个静态博客，感觉十分方便，重新将持续性写 blog 提上日程</p>
 <p>就算是2021年立一个 flag 吧。</p>
 <p>Gridea 真的是一个非常方便的静态博客，连自定义域名的方式都非常的傻瓜。</p>
 <h2 id="具体操作">具体操作</h2>
-<p>在 Gridea 左侧选择<strong>远程</strong>，然后直接在** CNAME** 输入自己的域名，点击保存同步即可。</p>
+<p>在 Gridea 左侧选择<strong>远程</strong>，然后直接在 <strong>CNAME</strong> 输入自己的域名，点击保存同步即可。</p>
 <figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/02/26/q2FPwmiz7ajsS3O.png" alt="gridea_setting.png" loading="lazy"></figure>
 <p>登陆 GITHUB，看到多了一个 CNAME 文件即代表同步成功。</p>
-<p>点击 <strong>Setting</strong> 拖到下方，确认域名已经被填写进去，并且 **ENFORCE HTTPS **已被勾选成功。</p>
+<p>点击 <strong>Setting</strong> 拖到下方，确认域名已经被填写进去，并且 <strong>ENFORCE HTTPS</strong> 已被勾选成功。</p>
 <figure data-type="image" tabindex="2"><img src="https://i.loli.net/2021/02/26/zyaxo9NQlfJVB7L.png" alt="GITHUB_PAGE_SETTING.png" loading="lazy"></figure>
 <h2 id="其他">其他</h2>
 <p>其实一开始有在搜了很多教程，包括在 github page 直接 create new file CNAME， 然后输入域名。</p>
