@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gilgamel.github.io</id>
     <title>Gilgamel&apos;s Notepad</title>
-    <updated>2021-07-14T16:28:11.563Z</updated>
+    <updated>2021-07-14T16:41:26.804Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gilgamel.github.io"/>
     <link rel="self" href="https://gilgamel.github.io/atom.xml"/>
@@ -653,7 +653,7 @@ QUERY(A1:E4, &quot;select B where (D&gt;175 and E&gt;53)&quot;, 2)
         <id>https://gilgamel.github.io/post/aga-khan-meseum/</id>
         <link href="https://gilgamel.github.io/post/aga-khan-meseum/">
         </link>
-        <updated>2019-04-13T02:38:36.000Z</updated>
+        <updated>2019-04-12T14:38:36.000Z</updated>
         <content type="html"><![CDATA[<p>最近经常在INS看到 Aga Khan Meseum （AKM）关于人类登月50周年纪念而设的特展推广，于是就趁着周末跑去刷了一次馆。学生票 $12刀，外加导游讲解 $5，一共 $17。买完票的一瞬间觉得作为一个学生真的是太幸福了。</p>
 <figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/04/15/5cb3c9be67c57.jpg" alt="" loading="lazy"></figure>
 <p>去到的时候大概1点，特展导游讲解在1点45开始。所以就趁这段时间在CAFE买了点喝的顺手再翻了一下博物馆的相关情况。</p>
@@ -725,7 +725,7 @@ QUERY(A1:E4, &quot;select B where (D&gt;175 and E&gt;53)&quot;, 2)
 <p>波斯诗歌，在十三世纪陶器的某些类别中很常见，系统地用于十五世纪中期的金属器皿上。 相比之下，阿拉伯语几乎完全从没有用于神社或战争的物体中消失。</p>
 <hr>
 <p>关于展品的相关内容就告一段落了。在补这篇游记的时候其实都处于一种一边Google，一边继续写的状态，却感觉学到了很多有意思的东西。</p>
-<p>博物馆真的是一个十分美好的地方，大概也是现代人能够从中学习到历史文化最便捷的地方了。看再多的书，也必须看一眼失物去加以验证。</p>
+<p>博物馆真的是一个十分美好的地方，大概也是现代人能够从中学习到历史文化最便捷的地方了。看再多的书，也必须看一眼实物去加以验证。</p>
 <p>读万卷书不如行万里路。</p>
 ]]></content>
     </entry>
