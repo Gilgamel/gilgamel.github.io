@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gilgamel.github.io</id>
     <title>Gilgamel&apos;s Notepad</title>
-    <updated>2021-08-05T05:38:53.543Z</updated>
+    <updated>2021-08-05T05:52:13.027Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gilgamel.github.io"/>
     <link rel="self" href="https://gilgamel.github.io/atom.xml"/>
@@ -11,10 +11,10 @@
     <rights>All rights reserved 2021, Gilgamel&apos;s Notepad</rights>
     <entry>
         <title type="html"><![CDATA[离职复盘]]></title>
-        <id>https://gilgamel.github.io/post/chi-zhi-fu-pan/</id>
-        <link href="https://gilgamel.github.io/post/chi-zhi-fu-pan/">
+        <id>https://gilgamel.github.io/post/quit_job_gris/</id>
+        <link href="https://gilgamel.github.io/post/quit_job_gris/">
         </link>
-        <updated>2021-07-24T13:56:26.000Z</updated>
+        <updated>2021-07-24T01:56:26.000Z</updated>
         <content type="html"><![CDATA[<p>2018年5月底全职入职，2021年8月头离职，头尾四年也该为自己在这间公司工作的日子做个总结了。<br>
 </br></p>
 <h2 id="goal-目标回顾">Goal （目标回顾）</h2>
