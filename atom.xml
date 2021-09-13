@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gilgamel.github.io</id>
     <title>Gilgamel&apos;s Notepad</title>
-    <updated>2021-09-13T15:53:06.968Z</updated>
+    <updated>2021-09-13T22:36:02.738Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gilgamel.github.io"/>
     <link rel="self" href="https://gilgamel.github.io/atom.xml"/>
@@ -167,7 +167,7 @@
         <id>https://gilgamel.github.io/post/first-jump-skydive-in-toronto/</id>
         <link href="https://gilgamel.github.io/post/first-jump-skydive-in-toronto/">
         </link>
-        <updated>2021-09-04T15:35:29.000Z</updated>
+        <updated>2021-09-04T03:35:29.000Z</updated>
         <content type="html"><![CDATA[<p>距离跳伞已经过了一个多月了，拖延症晚期终于开始写下关于这次跳伞的 blog。<br>
 </br></p>
 <h2 id="地址选择">地址选择</h2>
@@ -218,7 +218,7 @@
 </tbody>
 </table>
 <p>由于一起去的朋友住在 Downtown，因此选择到 Downtown pickup 再去 Niagara Fall 那块是顺路的，所以最终选择了 Niagara Fall Skydive Centre。</p>
-<h3 id="booking">Booking</h3>
+<h2 id="booking">Booking</h2>
 <p>我们最后选择的是 Group of 7，也就是团体价格，每人 - $20， 并且 Niagara Fall Skydive Centre 会给组织者送一个 inside camera pkg，所以实际价格（抛开额外购买的 camera pkg）是大约 $340.5。</p>
 <p>Online Booking 提前给 $50/person deposit fee，提前 48 小时取消可取回全部 deposit。</p>
 <p>接着邮箱会收到 Niagara Fall Centre 发给你的协议，需要电子签，内容大概是 extreme sport 是有概率出现的意外的，签下这份协议代表你同意不追究 blablabla；另外一份则是 Liability Waiver 及 covid-19 screening。</p>
