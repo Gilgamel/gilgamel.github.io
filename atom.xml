@@ -2,13 +2,121 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gilgamel.github.io</id>
     <title>Gilgamel&apos;s Notepad</title>
-    <updated>2021-09-14T02:27:56.967Z</updated>
+    <updated>2021-09-14T03:40:58.345Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gilgamel.github.io"/>
     <link rel="self" href="https://gilgamel.github.io/atom.xml"/>
     <logo>https://gilgamel.github.io/images/avatar.png</logo>
     <icon>https://gilgamel.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Gilgamel&apos;s Notepad</rights>
+    <entry>
+        <title type="html"><![CDATA[Google Analytics for Beginners Assessment 3]]></title>
+        <id>https://gilgamel.github.io/post/google-analytics-for-beginners-assessment-3/</id>
+        <link href="https://gilgamel.github.io/post/google-analytics-for-beginners-assessment-3/">
+        </link>
+        <updated>2021-09-13T14:37:36.000Z</updated>
+        <content type="html"><![CDATA[<ol>
+<li>What setting must be enabled to view data in Demographics and Interests Reports?</li>
+</ol>
+<ul>
+<li>Content Grouping</li>
+<li><mark>Advertising features</mark></li>
+<li>User permissions on the view</li>
+<li>In-Page Analytics</li>
+</ul>
+<ol start="2">
+<li>What report would best help identify potential browser issues with website traffic?</li>
+</ol>
+<ul>
+<li>The Active Users report</li>
+<li>The New vs Returning report</li>
+<li><mark>The Browser &amp; OS report</mark></li>
+<li>The Source/Medium report</li>
+</ul>
+<ol start="3">
+<li>What report shows what mobile devices were used to view a website?</li>
+</ol>
+<ul>
+<li>The Exit Pages report under “Site Content”</li>
+<li>The Landing Page report under “Site Content”</li>
+<li>The Engagement report under “Behavior”</li>
+<li><mark>The Devices report under “Mobile”</mark></li>
+</ul>
+<ol start="4">
+<li>Which Traffic Source dimensions does Google Analytics automatically capture for each user who comes to your site?</li>
+</ol>
+<ul>
+<li>Source, Keyword, Campaign name</li>
+<li>Source, Medium, Keyword</li>
+<li><mark>Source, Medium, Campaign name</mark></li>
+<li>Medium, Keyword, Campaign name</li>
+</ul>
+<ol start="5">
+<li>Which “sources” are available in Google Analytics?</li>
+</ol>
+<ul>
+<li><mark>googlemerchandisestore.com</li>
+<li>Email</li>
+<li><mark>Google</li>
+<li><mark>(direct)</li>
+</ul>
+<blockquote>
+<p>** Traffic source dimensions**</p>
+<p><strong>Source</strong>: Every referral to a web site has an origin, or source. Possible &gt; sources include: “google” (the name of a search engine), “facebook.com” (the name of a referring site), “spring_newsletter” (the name of one of your newsletters), and “direct” (users that typed your URL directly into their browser, or who had bookmarked your site).</p>
+<p><strong>Medium</strong>: Every referral to a website also has a medium. Possible medium include: “organic” (unpaid search), “cpc” (cost per click, i.e. paid search), “referral” (referral), “email” (the name of a custom medium you have created), “none” (direct traffic has a medium of “none”).</p>
+<p><strong>Keyword</strong>: When SSL search is employed, Keyword will have the value (not provided).</p>
+<p><strong>Campaign</strong> is the name of the referring Google Ads campaign or a custom campaign that you have created.</p>
+<p><strong>Content identifies a specific link or content item in a custom campaign.</strong><br>
+For example, if you have two call-to-action links within the same email message, you can use different Content values to differentiate them so that you can tell which version is most effective.</p>
+</blockquote>
+<p>Ref: https://support.google.com/analytics/answer/1033173?hl=en</p>
+<ol>
+<li>Which “mediums” are available in Google Analytics?</li>
+</ol>
+<ul>
+<li><mark>organic</mark></li>
+<li><mark>cpc</mark></li>
+<li>mail.google.com</li>
+<li><mark>referral</mark></li>
+</ul>
+<ol start="7">
+<li>Which &quot;channels&quot; are available in the default Channels report?</li>
+</ol>
+<ul>
+<li><mark>Organic Search</mark></li>
+<li>Device</li>
+<li><mark>Display</mark></li>
+<li><mark>Direct</mark></li>
+</ul>
+<ol start="8">
+<li>What report can show how particular sections of website content performed?</li>
+</ol>
+<ul>
+<li>Location</li>
+<li><mark>Content Drilldown</mark></li>
+<li>Frequency and Recency</li>
+<li>Top Events</li>
+</ul>
+<ol start="9">
+<li>What report lists the website pages where users first arrived?</li>
+</ol>
+<ul>
+<li>Events &gt; Pages</li>
+<li>All Pages</li>
+<li>Exit Pages</li>
+<li><mark>Landing Pages</mark></li>
+</ul>
+<ol start="10">
+<li>What report should be used to check if users are leaving from important pages on your website?</li>
+</ol>
+<ul>
+<li>Landing Pages report</li>
+<li>All Pages report</li>
+<li><mark>Exit Pages report</mark></li>
+<li>Pages report under Events</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Google Analytics for Beginners Assessment 2]]></title>
         <id>https://gilgamel.github.io/post/google-analytics-for-beginners-assessment-2/</id>
@@ -786,196 +894,6 @@ End Function
 # remove deplicate from E2, ; is seperator
 </code></pre>
 <p>最后将新列上的数据 <em><em>copy &amp;</em> paste value only</em>*以后，即可删掉之前合并的重复活动列。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[在Google Sheet上使用query、if、isna将符合条件的分表数据汇总到总表]]></title>
-        <id>https://gilgamel.github.io/post/google-sheet-query/</id>
-        <link href="https://gilgamel.github.io/post/google-sheet-query/">
-        </link>
-        <updated>2019-08-18T04:35:27.000Z</updated>
-        <summary type="html"><![CDATA[<p>因为工作的缘故，需要将各个平台的宣传日期都放在一张google sheet上，然后 <strong>通过检测关键词，将关键的event自动pop up到总表上</strong>。得到这个需求的时候，脑海里立刻想到的是VBA，然而google sheet上压根没VBA啊！<br>
-</br><br>
-于是想着是否能用 vlookup/hlookup/index &amp; match解决问题，最后发现果然还是解决不了：）最后在朋友的提醒下，开始摸索着使用 <strong>query</strong>。</p>
-<h2 id="query">Query</h2>
-<p>根据 Google 简陋的说明，query 是对数据运行一项采用 Google Visualization API 查询语言的查询。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>因为工作的缘故，需要将各个平台的宣传日期都放在一张google sheet上，然后 <strong>通过检测关键词，将关键的event自动pop up到总表上</strong>。得到这个需求的时候，脑海里立刻想到的是VBA，然而google sheet上压根没VBA啊！<br>
-</br><br>
-于是想着是否能用 vlookup/hlookup/index &amp; match解决问题，最后发现果然还是解决不了：）最后在朋友的提醒下，开始摸索着使用 <strong>query</strong>。</p>
-<h2 id="query">Query</h2>
-<p>根据 Google 简陋的说明，query 是对数据运行一项采用 Google Visualization API 查询语言的查询。</p>
-<!-- more -->
-<h3 id="用法示例">用法示例</h3>
-<pre><code class="language-Excel">QUERY(A2:E6,&quot;select avg(A) pivot B&quot;)
-
-QUERY(A2:E6,F2,FALSE)
-</code></pre>
-<h3 id="语法">语法</h3>
-<p><strong>Query（数据，查询，[标题数]）</strong></p>
-<ul>
-<li><strong>数据</strong> - 要执行查询的单元格范围。
-<ul>
-<li>每列<strong>数据</strong>中的数值类型只能是布尔值、数字（包括日期/时间类型）或字符串。</li>
-<li>如果有多种数据类型掺杂在单个列中，为便于查询，该列的数据类型由其中大多数数据的类型决定。其他少数数据的类型则被视为空值。</li>
-</ul>
-</li>
-<li><strong>查询</strong> - 要执行的查询操作，以 <strong>Google Visualization API查询语言</strong>编写。
-<ul>
-<li><strong>查询</strong>的值必须括在<strong>引号</strong>中，否则该值必须是指向包含相关文本的单元格的引用。</li>
-</ul>
-</li>
-<li><strong>标题数</strong> - [可选]- <code>数据</code>上方的标题行的数目。如果省略或设置为<code>-1</code>，将根据<strong>数据</strong>的内容估算该值。</li>
-</ul>
-<h3 id="可以怎么用">可以怎么用？</h3>
-<table>
-<thead>
-<tr>
-<th>name</th>
-<th>dept</th>
-<th>lunchTime</th>
-<th>salary</th>
-<th>hireDate</th>
-<th>age</th>
-<th>isSenior</th>
-<th>seniorityStartTime</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>John</td>
-<td>Eng</td>
-<td>12:00:00</td>
-<td>1000</td>
-<td>3/19/2005</td>
-<td>35</td>
-<td>TRUE</td>
-<td>12/2/2007 15:56:00</td>
-</tr>
-<tr>
-<td>Dave</td>
-<td>Eng</td>
-<td>12:00:00</td>
-<td>500</td>
-<td>4/19/2006</td>
-<td>27</td>
-<td>FALSE</td>
-<td>null</td>
-</tr>
-<tr>
-<td>Sally</td>
-<td>Eng</td>
-<td>13:00:00</td>
-<td>600</td>
-<td>10/10/2005</td>
-<td>30</td>
-<td>FALSE</td>
-<td>null</td>
-</tr>
-<tr>
-<td>Ben</td>
-<td>Sales</td>
-<td>12:00:00</td>
-<td>400</td>
-<td>10/10/2002</td>
-<td>32</td>
-<td>TRUE</td>
-<td>3/9/2005 12:30:00</td>
-</tr>
-<tr>
-<td>Dana</td>
-<td>Sales</td>
-<td>12:00:00</td>
-<td>350</td>
-<td>9/8/2004</td>
-<td>25</td>
-<td>FALSE</td>
-<td>null</td>
-</tr>
-<tr>
-<td>Mike</td>
-<td>Marketing</td>
-<td>13:00:00</td>
-<td>800</td>
-<td>1/10/2005</td>
-<td>24</td>
-<td>TRUE</td>
-<td>12/30/2007 14:40:00</td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>使用<strong>Select</strong>和<strong>Where</strong>返回满足指定条件的行。</li>
-</ol>
-<pre><code class="language-Excel">QUERY('Example Data'!$A$2:$H$7, &quot;select A where (B&lt;&gt;'Eng' and G=true) or (D &gt; &quot;&amp;A2&amp;&quot;)&quot;)
-</code></pre>
-<ol start="2">
-<li>使用<strong>Select</strong>和<strong>Group by</strong>子句统计所有行的<strong>工资</strong>数据</li>
-</ol>
-<pre><code class="language-Excel">QUERY('Example Data'!$A$2:$H$7, &quot;select B, MAX(D) group by B&quot;)
-</code></pre>
-<ol start="3">
-<li>将各列不重复的值转换到新列中。</li>
-</ol>
-<pre><code class="language-Excel">QUERY('Example Data'!$A$2:$H$7, &quot;select avg(D) pivot B&quot;)
-</code></pre>
-<ol start="4">
-<li>统计各行的<strong>部门</strong>值，并按<strong>工资</strong>的最大值进行排序。</li>
-</ol>
-<pre><code class="language-Excel">QUERY('Example Data'!$A$2:$H$7, &quot;select B, MAX(D) group by B order by MAX(D)&quot;)
-</code></pre>
-<ol start="5">
-<li>指定输入范围中的标题行数目，这让函数能够将带多个标题行的输入转换为单个标题行的输入。</li>
-</ol>
-<pre><code class="language-Excel"># Male
-QUERY(A1:E4, &quot;select B where (D&gt;175 and E&gt;53)&quot;, 1)
-
-# Male height
-QUERY(A1:E4, &quot;select B where (D&gt;175 and E&gt;53)&quot;, 2)
-</code></pre>
-<p>其实以上都不是重点，只是我想Mark一下而已。</p>
-<h2 id="利用-query-where-contains-自从筛选出符合条件的-event">利用 Query 、Where、Contains 自从筛选出符合条件的 Event</h2>
-<p>由于当时设计timeline只考虑到好看（easy to read）的问题，所以基本上将 Google Sheet 当成了画板使用，这也导致了 timeline 的设计从数据分析的逻辑上来看是十分辣鸡的；但木得办法，老板要“好看”，所以只能基于原有timeline的基础上去做到老板想要的需求。</p>
-<p>以下为“好看”（easy to read) 的timeline示例：</p>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/08/23/OvHFniK8xLrat4f.png" alt="image.png" loading="lazy"></figure>
-<p>考虑到 Google Sheet 只能默认某一列的日期是一致的，所以没办法一口气将所有区域选上并且进行筛选，所以只能用一个笨方法：将range设置为一周。</p>
-<p>举个例子：假设12月23日 - 12月29日的 range 为 C174:I180，Monday 代表C列，我需要在总表上代表12月23日的一格输入以下代码：</p>
-<pre><code class="language-Excel">query(xxxx!$C$174:$I$180,&quot;select C where C contains '线下'&quot;)
-
-# 在$C$174:$I$180的范围内，自从标记出在C列里包含着线下这两个关键字的内容
-# 同理线下可以切换为线上或执行
-</code></pre>
-<p>到了这一步，问题得到了解决。</p>
-<p>但新的问题又出现了</p>
-<h3 id="用-isna-if-function-将在没有关键性-event-的格子里会出现-na-提示去掉">用 isna 、if function 将在没有关键性 Event 的格子里会出现 #N/A 提示去掉</h3>
-<p>这个提示是由 query function 直接产生的，所以无法使用 conditional format 进行标白处理，因此在朋友的提示下，我选择使用 <strong>isna</strong> function.</p>
-<p><strong>isna</strong> function 是用来检查某个值是否为错误值 #N/A 的。</p>
-<ul>
-<li><strong>ISNA（值）</strong>
-<ul>
-<li><strong>值</strong> - 要与错误值 #N/A 进行比较的值</li>
-<li>如果<strong>值</strong>为**#N/A<strong>或指向包含</strong>#N/A<strong>的单元格的引用，则</strong>ISNA**将返回TRUE，否则返回FALSE</li>
-</ul>
-</li>
-</ul>
-<pre><code class="language-Excel">isna(query(UTSG!$M$4:$S$10,&quot;select O where O contains '线下'&quot;))
-
-# 检测 query(UTSG!$M$4:$S$10,&quot;select O where O contains '线下'&quot;) 的返回值是否为 #N/A， 如果是返回TRUE， 否则返回 FALSE
-</code></pre>
-<p>当 query function 指向 #N/A 时，会自动返回 TRUE， 此时已达到将 #N/A 去掉的目的。之后可配合 <strong>if function</strong> 将TURE值转换为空格。</p>
-<pre><code class="language-Excel">if(isna(query(UTSG!$M$4:$S$10,&quot;select O where O contains '线下'&quot;)),&quot; &quot;, query(UTSG!$M$4:$S$10,&quot;select O where O contains '线下'&quot;))
-
-# 如果 ISNA 返回的值为TURE，则将TRUE 变为空格，否则显示qury function 返回值。
-</code></pre>
-<p>至此，老板的需求已经完成。让我大吼一句 Google Sheet 真好玩。</p>
-<h3 id="其他">其他</h3>
-<p>在Google Sheet 上可使用 CTRL + ` 来显示出 formula，然后使用 formula replace 一键替换公式里的关键词。</p>
-<p>Ref:</p>
-<blockquote>
-<p>https://support.google.com/docs/answer/3093343?hl=zh-Hans</p>
-<p>https://support.google.com/docs/answer/3093293?hl=zh-Hans</p>
-<p>https://infoinspired.com/google-docs/spreadsheet/contains-substring-match-in-google-sheets-query-for-partial-match/</p>
-</blockquote>
 ]]></content>
     </entry>
 </feed>
