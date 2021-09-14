@@ -2,13 +2,130 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gilgamel.github.io</id>
     <title>Gilgamel&apos;s Notepad</title>
-    <updated>2021-09-14T03:40:58.345Z</updated>
+    <updated>2021-09-14T06:55:23.553Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gilgamel.github.io"/>
     <link rel="self" href="https://gilgamel.github.io/atom.xml"/>
     <logo>https://gilgamel.github.io/images/avatar.png</logo>
     <icon>https://gilgamel.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Gilgamel&apos;s Notepad</rights>
+    <entry>
+        <title type="html"><![CDATA[Google Analytics for Beginners Assessment 4]]></title>
+        <id>https://gilgamel.github.io/post/google-analytics-for-beginners-assessment-4/</id>
+        <link href="https://gilgamel.github.io/post/google-analytics-for-beginners-assessment-4/">
+        </link>
+        <updated>2021-09-13T16:18:26.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="assessment">Assessment</h2>
+<ol>
+<li>Which three tags does Google Analytics require for accurate campaign tracking?</li>
+</ol>
+<ul>
+<li>Medium, Source, and Content</li>
+<li>Medium, Source, and Campaign</li>
+<li><mark>Campaign, Content, and Term</mark></li>
+<li>Source, Content, and Term</li>
+</ul>
+<ol start="2">
+<li>Which tags are standard Google Analytics campaign parameters?</li>
+</ol>
+<ul>
+<li>utm_adgroup</li>
+<li><mark>utm_source</mark></li>
+<li><mark>utm_medium</mark></li>
+<li><mark>utm_content</mark></li>
+</ul>
+<ol start="3">
+<li>To quickly generate campaign tags, what tool should be used?</li>
+</ol>
+<ul>
+<li>The Measurement Protocol</li>
+<li>The Segment Builder</li>
+<li><mark>The URL Builder</mark></li>
+<li>The Goal Selector</li>
+</ul>
+<ol start="4">
+<li>Which formats may be used to add a custom campaign parameter to a URL?</li>
+</ol>
+<ul>
+<li>www.googlemerchandisestore.com/?utm campaign = fallsale</li>
+<li><mark>www.googlemerchandisestore.com/?utm_campaign=fallsale</mark></li>
+<li><mark>www.googlemerchandisestore.com/?utm_campaign=fall_sale</mark></li>
+<li>www.googlemerchandisestore.com/?utm_campaign = fall sale</li>
+</ul>
+<ol start="5">
+<li>Which are examples of Goals in Google Analytics?</li>
+</ol>
+<ul>
+<li><mark>Making a purchase</mark></li>
+<li><mark>Signing up for a newsletter</mark></li>
+<li>Completing a successful Google search</li>
+<li><mark>Submitting a contact information form</mark></li>
+</ul>
+<ol start="6">
+<li>When creating a Goal in Google Analytics, which are required?</li>
+</ol>
+<ul>
+<li><mark>Goal Name</mark></li>
+<li><mark>Goal Type</mark></li>
+<li><mark>Goal Slot ID</mark></li>
+<li>Goal Funnel Visualization</li>
+</ul>
+<ol start="7">
+<li>If the Google Merchandise Store sets up a URL goal of “/thankyou” and a Match Type of “Begins with”, which of the following pages on www.googlemerchandisestore.com will count as goals?</li>
+</ol>
+<ul>
+<li>/thankyou.html</li>
+<li>/thankyou.php</li>
+<li>/thankyou/receipt.php</li>
+<li><mark>All of the above</mark></li>
+</ul>
+<ol start="8">
+<li>Google Ads lets users advertise on which properties?</li>
+</ol>
+<ul>
+<li><mark>Google Search</mark></li>
+<li><mark>Google Display Network</mark></li>
+<li>Campaign Manager</li>
+<li>Google AdSense</li>
+</ul>
+<ol start="9">
+<li>Enabling auto-tagging does what?</li>
+</ol>
+<ul>
+<li>Adds Analytics tags to campaign URLs</li>
+<li><mark>Adds Google Ads tags to campaign URLs</mark></li>
+<li>Adds campaign hyperlinks to website pages</li>
+<li>Adds Analytics tracking code to website pages</li>
+</ul>
+<ol start="10">
+<li>What Google Ads report in Google Analytics can show which bid adjustments resulted in higher conversions?</li>
+</ol>
+<ul>
+<li>Campaigns</li>
+<li>Keywords</li>
+<li><mark>Bid Adjustments</mark></li>
+<li>Destination URLs</li>
+</ul>
+<h2 id="note">Note</h2>
+<p>There are five different campaign tags that help you identify specific information about your campaign traffic. Medium, Source, and Campaign are required campaign tags. You can also add tags for Content and Term.</p>
+<ul>
+<li><strong>&quot;Medium&quot;</strong> communicates the mechanism, or how you sent your message to the user. You could include “email” for an email campaign, “cpc” for paid search ads, or “social” for a social network.</li>
+<li><strong>“Source”</strong> communicates where the user came from. This could be a specific web page or a link in an email. Source could also differentiate the type of medium. So if the medium was “cpc” (or “cost per click” paid traffic), the source might be “google,” “bing,” or “yahoo.” If the medium was “email,” the source might be “newsletter”.</li>
+<li><strong>“Campaign”</strong> can communicate the name of your marketing campaign such as “2015-Back-To-School” or “2015-Holiday-Sale”.</li>
+<li><strong>“Content”</strong> can be used to differentiate versions of a promotion. This is useful when you want to test which version of an ad or promotion is more effective. If you’re running a test between two different versions of a newsletter, you might want to label these tags “v1-10dollars-off” and “v2-nopromo” to help differentiate which newsletter the data is associated with in Google Analytics.</li>
+<li><strong>“Term”</strong> is used to identify the keyword for paid search campaigns. You would only use this field if you are manually tagging a paid search campaign like Bing or Yahoo!. We’ll talk about the best way to track Google Ads in a later lesson.</li>
+</ul>
+</br>
+Distinction between two types of goals: business goads and Google Analytic Goals.
+<ul>
+<li><strong>Business goals</strong> are actions you want your user to take on your website. Each time a user completes one of your business goals, we call this a “conversion.” This could be signing up for a newsletter or buying a product.</li>
+<li></li>
+</ul>
+<p>REF:<br>
+https://support.google.com/analytics/answer/6383005?hl=en<br>
+https://support.google.com/analytics/answer/6383000?hl=en</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Google Analytics for Beginners Assessment 3]]></title>
         <id>https://gilgamel.github.io/post/google-analytics-for-beginners-assessment-3/</id>
@@ -827,73 +944,6 @@ in
 <blockquote>
 <p>https://www.xinpianchang.com/a71314?from=ArticleList</p>
 </blockquote>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Excel Remove Duplicate]]></title>
-        <id>https://gilgamel.github.io/post/Removeduplicate/</id>
-        <link href="https://gilgamel.github.io/post/Removeduplicate/">
-        </link>
-        <updated>2019-08-20T03:25:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>最近一直在做活动，报名方式为麦客单表，但由于经常性会出现重复性报名情况，所以需要在统计之前对数据进行清洗。</p>
-<p>出现重复报名的情况一般如下：</p>
-<ol>
-<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>B活动&amp;A活动</strong></li>
-<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>C活动</strong></li>
-<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>A活动&amp;B活动&amp;C活动</strong></li>
-<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>A活动&amp;C活动&amp;D活动</strong></li>
-</ol>
-]]></summary>
-        <content type="html"><![CDATA[<p>最近一直在做活动，报名方式为麦客单表，但由于经常性会出现重复性报名情况，所以需要在统计之前对数据进行清洗。</p>
-<p>出现重复报名的情况一般如下：</p>
-<ol>
-<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>B活动&amp;A活动</strong></li>
-<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>C活动</strong></li>
-<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>A活动&amp;B活动&amp;C活动</strong></li>
-<li>报名了 <strong>A活动&amp;B活动</strong>后，又再报名了 <strong>A活动&amp;C活动&amp;D活动</strong></li>
-</ol>
-<!-- more -->
-<h2 id="思路">思路</h2>
-<h3 id="合并去掉重复行">合并/去掉重复行</h3>
-<p>根据报名表的设置，一般都会有 <strong>姓名、手机、微信、邮箱、参与活动</strong> 这几项，而其中姓名跟手机是大概率是唯一，which means不会重复的，所以将使用姓名/手机作为检测项</p>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/08/22/vNIyXZYmdtxBoWS.png" alt="Snipaste_2019-08-21_23-54-49.png" loading="lazy"></figure>
-<p>在以姓名作为检测项对齐进行排列后，可以看出这个叫 Ada 的少年一口气重复报名了三次，并且第二、三次报得是完全一样的，现在要做的就是 <strong>将同一个姓名的人选择参加的活动全部合并在一起</strong></p>
-<p>在活动后面一列起个小标题 <strong>1</strong> 写上以下code：</p>
-<pre><code class="language-Excel">=if(A2=A1, F1&amp;&quot;;&quot;&amp;E2, E2)
-
-# 如果 A2=A1，就将F1跟E2内容合并到一块，中间用；来表示，否则就显示E2
-</code></pre>
-<p>完事儿将公式拉完这一列。 在 <strong>列1</strong> 后面再弄一个 <strong>列2</strong>，写上以下code：</p>
-<pre><code class="language-Excel">=if(A2&lt;&gt;A3, &quot;Merged Value&quot;, &quot; &quot;)
-
-# 如果 A2 不等于 A3，那么就显示为 Merged Value，否则显示空白
-</code></pre>
-<p>同理，将公式拉满 <strong>列2</strong>；接着将 <strong>列1&amp;列2</strong> 都选上，然后 <strong>copy &amp; paste value only</strong>，将这两列的数值都变为plain text</p>
-<p>接下来将 <strong>列2</strong> 选中，并且进行 <strong>自定义排序</strong></p>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/08/22/rQgEpokvaZxhbYt.png" alt="image.png" loading="lazy"></figure>
-<p>选择 <strong>扩展选定区域</strong>，然后将主要关键字选为 <strong>2</strong>，次序为 <strong>降序</strong></p>
-<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/08/22/NkeDbcPUOSME1xY.png" alt="image.png" loading="lazy"></figure>
-<p>最后将 <strong>列2</strong> 最下方显示为 <strong>空白</strong>的几行删掉即可。</p>
-<h3 id="去掉重复活动remove-duplicate">去掉重复活动（Remove Duplicate）</h3>
-<p>在VBA上新建Module，输入以下code：</p>
-<pre><code class="language-Excel">Function RemoveDupes2(txt As String, Optional delim As String = &quot; &quot;) As String
-    Dim x
-    'Updateby20140924
-    With CreateObject(&quot;Scripting.Dictionary&quot;)
-        .CompareMode = vbTextCompare
-        For Each x In Split(txt, delim)
-            If Trim(x) &lt;&gt; &quot;&quot; And Not .exists(Trim(x)) Then .Add Trim(x), Nothing
-        Next
-        If .Count &gt; 0 Then RemoveDupes2 = Join(.keys, delim)
-    End With
-End Function
-</code></pre>
-<p>Module创建完毕后，在新的空白列上输入以下code：</p>
-<pre><code class="language-Excel">=removedupes2(E2,&quot;;&quot;)
-
-# remove deplicate from E2, ; is seperator
-</code></pre>
-<p>最后将新列上的数据 <em><em>copy &amp;</em> paste value only</em>*以后，即可删掉之前合并的重复活动列。</p>
 ]]></content>
     </entry>
 </feed>
