@@ -2,13 +2,120 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gilgamel.github.io</id>
     <title>Gilgamel&apos;s Notepad</title>
-    <updated>2021-09-13T22:36:02.738Z</updated>
+    <updated>2021-09-14T02:27:56.967Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gilgamel.github.io"/>
     <link rel="self" href="https://gilgamel.github.io/atom.xml"/>
     <logo>https://gilgamel.github.io/images/avatar.png</logo>
     <icon>https://gilgamel.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Gilgamel&apos;s Notepad</rights>
+    <entry>
+        <title type="html"><![CDATA[Google Analytics for Beginners Assessment 2]]></title>
+        <id>https://gilgamel.github.io/post/google-analytics-for-beginners-assessment-2/</id>
+        <link href="https://gilgamel.github.io/post/google-analytics-for-beginners-assessment-2/">
+        </link>
+        <updated>2021-09-13T11:45:11.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="assessment2">Assessment2</h2>
+<ol>
+<li>What feature would be used to compare two date ranges in a report?</li>
+</ol>
+<ul>
+<li>Hourly, Day, Week, Month views in the time graph</li>
+<li>Real-time reports</li>
+<li><mark>Date range comparison</mark></li>
+<li>Account selector</li>
+</ul>
+<ol start="2">
+<li>What does the “Users” metric measure?</li>
+</ol>
+<ul>
+<li>The total number of visits to your website</li>
+<li><mark>Users that had at least one session on your site in the given date range</mark></li>
+<li>Users that landed on the homepage of your website</li>
+<li>Users who have signed up to an email newsletter on your website</li>
+</ul>
+<ol start="3">
+<li>What is the “Bounce Rate” in Google Analytics?</li>
+</ol>
+<ul>
+<li>The number of times unique users returned to your website in a given time period</li>
+<li>The percentage of sessions in which a user exits from your homepage</li>
+<li>The percentage of total site exits</li>
+<li><mark>The percentage of visits when a user landed on your website and exited without any interactions</mark></li>
+</ul>
+<ol start="4">
+<li>What is a “dimension” in Google Analytics?</li>
+</ol>
+<ul>
+<li>The total amount of revenue a business has made in a given date range.</li>
+<li><mark>An attribute of a data set that can be organized for better analysis.</mark></li>
+<li>A comparison of data between two date ranges.</li>
+<li>A report that offers information about your audience.</li>
+</ul>
+<ol start="5">
+<li>What is a “metric” in Google Analytics?</li>
+</ol>
+<ul>
+<li>A dimension that can help you analyze site performance.</li>
+<li>The dates in your date range.</li>
+<li>A segment of data separated out in a report for comparison.</li>
+<li><mark>The numbers in a data set often paired with dimensions.</mark></li>
+</ul>
+<ol start="6">
+<li>What is a “secondary dimension” in Google Analytics?</li>
+</ol>
+<ul>
+<li>An additional widget you can add to a dashboard for more specific analysis.</li>
+<li>An additional metric you can add to a report for more specific analysis.</li>
+<li><mark>An additional dimension you can add to a report for more specific analysis.</mark></li>
+<li>A visualization that allows you to understand the impact of your data.</li>
+</ul>
+<ol start="7">
+<li>Which Google Analytics visualization compares report data to the website average?</li>
+</ol>
+<ul>
+<li>Pivot view</li>
+<li><mark>Comparison view</mark></li>
+<li>Performance view</li>
+<li>Percentage view</li>
+</ul>
+<ol start="8">
+<li>How can the amount of data in a sampled Google Analytics report be increased?</li>
+</ol>
+<ul>
+<li>Apply additional filters</li>
+<li>Remove the Secondary Dimension</li>
+<li>Choose “Faster response” in the sampling pulldown menu</li>
+<li><mark>Choose “Greater precision” in the sampling pulldown menu</mark></li>
+</ul>
+<ol start="9">
+<li>When selecting “Share Template Link” in the dashboard, what will be shared?</li>
+</ol>
+<ul>
+<li><mark>Dashboard only</mark></li>
+<li>Data only</li>
+<li>Dashboard and data</li>
+<li>Neither dashboard nor data</li>
+</ul>
+<ol start="10">
+<li>When a dashboard is shared with a user, that user can edit the dashboard configuration as they see it.</li>
+</ol>
+<ul>
+<li><mark>True</mark></li>
+<li>False</li>
+</ul>
+<h2 id="note">Note</h2>
+<p><strong>Users Metric</strong><br>
+&quot;Users&quot; are individuals that had at least one session on your site in the given date range.</p>
+<p><strong>Pageviews Metric</strong><br>
+&quot;Pageviews&quot; are the total number of times pages that included your Analytics tracking code were displayed to users. <mark>This includes repeated viewings of a single page by the same user.</mark></p>
+<p><strong>Pages/Session Metric</strong><br>
+&quot;Pages per session&quot; is the average number of pages viewed during each session. This also includes repeated viewings of a single page.</p>
+<p><strong>Bounce Rate metric</strong><br>
+&quot;Bounce rate&quot; is the percentage of users who left after viewing a single page on your site and taking no additional action.</p>
+<p><span style="color:blue">some <em>blue</em> text</span>.</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Google Analytics for Beginners Assessment 1]]></title>
         <id>https://gilgamel.github.io/post/google-analytics-for-beginners-assessment-1/</id>
@@ -869,42 +976,6 @@ QUERY(A1:E4, &quot;select B where (D&gt;175 and E&gt;53)&quot;, 2)
 <p>https://support.google.com/docs/answer/3093293?hl=zh-Hans</p>
 <p>https://infoinspired.com/google-docs/spreadsheet/contains-substring-match-in-google-sheets-query-for-partial-match/</p>
 </blockquote>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[悬空寺：危楼高百尺]]></title>
-        <id>https://gilgamel.github.io/post/Shanxi-day2/</id>
-        <link href="https://gilgamel.github.io/post/Shanxi-day2/">
-        </link>
-        <updated>2019-05-06T05:56:37.000Z</updated>
-        <content type="html"><![CDATA[<p>早上6点30左右在华林新天地靠城墙上车，对比起飞猪上的图案，马蜂窝这个团的车子显得有点一言难尽……例如还有座位是坏了的……</p>
-<p>路上是一路睡过去的，就不多说了。</p>
-<h2 id="悬空寺">悬空寺</h2>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/06/25/5d1197101a3ef91480.jpg" alt="标准游客照" loading="lazy"></figure>
-<blockquote>
-<p>一直以来关于悬空寺都流传着这样的俚语：<strong>悬空寺，半天高，三根马尾空中吊。</strong></p>
-<p>悬空寺建于公元419年（北魏），是佛、道、儒三教合一的独特寺庙。悬空寺原本叫玄空阁，玄取自于中国传统宗教道教教理，空则来源于佛教的教理。</p>
-<p>在唐开元23年（公元735年），李白留下壮观二字，现存建筑是明清两代时修缮的遗物。悬空寺乃一院两楼布局，楼阁殿宇40间，总长约32米。总体布局有寺院、禅房、佛堂、三佛殿、太乙殿、关帝庙、鼓楼、钟楼、珈蓝殿、送子观音殿、释迦殿、雷音殿、三宫殿、纯阳宫、栈道、三教殿、五佛殿等……</p>
-</blockquote>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/06/25/5d119aa071fef96033.jpg" alt="皮皮瘦游客照" loading="lazy"></figure>
-<p>给皮皮瘦来一张游客照，感觉自从有了皮皮瘦，我对于用嘴唇去对焦这事情已经越发娴熟了……</p>
-<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/06/25/5d119bc358f8576220.jpg" alt="悬空寺侧面" loading="lazy"></figure>
-<p>去悬空寺的时候由于错开了五一高峰，基本不需要排队。然而真正站在上面时腿都在抖。因为真的很！晃！！！啊！！</p>
-<blockquote>
-<p>悬空寺全死初看上去只有几十根大约碗口粗的木柱支撑，最高处距离地面50来米；以半插横梁为基础，借助岩石的托付，回廊栏杆上下梁柱左右紧密相连成一整个木质框架式结构。</p>
-</blockquote>
-<p>一样是跟了一个不大靠谱的导游，一路上半知半解。回来照旧 google 一下你就知道，于是找到了以上解析，而且还来自于导游词稿；互联网万岁。</p>
-<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/06/25/5d119daf9050714377.jpg" alt="楼梯" loading="lazy"></figure>
-<p>楼梯还超级陡的，几乎成90度的楼梯需要手脚并用才得去，上得时候因为背着书包，还差点一个不小心就卡在楼梯口。</p>
-<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2019/06/25/5d119effd1bf940652.jpg" alt="萌萌哒佛像" loading="lazy"></figure>
-<p>这个也不知道是什么佛像，但是眼睛位置特别明亮，应该是用了琉璃之类的镶嵌上去的。</p>
-<figure data-type="image" tabindex="6"><img src="https://i.loli.net/2019/06/25/5d119f028a3c721921.jpg" alt="不知名佛庙" loading="lazy"></figure>
-<figure data-type="image" tabindex="7"><img src="https://i.loli.net/2019/06/25/5d119f0387bbf41990.jpg" alt="" loading="lazy"></figure>
-<figure data-type="image" tabindex="8"><img src="https://i.loli.net/2019/06/25/5d119f0548f3574439.jpg" alt="" loading="lazy"></figure>
-<figure data-type="image" tabindex="9"><img src="https://i.loli.net/2019/06/25/5d119f0483bc793944.jpg" alt="纯阳宫" loading="lazy"></figure>
-<p>这座纯阳宫是去了山西以后第一次看到，当时十分兴奋拍了下来准备发给岚狗看的，到了后来越发审美疲劳。</p>
-<p>对了，悬空寺山下，不对应该是恒山山脚下还有一座小悬空寺，但目前由于路况问题已经暂时关闭了。一路走着的时候宗让我想起某不知名小说就是关于大小悬空寺的。</p>
-<h2 id="恒山">恒山</h2>
 ]]></content>
     </entry>
 </feed>
