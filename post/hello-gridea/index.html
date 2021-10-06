@@ -5,18 +5,18 @@
   <meta charset="UTF-8" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<meta name="keywords" content="">
+<meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="">
-<meta name="theme-color" content="">
+<meta name="theme-color" content="#000">
 <title>Hello Gridea | Gilgamel&#39;s Notepad</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1633497377642">
-<link rel="stylesheet" href="/media/css/pisces.css">
+<link rel="shortcut icon" href="/favicon.ico?v=1633497433327">
+<link rel="stylesheet" href="/media/css/mist.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
   href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
   rel="stylesheet" type="text/css">
 
-<link href="/media/hljs/styles/github.css"
+<link href="/media/hljs/styles/default.css"
   rel="stylesheet">
 
 <link rel="stylesheet" href="/styles/main.css">
@@ -49,9 +49,9 @@
   <div class="head-top-line"></div>
   <div class="header-box">
     
-<div class="pisces">
-  <header class="header  ">
-    <div class="blog-header box-shadow-wrapper bg-color " id="header">
+<div class="mist">
+  <header class="header bg-color ">
+    <div class="blog-header box-shadow-wrapper  " id="header">
       <div class="nav-toggle" id="nav_toggle">
         <div class="toggle-box">
           <div class="line line-top"></div>
@@ -62,8 +62,14 @@
       <div class="site-meta">       
         <div class="site-title">
           
-            <a href="/" class="brand">
-              <span>Gilgamel&#39;s Notepad</span>
+            <a href="/" class="">
+              <span class="logo-line-before">
+                <i class=""></i>
+              </span>
+              <span class="main-title">Gilgamel&#39;s Notepad</span>
+              <span class="logo-line-after">
+                <i class=""></i>
+              </span>
             </a>  
           
         </div>
@@ -73,6 +79,8 @@
         <ul id="nav_ul">
           
             
+            
+              
             
             <li class="nav-item ">
               
@@ -85,6 +93,8 @@
           
             
             
+              
+            
             <li class="nav-item ">
               
               
@@ -95,6 +105,8 @@
             </li>
           
             
+            
+              
             
             <li class="nav-item ">
               
@@ -107,6 +119,8 @@
           
             
             
+              
+            
             <li class="nav-item ">
               
               
@@ -117,6 +131,22 @@
             </li>
           
           
+            
+              <li class="nav-item ">
+                <a href="/friends/" target="_self">
+                  
+                    <i class="fa fa-address-book"></i> 友情链接
+                  
+                </a>
+              </li>
+            
+          
+          
+            <li id="fa_search" class="nav-item">
+              <a href="javascript:void(0);">
+                <i class="fa fa-search"></i> <span class="language" data-lan="search">搜索</span>
+              </a>
+            </li>
           
         </ul>
       </nav>
@@ -149,15 +179,249 @@
   <div class="main-continer">
     
     <div
-      class="section-layout pisces ">
+      class="section-layout mist bg-color">
       <div class="section-layout-wrapper">
         
 
 <div class="sidebar">
   
-    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+    <div class="sidebar-box box-shadow-wrapper  right-motion" id="sidebar">
       
-      <div class="sidebar-body pisces" id="sidebar_body">
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active language" data-lan="index">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item language" data-lan="preview">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body mist" id="sidebar_body">
+        
+          
+            <div class="post-side-meta" id="post_side_meta">
+              
+<div class="sidebar-wrapper box-shadow-wrapper ">
+  <div class="sidebar-item">
+    <img class="site-author-image right-motion" src="/images/avatar.png"/>
+    <p class="site-author-name">我是谁</p>
+    
+  </div>
+  <div class="sidebar-item side-item-stat right-motion">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
+        
+        <span class="site-item-stat-count">18</span>
+        <span class="site-item-stat-name language" data-lan="article">文章</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="">
+        <span class="site-item-stat-count">20</span>
+        <span class="site-item-stat-name language" data-lan="category">分类</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">20</span>
+        <span class="site-item-stat-name language" data-lan="tag">标签</span>
+      </a>
+    </div>
+  </div>
+  
+  
+
+
+
+</div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%89%B9%E6%80%A7">特性👇</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
+          
         
       </div>
     </div>
@@ -312,7 +576,7 @@
   <ul class="post-copyright">
     <li class="post-copyright-author">
       <strong class="language" data-lan="author">本文作者：</strong>
-      
+      我是谁
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
@@ -360,22 +624,18 @@
   </footer>
   
   
-  <div class="pisces back-to-top" id="back_to_top">
+  <div class="drawer-box left" id="drawer_box">
+    <span class="muse-line muse-line-first"></span>
+    <span class="muse-line muse-line-middle"></span>
+    <span class="muse-line muse-line-last"></span>
+  </div>
+  
+  <div class="mist back-to-top" id="back_to_top">
     <i class="fa fa-arrow-up"></i>
-    
-    <span class="scrollpercent">
-      <span id="back_to_top_text">0</span>%
-    </span>
     
   </div>
   
   
-  
-  
-  
-  
-  
-
   
 </div>
 <script>
@@ -505,7 +765,7 @@
   }
 
   // 链接跳转
-  let newWindow = ''
+  let newWindow = 'false'
   if (newWindow === 'true') {
     let links = document.querySelectorAll('.post-body a')
     links.forEach(item => {
@@ -570,8 +830,8 @@
           
         </div>
       </div>
-      <p class="reward-word"></p>
-      <p class="reward-tip"></p>
+      <p class="reward-word">扫码打赏，你说多少就多少</p>
+      <p class="reward-tip">打开微信扫一扫，即可进行扫码打赏哦</p>
     </div>
     <div class="bottom">
       
@@ -777,6 +1037,1730 @@
 
   </div>
 </body>
+
+<div class="search-mask" id="search_mask" style="display: none;">
+  <div class="search-box">
+    <div class="search-title">
+      <i class="fa fa-search"></i>
+      <div class="input-box">
+        <input id="search" type="text" class="language" data-lan="search" placeholder="搜索">
+      </div>
+      <i id="close" class="fa fa-times-circle"></i>
+    </div>
+    <div class="stat-box">
+      <span id="stat_count">0</span><span class="language" data-lan="stat">条相关条目，使用了</span><span id="stat_times">0</span><span class="language" data-lan="stat-time">毫秒</span>
+      <hr>
+    </div>
+    <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://gilgamel.github.io/post/advanced-google-analytics-assessment-2/"" data-c="
+          &lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
+&lt;p&gt;limits of numbers of custom dimensions&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;stadnard: 20&lt;/li&gt;
+&lt;li&gt;analytics 360: 200&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ref&#34;&gt;Ref&lt;/h2&gt;
+&lt;p&gt;https://support.google.com/analytics/answer/7165564?hl=en&lt;/p&gt;
+">Advanced Google Analytics Assessment 2</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://gilgamel.github.io/post/advanced-google-analytics-assessment-1/"" data-c="
+          &lt;h2 id=&#34;assessment&#34;&gt;Assessment&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;If default Google Analytics tracking code is installed on pages with different domains, Analytics will count these users and sessions separately.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;mark&gt;True&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;False&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;What does Google Analytics call a URL that passes data parameters for reporting?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;A tag&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;A hit&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;A dimension&lt;/li&gt;
+&lt;li&gt;A metric&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;When does the Google Analytics tracking code send a pageview hit to Analytics?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Every time a user clicks a video&lt;/li&gt;
+&lt;li&gt;Every time a user adds an item to a shopping cart&lt;/li&gt;
+&lt;li&gt;Every time a user performs a search on a website&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Every time a user loads a webpage&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;When does the Google Analytics tracking code send an event hit to Analytics?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Every time a user performs an action with pageview tracking&lt;/li&gt;
+&lt;li&gt;Every time a user makes a reservation on a booking site&lt;/li&gt;
+&lt;li&gt;Every time a user adds an event to their calendar&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Every time a user performs an action with event tracking&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;What does Google Analytics use to differentiate new and returning users?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;mark&gt;A browser cookie&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Artificial intelligence&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;A randomly-assigned unique identifier&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;A sequential unique identifier&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;What will happen if a user clears the Analytics cookie from their browser?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Analytics will inform the user that they need to set a new Analytics cookie&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Analytics will not be able to associate user behavior data with past data collected by the tracking code&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Analytics will set a new unique ID and browser cookie the next time a browser loads a tracked page&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Analytics will automatically recognize returning users&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;By default, Google Analytics can recognize returning users over multiple sessions from different browsers and devices.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;True&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;False&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;8&#34;&gt;
+&lt;li&gt;A session in Google Analytics times out after how many minutes by default?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;5&lt;/li&gt;
+&lt;li&gt;15&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;30&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;60&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;9&#34;&gt;
+&lt;li&gt;To send data to Google Analytics from a web-connected device like a point-of-sale system, what feature must be used?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Data Import&lt;/li&gt;
+&lt;li&gt;Browser cookies&lt;/li&gt;
+&lt;li&gt;The Networking protocol&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;The Measurement Protocol&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;10&#34;&gt;
+&lt;li&gt;For an event goal defined as playing a video, how many Goal conversions will Google Analytics record if that video is played three times in the same session?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;mark&gt;1&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;2&lt;/li&gt;
+&lt;li&gt;3&lt;/li&gt;
+&lt;li&gt;4&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;11&#34;&gt;
+&lt;li&gt;Which are Goal types in Google Analytics?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;mark&gt;Destination&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Shopping Cart&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Pages/Screens per session&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Duration&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;12&#34;&gt;
+&lt;li&gt;If data is excluded from a view using a filter, it may be recovered within thirty days.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;True&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;False&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;13&#34;&gt;
+&lt;li&gt;Which of these scopes could be used for dimensions and metrics?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Event-level, session-level, or transaction-level scope&lt;/li&gt;
+&lt;li&gt;Location-level, duration-level, or user-level scope&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Hit-level, session-level, or user-level scope&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Event-level, duration-level, or transaction-level scope&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;14&#34;&gt;
+&lt;li&gt;When defining a measurement plan, what is the order of steps?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Business objectives &amp;gt; KPIs &amp;gt; key actions&lt;/li&gt;
+&lt;li&gt;KPIs &amp;gt; key actions &amp;gt; business objectives&lt;/li&gt;
+&lt;li&gt;Key actions &amp;gt; KPIs &amp;gt; business objectives&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Business objectives &amp;gt; key actions &amp;gt; KPIs&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;15&#34;&gt;
+&lt;li&gt;What are macro-conversions in a measurement plan?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;The metric data used to measure business success&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;The main website actions users take that accomplish stated business goals&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;The secondary website actions users take that lead to main actions&lt;/li&gt;
+&lt;li&gt;A list of keyboard shortcuts for measurement tasks in Google Analytics&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;note&#34;&gt;Note&lt;/h2&gt;
+&lt;p&gt;Macro-conversions &amp;amp; Micro-conversions&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Macro-conversions:&lt;/strong&gt; usually measure the tatics that support your various strategies&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Micro-conversions:&lt;/strong&gt; are metrics that help you better understand the user behavior that leads to macro conversions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Dimensions and metrics can have one of three scopes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;hit-level&lt;/li&gt;
+&lt;li&gt;session-level&lt;/li&gt;
+&lt;li&gt;user-level&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The three most common types of hits are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&amp;quot;pageview&amp;quot; hits:&lt;/strong&gt; A “pageview” hit is triggered when a user loads a webpage with the tracking code. This is the most common type of hit sent to Analytics. Every time a user opens a page with the tracking code, a new pageview hit will be sent.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&amp;quot;event&amp;quot; hits:&lt;/strong&gt; An “event” hit lets you track every time a user interacts with a particular element on your website. For example, you can track whether users click a video Play button, a particular URL, or a product carousel. &lt;strong&gt;Event hits pass four parameters of data in the URL: event action, category, label, and value.&lt;/strong&gt; You can use these to categorize interactions in reports that are specific to your website. We’ll go into more detail on event tracking a little later.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&amp;quot;transcation&amp;quot; hits:&lt;/strong&gt; A “transaction” hit (also called an “ecommerce” hit) can pass data to Analytics about ecommerce purchases such as products purchased, transaction IDs, and “stock keeping units” (or SKUs).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There are four types of Goals in Google Analytics:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Destination (or Pageview)&lt;/strong&gt; Goals are based on when a user views a particular page on your website.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Event Goals&lt;/strong&gt; are when a particular action defined as an event is triggered.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Duration Goals&lt;/strong&gt; are based on sessions that last over a set amount of time.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“Pages or Screens per Session” Goals&lt;/strong&gt; are based on whether a user has viewed a set amount of pages in a session.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;REF:&lt;br&gt;
+https://support.google.com/analytics/answer/7165155?hl=en&lt;/p&gt;
+">Advanced Google Analytics Assessment 1</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://gilgamel.github.io/post/google-analytics-for-beginners-assessment-4/"" data-c="
+          &lt;h2 id=&#34;assessment&#34;&gt;Assessment&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Which three tags does Google Analytics require for accurate campaign tracking?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Medium, Source, and Content&lt;/li&gt;
+&lt;li&gt;Medium, Source, and Campaign&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Campaign, Content, and Term&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Source, Content, and Term&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Which tags are standard Google Analytics campaign parameters?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;utm_adgroup&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;utm_source&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;utm_medium&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;utm_content&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;To quickly generate campaign tags, what tool should be used?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;The Measurement Protocol&lt;/li&gt;
+&lt;li&gt;The Segment Builder&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;The URL Builder&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;The Goal Selector&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Which formats may be used to add a custom campaign parameter to a URL?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;www.googlemerchandisestore.com/?utm campaign = fallsale&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;www.googlemerchandisestore.com/?utm_campaign=fallsale&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;www.googlemerchandisestore.com/?utm_campaign=fall_sale&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;www.googlemerchandisestore.com/?utm_campaign = fall sale&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Which are examples of Goals in Google Analytics?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;mark&gt;Making a purchase&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Signing up for a newsletter&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Completing a successful Google search&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Submitting a contact information form&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;When creating a Goal in Google Analytics, which are required?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;mark&gt;Goal Name&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Goal Type&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Goal Slot ID&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Goal Funnel Visualization&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;If the Google Merchandise Store sets up a URL goal of “/thankyou” and a Match Type of “Begins with”, which of the following pages on www.googlemerchandisestore.com will count as goals?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;/thankyou.html&lt;/li&gt;
+&lt;li&gt;/thankyou.php&lt;/li&gt;
+&lt;li&gt;/thankyou/receipt.php&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;All of the above&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;8&#34;&gt;
+&lt;li&gt;Google Ads lets users advertise on which properties?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;mark&gt;Google Search&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Google Display Network&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Campaign Manager&lt;/li&gt;
+&lt;li&gt;Google AdSense&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;9&#34;&gt;
+&lt;li&gt;Enabling auto-tagging does what?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Adds Analytics tags to campaign URLs&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Adds Google Ads tags to campaign URLs&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Adds campaign hyperlinks to website pages&lt;/li&gt;
+&lt;li&gt;Adds Analytics tracking code to website pages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;10&#34;&gt;
+&lt;li&gt;What Google Ads report in Google Analytics can show which bid adjustments resulted in higher conversions?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Campaigns&lt;/li&gt;
+&lt;li&gt;Keywords&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Bid Adjustments&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Destination URLs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;note&#34;&gt;Note&lt;/h2&gt;
+&lt;p&gt;There are five different campaign tags that help you identify specific information about your campaign traffic. Medium, Source, and Campaign are required campaign tags. You can also add tags for Content and Term.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&amp;quot;Medium&amp;quot;&lt;/strong&gt; communicates the mechanism, or how you sent your message to the user. You could include “email” for an email campaign, “cpc” for paid search ads, or “social” for a social network.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“Source”&lt;/strong&gt; communicates where the user came from. This could be a specific web page or a link in an email. Source could also differentiate the type of medium. So if the medium was “cpc” (or “cost per click” paid traffic), the source might be “google,” “bing,” or “yahoo.” If the medium was “email,” the source might be “newsletter”.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“Campaign”&lt;/strong&gt; can communicate the name of your marketing campaign such as “2015-Back-To-School” or “2015-Holiday-Sale”.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“Content”&lt;/strong&gt; can be used to differentiate versions of a promotion. This is useful when you want to test which version of an ad or promotion is more effective. If you’re running a test between two different versions of a newsletter, you might want to label these tags “v1-10dollars-off” and “v2-nopromo” to help differentiate which newsletter the data is associated with in Google Analytics.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“Term”&lt;/strong&gt; is used to identify the keyword for paid search campaigns. You would only use this field if you are manually tagging a paid search campaign like Bing or Yahoo!. We’ll talk about the best way to track Google Ads in a later lesson.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/br&gt;
+Distinction between two types of goals: business goads and Google Analytic Goals.
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Business goals&lt;/strong&gt; are actions you want your user to take on your website. Each time a user completes one of your business goals, we call this a “conversion.” This could be signing up for a newsletter or buying a product.&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;REF:&lt;br&gt;
+https://support.google.com/analytics/answer/6383005?hl=en&lt;br&gt;
+https://support.google.com/analytics/answer/6383000?hl=en&lt;/p&gt;
+">Google Analytics for Beginners Assessment 4</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://gilgamel.github.io/post/google-analytics-for-beginners-assessment-3/"" data-c="
+          &lt;ol&gt;
+&lt;li&gt;What setting must be enabled to view data in Demographics and Interests Reports?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Content Grouping&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Advertising features&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;User permissions on the view&lt;/li&gt;
+&lt;li&gt;In-Page Analytics&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;What report would best help identify potential browser issues with website traffic?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;The Active Users report&lt;/li&gt;
+&lt;li&gt;The New vs Returning report&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;The Browser &amp;amp; OS report&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;The Source/Medium report&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;What report shows what mobile devices were used to view a website?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;The Exit Pages report under “Site Content”&lt;/li&gt;
+&lt;li&gt;The Landing Page report under “Site Content”&lt;/li&gt;
+&lt;li&gt;The Engagement report under “Behavior”&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;The Devices report under “Mobile”&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Which Traffic Source dimensions does Google Analytics automatically capture for each user who comes to your site?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Source, Keyword, Campaign name&lt;/li&gt;
+&lt;li&gt;Source, Medium, Keyword&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Source, Medium, Campaign name&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Medium, Keyword, Campaign name&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Which “sources” are available in Google Analytics?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;mark&gt;googlemerchandisestore.com&lt;/li&gt;
+&lt;li&gt;Email&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Google&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;(direct)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;** Traffic source dimensions**&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Source&lt;/strong&gt;: Every referral to a web site has an origin, or source. Possible &amp;gt; sources include: “google” (the name of a search engine), “facebook.com” (the name of a referring site), “spring_newsletter” (the name of one of your newsletters), and “direct” (users that typed your URL directly into their browser, or who had bookmarked your site).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Medium&lt;/strong&gt;: Every referral to a website also has a medium. Possible medium include: “organic” (unpaid search), “cpc” (cost per click, i.e. paid search), “referral” (referral), “email” (the name of a custom medium you have created), “none” (direct traffic has a medium of “none”).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Keyword&lt;/strong&gt;: When SSL search is employed, Keyword will have the value (not provided).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Campaign&lt;/strong&gt; is the name of the referring Google Ads campaign or a custom campaign that you have created.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Content identifies a specific link or content item in a custom campaign.&lt;/strong&gt;&lt;br&gt;
+For example, if you have two call-to-action links within the same email message, you can use different Content values to differentiate them so that you can tell which version is most effective.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ref: https://support.google.com/analytics/answer/1033173?hl=en&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Which “mediums” are available in Google Analytics?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;mark&gt;organic&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;cpc&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;mail.google.com&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;referral&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;Which &amp;quot;channels&amp;quot; are available in the default Channels report?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;mark&gt;Organic Search&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Device&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Display&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Direct&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;8&#34;&gt;
+&lt;li&gt;What report can show how particular sections of website content performed?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Location&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Content Drilldown&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Frequency and Recency&lt;/li&gt;
+&lt;li&gt;Top Events&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;9&#34;&gt;
+&lt;li&gt;What report lists the website pages where users first arrived?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Events &amp;gt; Pages&lt;/li&gt;
+&lt;li&gt;All Pages&lt;/li&gt;
+&lt;li&gt;Exit Pages&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Landing Pages&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;10&#34;&gt;
+&lt;li&gt;What report should be used to check if users are leaving from important pages on your website?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Landing Pages report&lt;/li&gt;
+&lt;li&gt;All Pages report&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Exit Pages report&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Pages report under Events&lt;/li&gt;
+&lt;/ul&gt;
+">Google Analytics for Beginners Assessment 3</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://gilgamel.github.io/post/google-analytics-for-beginners-assessment-2/"" data-c="
+          &lt;h2 id=&#34;assessment2&#34;&gt;Assessment2&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;What feature would be used to compare two date ranges in a report?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Hourly, Day, Week, Month views in the time graph&lt;/li&gt;
+&lt;li&gt;Real-time reports&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Date range comparison&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Account selector&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;What does the “Users” metric measure?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;The total number of visits to your website&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Users that had at least one session on your site in the given date range&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Users that landed on the homepage of your website&lt;/li&gt;
+&lt;li&gt;Users who have signed up to an email newsletter on your website&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;What is the “Bounce Rate” in Google Analytics?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;The number of times unique users returned to your website in a given time period&lt;/li&gt;
+&lt;li&gt;The percentage of sessions in which a user exits from your homepage&lt;/li&gt;
+&lt;li&gt;The percentage of total site exits&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;The percentage of visits when a user landed on your website and exited without any interactions&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;What is a “dimension” in Google Analytics?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;The total amount of revenue a business has made in a given date range.&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;An attribute of a data set that can be organized for better analysis.&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;A comparison of data between two date ranges.&lt;/li&gt;
+&lt;li&gt;A report that offers information about your audience.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;What is a “metric” in Google Analytics?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;A dimension that can help you analyze site performance.&lt;/li&gt;
+&lt;li&gt;The dates in your date range.&lt;/li&gt;
+&lt;li&gt;A segment of data separated out in a report for comparison.&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;The numbers in a data set often paired with dimensions.&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;What is a “secondary dimension” in Google Analytics?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;An additional widget you can add to a dashboard for more specific analysis.&lt;/li&gt;
+&lt;li&gt;An additional metric you can add to a report for more specific analysis.&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;An additional dimension you can add to a report for more specific analysis.&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;A visualization that allows you to understand the impact of your data.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;Which Google Analytics visualization compares report data to the website average?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Pivot view&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Comparison view&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Performance view&lt;/li&gt;
+&lt;li&gt;Percentage view&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;8&#34;&gt;
+&lt;li&gt;How can the amount of data in a sampled Google Analytics report be increased?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Apply additional filters&lt;/li&gt;
+&lt;li&gt;Remove the Secondary Dimension&lt;/li&gt;
+&lt;li&gt;Choose “Faster response” in the sampling pulldown menu&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Choose “Greater precision” in the sampling pulldown menu&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;9&#34;&gt;
+&lt;li&gt;When selecting “Share Template Link” in the dashboard, what will be shared?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;mark&gt;Dashboard only&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Data only&lt;/li&gt;
+&lt;li&gt;Dashboard and data&lt;/li&gt;
+&lt;li&gt;Neither dashboard nor data&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;10&#34;&gt;
+&lt;li&gt;When a dashboard is shared with a user, that user can edit the dashboard configuration as they see it.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;mark&gt;True&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;False&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;note&#34;&gt;Note&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Users Metric&lt;/strong&gt;&lt;br&gt;
+&amp;quot;Users&amp;quot; are individuals that had at least one session on your site in the given date range.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pageviews Metric&lt;/strong&gt;&lt;br&gt;
+&amp;quot;Pageviews&amp;quot; are the total number of times pages that included your Analytics tracking code were displayed to users. &lt;mark&gt;This includes repeated viewings of a single page by the same user.&lt;/mark&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pages/Session Metric&lt;/strong&gt;&lt;br&gt;
+&amp;quot;Pages per session&amp;quot; is the average number of pages viewed during each session. This also includes repeated viewings of a single page.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Bounce Rate metric&lt;/strong&gt;&lt;br&gt;
+&amp;quot;Bounce rate&amp;quot; is the percentage of users who left after viewing a single page on your site and taking no additional action.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&#34;color:blue&#34;&gt;some &lt;em&gt;blue&lt;/em&gt; text&lt;/span&gt;.&lt;/p&gt;
+">Google Analytics for Beginners Assessment 2</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://gilgamel.github.io/post/google-analytics-for-beginners-assessment-1/"" data-c="
+          &lt;ol&gt;
+&lt;li&gt;Using tracking code, Google Analytics can report on data from which systems?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;mark&gt;E-commerce platforms&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Mobile Applications&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Online point-of-sales systems&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Systems not connected to the Internet&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;To collect data using Google Analytics, which steps must be completed?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Install Google Analytics desktop software&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Create an Analytics account&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Add Analytics tracking code to each webpage&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Download the Analytics app&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;The Analytics tracking code can collect which of the following?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;mark&gt;Language the browser is set to&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Type of browser&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;User’s favorite website&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Device and operating system&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;When will Google Analytics end a session by default?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;After 30 minutes, regardless of user activity on your website&lt;/li&gt;
+&lt;li&gt;Once the user opens another browser window&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;When a user is inactive on your site for 30 minutes or more or closes a browser window&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;At noon every day&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Once Google Analytics processes data, it’s stored in a database where it can’t be modified.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;mark&gt;True&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;False&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;Which represents the hierarchical structure of a Google Analytics account from top to bottom?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;View &amp;gt; Account &amp;gt; Property&lt;/li&gt;
+&lt;li&gt;Property &amp;gt; Account &amp;gt; View&lt;/li&gt;
+&lt;li&gt;Account &amp;gt; View &amp;gt; Property&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Account &amp;gt; Property &amp;gt; View&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;A user with “edit” permissions at the Account level will automatically have “edit” permissions at which other levels?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;User&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Property&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;View&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Product&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;8&#34;&gt;
+&lt;li&gt;To locate a property&#39;s Analytics tracking code, which sequence of steps should be followed?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Admin &amp;gt; Tracking Code &amp;gt; Tracking Info&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Admin &amp;gt; Tracking Info &amp;gt; Tracking Code&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Reports &amp;gt; Audience &amp;gt; Tracking Code&lt;/li&gt;
+&lt;li&gt;Audience Reports &amp;gt; Settings &amp;gt; Tracking Code&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;9&#34;&gt;
+&lt;li&gt;To use Analytics to collect website data, what must be added to the website page HTML?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Google campaign parameters&lt;/li&gt;
+&lt;li&gt;Google Analytics terms and conditions&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Google Analytics tracking code&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;A permissions button&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;10&#34;&gt;
+&lt;li&gt;Where should the Analytics tracking code be placed in the HTML of a webpage to collect data?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;mark&gt;Immediately after the opening &amp;lt; head &amp;gt; tag of your website/&lt;mark&gt;&lt;/li&gt;
+&lt;li&gt;Immediately before the closing &amp;lt; /head &amp;gt; tag of your website&lt;/li&gt;
+&lt;li&gt;Immediately after the opening &amp;lt; body &amp;gt; tag of your website&lt;/li&gt;
+&lt;li&gt;Immediately before the closing &amp;lt; /body &amp;gt; tag of your website)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note: 答案跟 google AdSense Help 中似乎有点不同，不确定是否属于同一设置&lt;br&gt;
+&lt;img src=&#34;https://gilgamel.github.io/post-images/1631503071763.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Ref: https://support.google.com/adsense/answer/6090817?hl=en&lt;/p&gt;
+&lt;ol start=&#34;11&#34;&gt;
+&lt;li&gt;When a new view is created, what data will be included?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Data from before the view was created&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Data from after the view was created&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Data from before and after the view was created&lt;/li&gt;
+&lt;li&gt;No data&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;12&#34;&gt;
+&lt;li&gt;A deleted view can be recovered by account administrators within how many days?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;mark&gt;35&lt;/marlk&gt;&lt;/li&gt;
+&lt;li&gt;65&lt;/li&gt;
+&lt;li&gt;95&lt;/li&gt;
+&lt;li&gt;125&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;13&#34;&gt;
+&lt;li&gt;What are the options for filtering data in Google Analytics?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Exclude data from a view&lt;/li&gt;
+&lt;li&gt;Include data in a view&lt;/li&gt;
+&lt;li&gt;Modify how data appears in your reports&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;All of the above&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;14&#34;&gt;
+&lt;li&gt;Why is it important to keep one unfiltered view when using filters with Google Analytics?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;mark&gt;To ensure you can always access the original data&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;In order to configure Goals&lt;/li&gt;
+&lt;li&gt;In order to use a filter for multiple views&lt;/li&gt;
+&lt;li&gt;There is no reason to have an unfiltered view&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;15&#34;&gt;
+&lt;li&gt;In which order does Google Analytics filter data?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Alphabetical order by filter name&lt;/li&gt;
+&lt;li&gt;The order in which the filters were last edited&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;The order in which the filters are applied&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;Randomized order&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;16&#34;&gt;
+&lt;li&gt;When a filter is applied to a view, what data is affected?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Data from before the filter was created&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;Data from after the filter was created&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;All the data available in a view&lt;/li&gt;
+&lt;li&gt;None of the data available in a view&lt;/li&gt;
+&lt;/ul&gt;
+">Google Analytics for Beginners Assessment 1</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://gilgamel.github.io/post/first-jump-skydive-in-toronto/"" data-c="
+          &lt;p&gt;距离跳伞已经过了一个多月了，拖延症晚期终于开始写下关于这次跳伞的 blog。&lt;br&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h2 id=&#34;地址选择&#34;&gt;地址选择&lt;/h2&gt;
+&lt;p&gt;在准备跳伞之前问了一下身边跳过伞的朋友以及在网上做了一些搜索，初步定下来两间距离多伦多相对较近的两间 Skydive，分别是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;位于 Barrie 附近的 Skydive Toronto https://www.skydivetoronto.com/&lt;/li&gt;
+&lt;li&gt;以及号称能够看到瀑布的 Niagara Skydive Centre https://niagaraskydive.com/&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Location&lt;/th&gt;
+&lt;th&gt;Pkg Option&lt;/th&gt;
+&lt;th&gt;Pkg Price&lt;/th&gt;
+&lt;th&gt;Pkg Feature&lt;/th&gt;
+&lt;th&gt;Note&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Skydive Toronto Barrie&lt;/td&gt;
+&lt;td&gt;10500 FT&lt;/td&gt;
+&lt;td&gt;$328 +HST.&lt;/td&gt;
+&lt;td&gt;Approximately 35 seconds of freefall before a five-minute parachute ride down to the ground.&lt;/td&gt;
+&lt;td&gt;车程约 60分钟 Camera Pkg inside $150+HST, outside $185+HST, both $295+HST&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Skydive Toronto Barrie&lt;/td&gt;
+&lt;td&gt;12250 FT&lt;/td&gt;
+&lt;td&gt;$372 +HST.&lt;/td&gt;
+&lt;td&gt;Approximately 45 seconds of freefall before a five-minute parachute ride down to the ground.&lt;/td&gt;
+&lt;td&gt;车程约 60分钟 Camera Pkg inside $150+HST, outside $185+HST, both $295+HST&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Niagara Skydive Centre&lt;/td&gt;
+&lt;td&gt;Tandem Skydive&lt;/td&gt;
+&lt;td&gt;$319 +HST.&lt;/td&gt;
+&lt;td&gt;10,500 feet or 12,500 feet is about 25 minutes (depending on the airplane used), circling Niagara Falls1 on the way up.  Freefall for approximately 45 seconds&lt;/td&gt;
+&lt;td&gt;车程约 1小时 50 分钟 Camera Pkg inside $125+HST, outside $165+HST, both $249+HST&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Niagara Skydive Centre&lt;/td&gt;
+&lt;td&gt;Weekday Tandem&lt;/td&gt;
+&lt;td&gt;$309 +HST.&lt;/td&gt;
+&lt;td&gt;10,500 feet or 12,500 feet is about 25 minutes (depending on the airplane used), circling Niagara Falls1 on the way up.  Freefall for approximately 45 seconds&lt;/td&gt;
+&lt;td&gt;车程约 1小时 50 分钟 Camera Pkg inside $125+HST, outside $165+HST, both $249+HST&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;由于一起去的朋友住在 Downtown，因此选择到 Downtown pickup 再去 Niagara Fall 那块是顺路的，所以最终选择了 Niagara Fall Skydive Centre。&lt;/p&gt;
+&lt;h2 id=&#34;booking&#34;&gt;Booking&lt;/h2&gt;
+&lt;p&gt;我们最后选择的是 Group of 7，也就是团体价格，每人 - $20， 并且 Niagara Fall Skydive Centre 会给组织者送一个 inside camera pkg，所以实际价格（抛开额外购买的 camera pkg）是大约 $340.5。&lt;/p&gt;
+&lt;p&gt;Online Booking 提前给 $50/person deposit fee，提前 48 小时取消可取回全部 deposit。&lt;/p&gt;
+&lt;p&gt;接着邮箱会收到 Niagara Fall Centre 发给你的协议，需要电子签，内容大概是 extreme sport 是有概率出现的意外的，签下这份协议代表你同意不追究 blablabla；另外一份则是 Liability Waiver 及 covid-19 screening。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;收到的要求填 waiver 的截图&lt;/strong&gt;&lt;br&gt;
+&lt;img src=&#34;https://gilgamel.github.io/post-images/1631485760648.png&#34; alt=&#34;Waiver&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Liability Waiver and Covid-19 screening 邮件截图&lt;/strong&gt;&lt;br&gt;
+&lt;img src=&#34;https://gilgamel.github.io/post-images/1631485958896.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在去之前分别点击邮件里的链接，按照要求填写即可。&lt;/p&gt;
+&lt;h2 id=&#34;路程&#34;&gt;路程&lt;/h2&gt;
+&lt;p&gt;虽然 google maps 写的是约 2小时到，但我们还是小看了长周末 highway 401 的堵车了，早上9点不到从家里出发到了 downtown 大概 9点40 左右，之后为了赶时间并没有在 downtown 吃东西直接开车去了 Hamilton，中间堵了很长一段时间。&lt;/p&gt;
+&lt;p&gt;随意找了一间刚开的早茶店想迅速吃点东西，最终卡着时间 11点30 东西都没齐就直接跑了，最后踩着点到了地方。&lt;br&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h2 id=&#34;sign-in-等待&#34;&gt;Sign-in — 等待&lt;/h2&gt;
+&lt;p&gt;全程 sign-in 非常的快，但由于是分开来了， group member 没有到，导致我们是额外购买的 Camera pkg，再加上是饭点，等了很久很久。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://gilgamel.github.io/post-images/1631487403925.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;室内是严格戴口罩的，在室外可以摘了口罩。不过怕死 + 为了防晒，全程戴着口罩。&lt;br&gt;
+最重要的一点是参加这样的室外活动，真的要涂防晒！&lt;br&gt;
+一起去的朋友里有一位不怕死的全程不涂防晒，最后 sunburn 了。&lt;br&gt;
+&lt;/br&gt;&lt;br&gt;
+在网站说明上说大约要 4 小时，原来是 sign-in 5分钟，看 video 10 分钟，trainning 10 分钟，等待 3小时，飞机上 30分钟，自由落体 45s，在空中滞留 5-10分钟。&lt;br&gt;
+&lt;/br&gt;&lt;br&gt;
+在等待的时候就一直在打扑克，拍拍照片。&lt;br&gt;
+企图用别人跳伞的图片冒充自己（。反正这么远谁都不会发现不是自己哈哈哈哈哈）&lt;br&gt;
+&lt;img src=&#34;https://gilgamel.github.io/post-images/1631487544126.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h2 id=&#34;起飞-起跳&#34;&gt;起飞 — 起跳&lt;/h2&gt;
+&lt;p&gt;等了 3 个多小时终于上了飞机，一架飞机大概能够坐 10 个人左右，除了我们这群小菜鸡由教练带着跳以外，还有两个大神是自己跳的。&lt;/p&gt;
+&lt;p&gt;从准备出发开始教练就非常 nice 的跟你寒暄啦，然后拿着 GO PRO 对着你拍，于是尴尬癌立刻发作（。&lt;br&gt;
+坐在飞机上的时候经过了 LAKE ONTARIO 什么的教练也会给你指出来，飞机会经过 Niagara Fall 两次，虽然没戴眼镜，但还时能够用意念感觉出来很好看。（就是有点晕机）特别是当飞机正在上升的时候看到远处有云，于是有可能在我们这一批跳完以后就没办法再继续了。&lt;/p&gt;
+&lt;p&gt;等飞机盘旋到 12500 ft 的时候，朋友开始像下饺子一样一个个往下下，而我是最后一个 ：），越看越害怕，跳下去之前已经想好了出现意外的 100 种方式了。&lt;/p&gt;
+&lt;p&gt;不过等真的跳下去的一瞬间有瞬间失重的感觉，转瞬即逝，接着开始了自由落体，那种感觉非常的奇妙，像是在用不同的角度去看这个世界，特别是当你是一个瞎子的时候，还能安慰自己有一种朦胧美。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gilgamel.github.io/post-images/1631488011868.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+看到高空的时候想张口呐喊，然后发现自己被风吹得面目全非。&lt;br&gt;
+这个时候就特别佩服跳伞还能保持仪容仪表的李总裁。&lt;/p&gt;
+&lt;p&gt;在持续了大概 45s 自由落体以后，教练打开了降落伞。&lt;br&gt;
+然后开始在 1500 米左右的高空缓缓降落。&lt;/p&gt;
+&lt;p&gt;教练：See, there is Toronto&lt;br&gt;
+我：Where? There?&lt;br&gt;
+教练：Yes!&lt;br&gt;
+我：Wow! But I can&#39;t see it T-T&lt;br&gt;
+教授：Aha&lt;/p&gt;
+&lt;p&gt;在空中挂了 5 分钟以后看到感觉很好看又不完全好看的景色，看到了 3 个朋友先后降落，最终跪着到了地面 （。 每当这个时候就觉得自己的脚柔韧度真的不咋滴&lt;/p&gt;
+&lt;p&gt;落到了地面 4 个人在那哈哈哈哈哈，然后发现头发也都打结了，像个捡破烂的一样穿着的装备走回了基地。&lt;br&gt;
+而且整个人极度兴奋，跳之前：我再也不会跳第二次！ 跳之后：啥时候再来一次？&lt;/p&gt;
+&lt;p&gt;哦对了，当你跳完以后会秒给你发一个邮件，里面有一张证书，恭喜你完成了 First Jump，就很有仪式感。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://gilgamel.github.io/post-images/1631488424116.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;关于高度近视是否可以跳伞&#34;&gt;关于高度近视是否可以跳伞&lt;/h2&gt;
+&lt;p&gt;在跳之前只想到会死，没想到可能会引发视网膜脱落。在朋友的提醒下，先浏览了网站，发现并没有说禁止高度近视跳伞，保险起见再 google 了一下，发现回答的多数是跳伞基地的工作人员，有利益关系。于是直接去问了 eye clinic 的医生，确定了 900 度近视完全可以去跳伞，于是愉快的放飞了自我。&lt;/p&gt;
+&lt;p&gt;不过如果是近视建议还是戴隐形眼镜或不戴。在准备上飞机之前教练也建议我将眼镜摘了，后来看了一些跳伞视频发现护目镜外形都差不多，会勒得眼睛附近出印子，在这个基础上戴普通眼镜的话估计会很难受。&lt;/p&gt;
+">FIRST JUMP — SKYDIVE IN TORONTO</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://gilgamel.github.io/post/quit_job_gris/"" data-c="
+          &lt;p&gt;2018年5月底全职入职，2021年8月头离职，头尾四年也该为自己在这间公司工作的日子做个总结了。&lt;br&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h2 id=&#34;goal-目标回顾&#34;&gt;Goal （目标回顾）&lt;/h2&gt;
+&lt;p&gt;当时从广州回到多伦多的时候，没有特别多的想法，受到朋友的邀约去公司兼职帮忙，结果最后阴差阳错被前上司发出了全职OFFER的邀请。&lt;/p&gt;
+&lt;p&gt;在担任兼职工作的时候有被前上司的 passion 吸引到，觉得跟着她应该能带领出一个我想象中应该有 MKT 出来。&lt;/p&gt;
+&lt;p&gt;当然，当时自己对于 MKT 尚且留有热情、工资也足够自己生活，以及不想离开多伦多的朋友也是选择留下来的原因。&lt;br&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h2 id=&#34;result-结果陈述&#34;&gt;Result （结果陈述）&lt;/h2&gt;
+&lt;p&gt;在 2018 - 2019 时的确有成功打造出心目中的 MKT 的雏形了，可惜限于预算问题，无法完善及扩大，但与此同时对比的是人均 007，没有足够的时间学习充电，只有输出，造成了严重内耗。&lt;/p&gt;
+&lt;p&gt;跟前上司关于 MKT 的构思远远超于同期同事的想法，但因领导无法理解且只追求短暂收益，许多好的想法无法落实，也在此时感觉到自己对于 MKT 的想法跟领导截然不同。因此放弃了 MKT，往数据分析方面转岗希望通过数据为公司赋能。&lt;/p&gt;
+&lt;p&gt;数据规划依旧杂乱无章，领导不懂数据但也不肯放权，数据底层搭建进度滞后，反复沟通无效过后工作状态变得较为消极，动力不足，开始利用空余时间自我进修学习。&lt;/p&gt;
+&lt;p&gt;跨部门的对接问题严重，互相甩锅，解决方法是开会对齐但又没有具体解决方案；且由于人员变动频繁，沟通培训均无法明显效果。一开始觉得大家为了同一个目的而奋斗，到了最后发现每个人都有小心思，内耗加剧，最终辞职。&lt;br&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h2 id=&#34;analysis-过程分析&#34;&gt;Analysis （过程分析）&lt;/h2&gt;
+&lt;h3 id=&#34;mkt-18-年新生周期&#34;&gt;&lt;strong&gt;MKT - 18 年新生周期&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;整个新生周期均已小组配合为单位策划、执行相对应的活动。整体人力分布大概 2-3 兼职负责策划、推文攥写，1-2 人轮流小助手答疑，1 人做美工设计，整体 workload 过重，但与此对比当时的凝聚力十分地好。&lt;/p&gt;
+&lt;p&gt;首次尝试了国内线下小型沙龙，以及 EZ101 项目，前者对新生信任度有极大的帮助，后者则初步形成了人才储备。&lt;/p&gt;
+&lt;p&gt;同时 MKT 都觉醒起了基础的数据意识，有意识地开始将过程中的数据保留起来。&lt;/p&gt;
+&lt;p&gt;在这个过程中全部人对新生周期的时间点有了充分的掌握，拥有了初步的跨国统筹线下活动能力。&lt;br&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h3 id=&#34;mkt-2018-fall-2019-winter&#34;&gt;&lt;strong&gt;MKT - 2018 Fall - 2019 Winter&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;一开始 MKT 并没有一个明确的思路应该如何去做，大家都是凭着直觉去发符合当下应该发的东西，又抑或是发送即时热点，同时公众号更多的时候在做的仅仅是推送硬广作为通知使用。在前期拥有优质师资的情况下的确好用，但在后期竞争者百出的情况下让公众号从硬广通知转化为有效的宣传渠道是首要的。&lt;/p&gt;
+&lt;p&gt;在这个期间完成了几个小目标：&lt;/p&gt;
+&lt;h4 id=&#34;建立起-mkt-routine-流程&#34;&gt;建立起 MKT routine 流程&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;建立起一套初步的 MKT routine 流程。 根据校区时间节点提前安排的相对应的推文/活动安排，相关推送至少提前一周完成，为可能出现的意外提供了缓冲时间，同时 buffer time 弥补了兼职不稳定的情况，&lt;/li&gt;
+&lt;li&gt;通过 google docs 记录兼职每日工作日常，方便 leader 查看跟进相关进度。&lt;/li&gt;
+&lt;li&gt;通过 google sheet 记录兼职每日工作时长，配合 google docs 检查相关人效。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;攥写新媒体新手指南&#34;&gt;攥写《新媒体新手指南》&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;为培养 MKT 新鲜血液准备了相对应的 《新媒体新手指南》，内容重点放在公众号排版上，力求让所有兼职能够处于同一起跑线上，以及减轻全职工作人员的压力，以便将更多时间放在公众号把控、策划活动、以及营销方面。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;公众号方向&#34;&gt;公众号方向&lt;/h4&gt;
+&lt;p&gt;公众号拥有了运营的方向，结合拥有优质师资的优势，尝试性创作科普性推文。但推进难度比想象中难，原因在于：1. 导师并不能充分意识到推广宣传的作用。 2. 愿意推广的导师不一定拥有写作的能力。 3. MKT 兼职较难获得准确无误的专业知识。&lt;/p&gt;
+&lt;h4 id=&#34;小程序运营&#34;&gt;小程序运营&lt;/h4&gt;
+&lt;p&gt;首次尝试国内相关小程序使用，通过将试听课放到小程序引导客户打卡裂变进行宣传，宣传效果十分喜人；留存到小程序的学员数据后续也用于销售重点推销。&lt;/p&gt;
+&lt;p&gt;在新年时再一次通过小程序打卡成功吸引了将近上千学生参加，在公众号留言以外第一次引发了 UGC 内容的产生，为之后的活动策划提供了更多的思路。&lt;/p&gt;
+&lt;p&gt;在过程中也发现了难点在于如何跟导师部门进行沟通，拥有专业能力 ≠ 理解营销 ≠ 愿意投入成本去学习新东西。在投入新科技以后的第一大阻力往往是人类的惰性。&lt;/p&gt;
+&lt;p&gt;总的来说，在这个阶段对 MKT 依然充满了热情，虽然作为 base 在海外的教育公司，在以公众号为运营的基础上拥有十分多的技术问题，例如：公众号认证、小程序使用等等…… 许多国内已经用烂了的手段但在海外依然没被使用，但如何将国内的营销手段、运营方法转换成海外适用是一个难题。&lt;br&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h3 id=&#34;mkt-2019-新生周期&#34;&gt;&lt;strong&gt;MKT - 2019 新生周期&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;2019 年的新生以总部名义统筹其余所有校区，制定相关时间线，出策划案等等。对比起 2018 年，2019 年的新生更为大型，需要统筹的东西更多，但在策划方面由于拥有前一年的经验，所以一切顺利进行。&lt;/p&gt;
+&lt;p&gt;其中 MENTOR PROGRAM 作为新生项目中的子项目，共裂变 900+ 人，是在 2018 年尝试 101项目以后的重大突破。&lt;/p&gt;
+&lt;p&gt;在新生项目推进过程中，花费最多时间的是与其他校区进行沟通协调配合。虽然是总部总统，但执行的依旧是各个校区，由此时便能看出其他校区能力残次不齐，擅自修改计划不加以通知，导致后期时不时需要补锅。&lt;/p&gt;
+&lt;p&gt;在这过程中拥有策划到了部分校区由于情况不同导致“水土不服”的情况，但更多展现了 MKT 思维上的诧异。当校区情况不一致，MINDSET 不一致时，沟通成本大大提升，而校区沟通协调问题涉及到公司整体架构，从 MKT 层面上看属于无法依靠自身解决的问题。&lt;/p&gt;
+&lt;p&gt;与此同时公司内部以个人利益优先，整体目标靠后的情况也逐渐浮现出来；从那时起内心开始有了消极态度，觉得多数人在其位不干事。当你想着授人以鱼不如授人以渔时，对方想的是只想吃喂到嘴里的鱼。&lt;br&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h3 id=&#34;mkt-2019-fall-2020-winter&#34;&gt;&lt;strong&gt;MKT - 2019 Fall - 2020 Winter&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;MKT 部门结构再次变更，分为渠道及产品，尝试将职能细化，如此一来能够降低 MKT 标准，每人只需要有一方面的特长即可。&lt;/p&gt;
+&lt;p&gt;在渠道之下再通过部门对人员进行分组，产品人员针对各部门课程进行相关的宣传策划、竞品收集、与 DEP HEAD 汇报相关情况以及给不同导师进行小视频宣传拍摄。&lt;/p&gt;
+&lt;p&gt;但由于人员属性问题，workload 依然过重，渠道跟产品之间并不能完全拆开（公司始终以卖课属性为主，有任何情况都会将所有的人手放在卖课宣传上，无法形成有效的渠道壁垒）。其次就是产品只有 report 作用，任何决策层面上的事情没有决定权，看似将职能细化，然而最终都堵卡死在一个点上。&lt;/p&gt;
+&lt;p&gt;再者便是由于是新结构，整体流程依然没跑顺。&lt;/p&gt;
+&lt;p&gt;也是从产品策划这方面的角度来看，感觉在公司做单纯的MKT并没有长远的发展，因为几乎所有的决策都需要交由非专业人士排版决定；因此希望从别的方面走走，例如往数据转型推动，希望以数据推动市场。&lt;/p&gt;
+&lt;p&gt;在这个周期还发生了一件事也埋下了离职引子，当时因为 PPPP MAN 事件在内部引起了争议，关于是否应该就这件事蹭热点抓一波流量，从这次老板的反应可以感觉到老板心目中的MKT跟自己心目中的MKT截然不同，也是第一次意识到自己以后绝对不会在这间公司一直工作下去。&lt;/p&gt;
+&lt;h4 id=&#34;数据&#34;&gt;数据&lt;/h4&gt;
+&lt;p&gt;以数据驱动市场的契机始于公众号。通过数据分析可以对用户画像有所了解，从而有针对性的推出后续的推文，吸引更加多的目标用户的。&lt;/p&gt;
+&lt;p&gt;当公众号（渠道）的扩散到了一定程度开始产生了一个疑问：关注我们的用户里有多少是有可能成为有效流量的？&lt;/p&gt;
+&lt;p&gt;带着这个问题开始翻阅起了学校过去 10 年的 enrollment report，从报告中分析总结出最近 5 年学校的招生政策比趋向，以此作为 MKT 制定计划的一个相关参考。（公司业务依托于学校招生人数，所以极具参考价值）&lt;/p&gt;
+&lt;p&gt;与此同时销售部门也开始萌生了 CRM 的懵懂概念，对数据开始有着需求，但对数据应该如何应用没有明确的认知。&lt;/p&gt;
+&lt;p&gt;基于这个情况下开始设置了初版的数据架构图，倒腾出了 track enrollment size 的 python 脚本，设置了积分平台的初版 （系统通过积分平台引出更多可行的活动，从而促进复购率等等）。&lt;/p&gt;
+&lt;p&gt;在这过程中再次体现出了公司内部架构不明确，沟通不及时的情况。理论上数据应该与IT部门共同构建，但由于前期没有沟通，导致后期出现了 double work。例如积分平台到了 IT 手里需要重新编写 （oracle apex &amp;amp; python 前端的区别）&lt;/p&gt;
+&lt;p&gt;积分平台项目后续也因上级无法决定积分规则如何设定而搁置。&lt;/p&gt;
+&lt;p&gt;花费了 2-3 个月的时间对已有数据进行清洗，对 REV、REFUNDED、BONUS 有了整体概念。&lt;/p&gt;
+&lt;p&gt;引入了 POWER BI，首次实现了数据可视化。&lt;/p&gt;
+&lt;h3 id=&#34;mkt-data-2020-新生周期&#34;&gt;MKT - DATA - 2020 新生周期&lt;/h3&gt;
+&lt;p&gt;主要负责数据整合，新生项目作为辅助以及数据支持存在。&lt;/p&gt;
+&lt;p&gt;国内线下活动由于有办公室的存在，活动效果非常的好。&lt;/p&gt;
+&lt;p&gt;PBI 的使用初见成效，往全校区推行，大多数负责人在数据整合方面配合，但不明白为什么要这样做，随着时间的顺延配合度逐渐下降，而对于总部而言，数据质量太差不可用。&lt;/p&gt;
+&lt;p&gt;在整合数据中也发现了自己的沟通技巧、耐心需要提升。&lt;/p&gt;
+&lt;h3 id=&#34;data-2020-fall-2021-summer&#34;&gt;DATA 2020 Fall - 2021 Summer&lt;/h3&gt;
+&lt;p&gt;新生周期过后，前任上司回国，陷入了三不管状态。&lt;br&gt;
+外行人领导内行人的情况时有发生，最直接表现为要求数据无中生有。&lt;/p&gt;
+&lt;p&gt;由于疫情原因一边摸鱼一边自我进修&lt;br&gt;
+直到最后感觉内耗过于严重而下定决心离开&lt;/p&gt;
+&lt;h2 id=&#34;insight-归纳总结&#34;&gt;Insight （归纳总结）&lt;/h2&gt;
+&lt;h3 id=&#34;渠道&#34;&gt;渠道&lt;/h3&gt;
+&lt;p&gt;当海外教育行业的目标用户为留学生时，宣传渠道的选择变得非常地少。&lt;br&gt;
+于其花费时间在扩展各种渠道，不如考虑如何打通 2B 端口，流量精准而有效。&lt;/p&gt;
+&lt;h3 id=&#34;数据-2&#34;&gt;数据&lt;/h3&gt;
+&lt;p&gt;当公司内部绝大部分人没有数据意识时，必须有决策层懂数据，并且大力推动业务数据化，否则将会是一片僵局。&lt;/p&gt;
+&lt;h3 id=&#34;管理&#34;&gt;管理&lt;/h3&gt;
+&lt;p&gt;帮助你的下属成长，解决问题，他们会感激你、信服你。&lt;br&gt;
+只有在保证员工完成任务时能同时确保他们能够成长，才能培养员工的忠诚度，同时也是领导应该做的事情。&lt;/p&gt;
+&lt;p&gt;将帅无能，累死三军。能力的体现不仅能够在决策伤体现，同时也能在培养员工方面体现。&lt;/p&gt;
+&lt;h3 id=&#34;沟通谈判&#34;&gt;沟通谈判&lt;/h3&gt;
+&lt;p&gt;所有工作相关，尽量通过文字、邮件保留下来，以免后续有任何纠纷。&lt;/p&gt;
+&lt;p&gt;当与对方合作时尽可能站在对方的角度去分析，曲线救国达成自己的目的。沟通是为了解决为了，而不是单纯的为了说服对方听自己的。&lt;/p&gt;
+&lt;h3 id=&#34;直觉&#34;&gt;直觉&lt;/h3&gt;
+&lt;p&gt;相信自己的直觉，如果一间公司/领导让你的感觉很不好，尽早离开。&lt;/p&gt;
+&lt;h3 id=&#34;ei&#34;&gt;EI&lt;/h3&gt;
+&lt;p&gt;在离职前跟公司协商好后，让公司以 lay off 的理由辞退自己，可以 100% 拿到 EI。&lt;/p&gt;
+">离职复盘</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://gilgamel.github.io/post/google-sheets-merge-multiple-sheets/"" data-c="
+          &lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
+&lt;p&gt;公司每个学期所做的 Budget 都放在 Google Sheet，大概每2-4周会出现频繁修改的情况，因此需要实时保持更新并连接到 PBI。&lt;/p&gt;
+&lt;p&gt;在之前曾经试过 Custom Goolge Sheet Connector，但由于 Connector 只能在 Desktop 使用，会影响将报表 push 到 PBI Service 后的刷新；也曾经试过将 Power Query 写到 PBI Service 上，但由于 credential 问题，会导致后续无法刷新。&lt;/p&gt;
+&lt;p&gt;由于每个分公司的 Budget 都会在一张 spreadsheet 上，基于保密因此需要先将分公司的 Budget 有选择性地抓到同一张表上，再连接到 PBI Service 上。&lt;/p&gt;
+&lt;/br&gt;
+&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
+&lt;p&gt;基于以上背景，可简单总结为以下两个目的：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Merge Multiple Sheets into One Sheet&lt;/li&gt;
+&lt;li&gt;Connect Goolge Sheet to PBI Service and Configure Scheduled Refresh&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/br&gt;
+&lt;h2 id=&#34;step-1-merge-multiple-sheets&#34;&gt;STEP 1. Merge Multiple Sheets&lt;/h2&gt;
+&lt;h3 id=&#34;step-11-filter-importrange失败的尝试&#34;&gt;STEP 1.1 Filter + Importrange，失败的尝试&lt;/h3&gt;
+&lt;/br&gt;
+&lt;p&gt;&lt;strong&gt;Filter Synatax&lt;/strong&gt;&lt;br&gt;
+&lt;code&gt;FILTER(range, condition1, [condition2, ...])&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;range&lt;/strong&gt; - The data to be filtered&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;condition1&lt;/strong&gt; - A column or row containing true or false values corresponding to the first column or row of range, or an array formula evaluating to true or false.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/br&gt;
+&lt;pre&gt;&lt;code&gt;= {
+    FILTER(IMPORTRANGE(&amp;quot;{Spreadsheet_link1}&amp;quot;,&amp;quot;Sheet_name!A2:A&amp;quot;),
+    LEN(IMPORTRANGE(&amp;quot;{Spreadsheet_link},&amp;quot;Sheet_name!H2:H))&amp;gt;0;
+    FILTER(IMPORTRANGE(&amp;quot;{Spreadsheet_link2}&amp;quot;,&amp;quot;Sheet_name!A3:A&amp;quot;),
+    LEN(IMPORTRANGE(&amp;quot;{Spreadsheet_link2}&amp;quot;,&amp;quot;Sheet_name!H3:H&amp;quot;))&amp;gt;0)
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/br&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;{Spreadsheet_link1}&lt;/strong&gt; 分公司A的 Google Sheet Link&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;{Spreadsheet_link2}&lt;/strong&gt; 分公司B的 Google Sheet Link&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sheet_name1!A2:A&lt;/strong&gt;由于是第一次抓表，因此需要将标题也一同抓取。在这次的 Budget 表里第二行为标题，因此公司A的表格从A2开始抓起&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sheet_name2!A3:A&lt;/strong&gt;接着是 merge 公司B的表格，由于此时已不需要标题了，因此可以由 A3 开始抓起&lt;/li&gt;
+&lt;li&gt;通过 FILTER以及LEN 将已经没有填写完成的内容暂时放弃抓取，LEN里的 &lt;strong&gt;filter&lt;/strong&gt; 判定行数需要跟 &lt;strong&gt;importrange&lt;/strong&gt; 保持一致&lt;br&gt;
+&lt;/br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;到此为止，其实已经可以成功将各分公司的表格合并到一起。但出于信息安全保密问题，因此需要跳列只抓取最为重要的几列，以确保及时资料外泄对方也不知道具体产品的对应 Budget 是多少。&lt;/p&gt;
+&lt;p&gt;由于 filter 跟 importrange 均无法跳列，因此开始尝试使用 query + select + where + importrange 的组合进行数据抓取。&lt;br&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h3 id=&#34;step-12-query-importrange-select-where&#34;&gt;STEP 1.2 Query + Importrange + Select + Where&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Query Syntax&lt;/strong&gt;&lt;br&gt;
+&lt;code&gt;Query(data, query, [headers])&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;data&lt;/strong&gt; - The range of cells to perform the query on&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;query&lt;/strong&gt; - The query to perform, written in the Google Visualization API Query Language&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;headers&lt;/strong&gt; - [OPTIONAL] - The number of header rows at the top of data. If omitted or set to -1, the value is guessed based on the content of data&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Importrange Syntax&lt;/strong&gt;&lt;br&gt;
+&lt;code&gt;IMPORTRANGE(spreadsheet_url, range_string)&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;spreadsheet_url&lt;/strong&gt; - The URL of the spreadsheet from where data will be imported&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;range_string&lt;/strong&gt; - A string, of the format &amp;quot;[sheet_name!]range&amp;quot; (e.g. &amp;quot;Sheet1!A2:B6&amp;quot; or &amp;quot;A2:B6&amp;quot;) specifying the range to import&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/br&gt;
+&lt;pre&gt;&lt;code&gt;= {
+    =QUERY({IMPORTRANGE(&amp;quot;{Spreadsheet_ID1}&amp;quot;,
+    &amp;quot;Sheet_name1!A:V&amp;quot;);
+    IMPORTRANGE(&amp;quot;{Spreadsheet_ID2}&amp;quot;,&amp;quot;Sheet_name2!A:V&amp;quot;);
+    IMPORTRANGE(&amp;quot;{Spreadsheet_ID3}&amp;quot;,&amp;quot;Sheet_name3!A:V&amp;quot;)},
+    &amp;quot;SELECT Col1,Col8,Col10,Col16,Col17,Col18,Col20,Col22 WHERE Col10 &amp;gt; 0&amp;quot;,2)
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Spreadsheet_ID1&lt;/strong&gt; https://docs.google.com/spreadsheets/d/{Spreadsheet_ID}/edit#gid=0
+&lt;ul&gt;
+&lt;li&gt;在写 Query 的过程中发现只填写 Spreadsheet_ID 也能成功读取&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;SELECT ... WHERE 典型的 SQL 用法&lt;/li&gt;
+&lt;li&gt;在 Google Sheet 里 Col 代表着 Column，一般情况下输入 A, B, C 或 Column1, Column2, Column3 均会被认为找不到该 Column&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/br&gt;
+&lt;h4 id=&#34;note&#34;&gt;Note&lt;/h4&gt;
+&lt;p&gt;使用 Query + Select + Where + Importrange 时，第一次会出现错误，原因是没有获取读取表格的 access，因此需要先在新的表上读取一次 importrange，再将 importrange function 放进 query里。&lt;/p&gt;
+&lt;p&gt;第一次用 importrange 读取新表会出现以前情况，点击&lt;strong&gt;Allow access&lt;/strong&gt;即可。&lt;br&gt;
+&lt;img src=&#34;https://gilgamel.github.io/post-images/1617726487957.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;自此，合并各分公司表格工作完成。&lt;br&gt;
+开始第二步：将数据放到 PBI Service 上，让数据能够定时刷新。&lt;/p&gt;
+&lt;/br&gt;
+&lt;h2 id=&#34;step-2-connect-goolge-sheet-to-pbi-service-and-configure-scheduled-refresh&#34;&gt;STEP 2. Connect Goolge Sheet to PBI Service and Configure Scheduled Refresh&lt;/h2&gt;
+&lt;p&gt;在将合并好的 Google Sheet 设置成 “Anyone can view with link”以后，原本想直接在 PBI Service 上直接通过 Web/Web API 的形式进行连接，但一直显示需要需要安装并选择网关才能设置成功。由于安装网关对电脑负荷过大，因此一样采取老办法：尝试利用 Power Query 抓取数据。&lt;/p&gt;
+&lt;h3 id=&#34;step-21-修改-shareable-link&#34;&gt;STEP 2.1 修改 shareable link&lt;/h3&gt;
+&lt;p&gt;根据 Stackoverflow 上的Solution，需要将 shareable link 作出以下修改：&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;&lt;strong&gt;From&lt;/strong&gt;&lt;br&gt;
+&lt;code&gt;https://docs.google.com/spreadsheets/d/{spreadsheet_ID}/edit#gid=0&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;/br&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;To&lt;/strong&gt;&lt;br&gt;
+&lt;code&gt;https://docs.google.com/spreadsheets/d/{spreadsheet_ID}/export?format=xlsx&amp;amp;id={spreadsheet_ID}&lt;/code&gt;&lt;/p&gt;
+&lt;/br&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;export?format=xlsx&amp;amp;id={spreadsheet_ID}&lt;/strong&gt; - 将已经分享出来的 Google Sheet 输出为 xlsx 格式；且再次 identify spreadsheet via spreadsheet_ID&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;step-22-攥写-power-query&#34;&gt;STEP 2.2 攥写 Power Query&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;打开 app.powerbi.com&lt;/li&gt;
+&lt;li&gt;打开相对应的 Workspace。根据个人习惯，我建立了一个叫 DATAFLOW 的 Workspace，专门用于刷新数据&lt;/li&gt;
+&lt;li&gt;选择&lt;strong&gt;新建数据流&lt;/strong&gt;，见下图&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://gilgamel.github.io/post-images/1617730510237.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+4. 由于这是我第一次尝试从 Google Sheet 抓取数据，我选择&lt;strong&gt;定义新表&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gilgamel.github.io/post-images/1617730529275.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+5. 选择最下方的&lt;strong&gt;空白查询&lt;/strong&gt;&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://gilgamel.github.io/post-images/1617730575163.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;输入以下 Query Code：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;let 
+    Source = Excel.Workbook(Web.Contents(&amp;quot;the-link-in-step-2.1&amp;quot;), null, true）
+in 
+    Source
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;重命名并保存退出&lt;/li&gt;
+&lt;li&gt;返回到 DATAFLOW 界面，选择刚才创建的数据流，并选择&lt;strong&gt;设置&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://gilgamel.github.io/post-images/1617730834159.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+8. 数据源凭证 — 编辑凭据 — 勾选“&lt;strong&gt;跳过测试连接&lt;/strong&gt;“&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://gilgamel.github.io/post-images/1617730938911.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;自此，通过 Power Query 在 PBI Service 上抓取 Google Sheet 的目的已完成。&lt;br&gt;
+最后一步便是设置定时刷新。&lt;/p&gt;
+&lt;h3 id=&#34;step-23-configure-scheduled-refresh&#34;&gt;STEP 2.3 Configure Scheduled Refresh&lt;/h3&gt;
+&lt;p&gt;PBI Pro Lincense 每天可以设置8次定时刷新，因此我一般选择每三个小时刷新一次。&lt;/p&gt;
+&lt;p&gt;操作如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据流设置 — 计划的更新 — 选择相对应的时区及刷新频率 — 选择需要刷新的时间段&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/br&gt;
+&lt;h2 id=&#34;other&#34;&gt;Other&lt;/h2&gt;
+&lt;p&gt;在查询如何通过Power Query 过程中发现还有一种方法，即通过 Google BigQuery 将数据存储到上面，再利用 Power Query 抓取 BigQuery 上的数据。&lt;/p&gt;
+&lt;p&gt;BigQuery 被誉为 &lt;strong&gt;secure method&lt;/strong&gt;，而目前使用的方法则相对的 &lt;strong&gt;insecure&lt;/strong&gt;，后续迭代可以尝试一下。&lt;/p&gt;
+&lt;p&gt;另外一个发现，移动 Google Sheet 的位置并不会影响它的spreadsheet_ID，因此在 Personal Drive 上测试完以后基于共享，后续将 Google Sheet 移动到 Shared Drive 也毫无障碍，这点必须好评。&lt;/p&gt;
+&lt;/br&gt;
+&lt;h2 id=&#34;ref&#34;&gt;Ref&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;https://stackoverflow.com/questions/45945815/how-to-connect-google-sheet-with-power-bi&lt;/p&gt;
+&lt;p&gt;https://webapps.stackexchange.com/questions/85101/queryimportrange-function-to-skip-columns&lt;/p&gt;
+&lt;p&gt;https://webapps.stackexchange.com/questions/93002/unable-to-parse-query-string-for-function-query-when-using-importrange&lt;/p&gt;
+&lt;p&gt;https://blog.coupler.io/combine-sheets-into-one/&lt;/p&gt;
+&lt;p&gt;https://blog.coupler.io/query-importrange/#What_you_can_do_with_IMPORTRANGEQUERY_functions_real-life_formula_examples&lt;/p&gt;
+&lt;p&gt;https://support.google.com/docs/answer/3093343?hl=en&lt;/p&gt;
+&lt;p&gt;https://support.google.com/docs/answer/3093197?hl=en&lt;/p&gt;
+&lt;p&gt;https://gist.github.com/Spencer-Easton/78f9867a691e549c9c70&lt;/p&gt;
+&lt;p&gt;https://www.excelinppc.com/using-google-sheets-as-data-source-in-power-query&lt;/p&gt;
+&lt;/blockquote&gt;
+">通过 Query、Importrange、Select、Where 将多张 Google Sheets 合并到一起</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://gilgamel.github.io/post/nespresso-vertuo-coffee-capsules-kou-wei-ji-lu/"" data-c="
+          &lt;h2 id=&#34;solelio&#34;&gt;Solelio&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Intensity: 2/10&lt;/li&gt;
+&lt;li&gt;Cup Size: 230ml&lt;/li&gt;
+&lt;li&gt;Aromatic Profile: Fruity and Light-Bodied&lt;/li&gt;
+&lt;li&gt;Aromatic Notes: Citric, Cereal&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;整体口感温和，烘培感跟果味的平衡恰到好处，但在冷却后酸度会大为提升。&lt;/p&gt;
+">Nespresso Vertuo Coffee Capsules 口味记录</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://gilgamel.github.io/post/202103_daily/"" data-c="
+          &lt;ul&gt;
+&lt;li&gt;2021/3/1：3月的第一天养成好习惯，每天给自己记录一句话吧&lt;/li&gt;
+&lt;li&gt;2021/3/2：微信给我姐发了句“生日快乐”，除此以外好像也没什么好说的。&lt;/li&gt;
+&lt;li&gt;2021/3/3：跟我妈说起准备辞职的事情，十分有啃老意识的想要她帮忙找个后门。怎么说呢，自己也很清楚明白找后门这东西不是义务必须，可就会忍不住在想为什么当年能够帮我姐铺路，而我什么都没有呢。&lt;/li&gt;
+&lt;li&gt;2021/3/4：发现信用卡在不知情的情况下被刷了，瞬间心态爆炸。在推上看到关于发定时自杀WB的tweet时瞬间感觉到共鸣，真的好累。躲被窝里自闭一会继续看书。&lt;/li&gt;
+&lt;li&gt;2021/3/5：PMBOK 真的很绕，不过是一个好的开始&lt;/li&gt;
+&lt;li&gt;2021/3/6：好耶！终于见到糊糊了！糊糊真是只甜美的小猫咪！&lt;/li&gt;
+&lt;li&gt;2021/3/7：好久没试过跟人睡在一张床上了，心情有点微妙&lt;/li&gt;
+&lt;li&gt;2021/3/8：天葬真是一项既有意义、又有味道的宗教性活动&lt;/li&gt;
+&lt;li&gt;2021/3/9：成年人需要克制，不可以将白纸诱惑性染黑。啊，打脸了，染黑了。&lt;/li&gt;
+&lt;li&gt;2021/3/10：荷尔蒙上头&lt;/li&gt;
+&lt;li&gt;2021/3/11：荷尔蒙上头中带着一点愧疚&lt;/li&gt;
+&lt;li&gt;2021/3/12：今天听了少楠关于产品沉思录的 podcast 觉得挺有意思，利用项目管理去分解恐惧；将焦虑转化为恐惧。&lt;/li&gt;
+&lt;li&gt;2021/3/17：时间像是被吞掉，中间的时间不知道哪儿去了。今天放弃了QNAP的ARIA，安装了TRANSMISSION，从此我也能用NAS做下载鸡了。好耶&lt;/li&gt;
+&lt;li&gt;2021/3/24：像我这么枯燥的人坚持每天记录真的好难。今天开始尝试写公司的业务分析，business model canvas 看着简单，真正写的时候的确需要思考&lt;/li&gt;
+&lt;/ul&gt;
+">202103</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://gilgamel.github.io/post/github_page_ssl/"" data-c="
+          &lt;p&gt;最近发现了 Gridea 这个静态博客，感觉十分方便，重新将持续性写 blog 提上日程&lt;/p&gt;
+&lt;p&gt;就算是2021年立一个 flag 吧。&lt;/p&gt;
+&lt;p&gt;Gridea 真的是一个非常方便的静态博客，连自定义域名的方式都非常的傻瓜。&lt;/p&gt;
+&lt;h2 id=&#34;具体操作&#34;&gt;具体操作&lt;/h2&gt;
+&lt;p&gt;在 Gridea 左侧选择&lt;strong&gt;远程&lt;/strong&gt;，然后直接在 &lt;strong&gt;CNAME&lt;/strong&gt; 输入自己的域名，点击保存同步即可。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://i.loli.net/2021/02/26/q2FPwmiz7ajsS3O.png&#34; alt=&#34;gridea_setting.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;登陆 GITHUB，看到多了一个 CNAME 文件即代表同步成功。&lt;/p&gt;
+&lt;p&gt;点击 &lt;strong&gt;Setting&lt;/strong&gt; 拖到下方，确认域名已经被填写进去，并且 &lt;strong&gt;ENFORCE HTTPS&lt;/strong&gt; 已被勾选成功。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://i.loli.net/2021/02/26/zyaxo9NQlfJVB7L.png&#34; alt=&#34;GITHUB_PAGE_SETTING.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;其他&#34;&gt;其他&lt;/h2&gt;
+&lt;p&gt;其实一开始有在搜了很多教程，包括在 github page 直接 create new file CNAME， 然后输入域名。&lt;/p&gt;
+&lt;p&gt;后来发现这个操作在 Gridea 更新同步后，CNAME file 会被删除，因此作罢。&lt;/p&gt;
+&lt;p&gt;其后试过直接在 Gridea 源目录下新建 CNAME file，但发现同步不成功。&lt;/p&gt;
+&lt;p&gt;最后发现 Gridea 十分贴心的在客户端已经自带了设置。&lt;/p&gt;
+">为 Gridea Github Page 自定义域名并开启 https</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://gilgamel.github.io/post/milky-way-editing/"" data-c="
+          &lt;p&gt;抓住19年拍银河的小尾巴，跟特特还有海王去了 Toronto Barren 拍银河。&lt;/p&gt;
+&lt;p&gt;俗话说得好：拍摄一时爽，后期火葬场。&lt;/p&gt;
+&lt;p&gt;用来拍摄的单反是 long time ago 的60D，由于是APS-C画幅，所以拍摄时的思路是用 &lt;strong&gt;高感 + 大光圈 + 慢快门&lt;/strong&gt; 尽可能将更多的星星拍摄进去。然而忽略了机子的问题，等看到RAW的时候发现噪点十分多，修起来真的是太难了。在找了好多个preset以后发现颜色出来都不大自然（至少比我目前修出来的还不自然），所以无法偷懒的自己开始不断 google 着。&lt;/p&gt;
+&lt;p&gt;用的参数是 3200 ISO + f2.8 + 30s，拍摄6张以后拼接在一起。原图大概是这个亚子的：&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/08/27/NRu19LOZD7KmnAt.jpg&#34; alt=&#34;BIBBB-2.jpg&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;camera-raw-基修&#34;&gt;Camera RAW 基修&lt;/h2&gt;
+&lt;p&gt;在LR里将6张图拼接导出以后，用 Camera RAW 打开了图片。由于在LR里已经预先将图片都进行了镜头校对，所以在 Camera RAW 里就省去这一步了。&lt;/p&gt;
+&lt;p&gt;直接对对比度、高光、阴影、白色、黑色进行修改，重点是将图片调灰&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/08/27/g6XyOVDNb5RolhL.png&#34; alt=&#34;image.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;高光&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;提高高光可以使银心更加明亮，&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;阴影&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;提高阴影可以使暗部提高一些，显示出细节&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;黑色&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;提高黑色一样可以显示出细节&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;白色&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;降低白色可以让图片整体亮度稍微压低一点&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;对比度&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;适当调低可以方便PS后期修整&lt;/p&gt;
+&lt;p&gt;除此以外，还需要适当增加清晰度以及自然饱和度，曝光度根据图片情况选择性加/不加。&lt;/p&gt;
+&lt;h3 id=&#34;降噪&#34;&gt;降噪&lt;/h3&gt;
+&lt;p&gt;将 Camera RAW 调到细节，然后开始降噪&lt;/p&gt;
+&lt;p&gt;注意蒙版需要稍微调大一点，颜色也需要降噪，否则会出现噪点过多的问题&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/08/27/wa1cR4VgHOfMbtz.png&#34; alt=&#34;image.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;photoshop-修饰&#34;&gt;Photoshop 修饰&lt;/h2&gt;
+&lt;h3 id=&#34;明暗修饰&#34;&gt;明暗修饰&lt;/h3&gt;
+&lt;h4 id=&#34;亮部修饰&#34;&gt;亮部修饰&lt;/h4&gt;
+&lt;p&gt;利用快捷键 &lt;strong&gt;CTRL + ALT + 2&lt;/strong&gt; 选取高光部位。&lt;/p&gt;
+&lt;p&gt;这时画面上会出现闪闪发亮的就是高光部位，然后用调整层工具 &lt;strong&gt;曲线&lt;/strong&gt; 进行修饰&lt;/p&gt;
+&lt;p&gt;由于我们现在选取了高光部位，所以操作仅仅会针对亮的部分进行。&lt;/p&gt;
+&lt;p&gt;通过拖动曲线，让亮的地方更亮，把比较灰的地方拉下来。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;4&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/08/27/2SFZaTUIGe7vuOq.png&#34; alt=&#34;image.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h4 id=&#34;暗部修饰&#34;&gt;暗部修饰&lt;/h4&gt;
+&lt;p&gt;按着曲线部分的蒙版（曲线）选区，CTRL + ALT +2 选择高光部位后，然后在菜单栏选择 &lt;strong&gt;反选&lt;/strong&gt;，接着再加曲线。&lt;/p&gt;
+&lt;p&gt;这时需要将暗部提亮，但是比较暗的地方需要继续压下去&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;5&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/08/27/lypVeYR97vSEUhA.png&#34; alt=&#34;image.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h4 id=&#34;整体层次修整&#34;&gt;整体层次修整&lt;/h4&gt;
+&lt;p&gt;在不选择高光部位的情况下，添加曲线，对整体明暗进行修饰&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;6&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/08/27/jArR4msZYCFIoEi.png&#34; alt=&#34;image.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;Ref：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;https://www.xinpianchang.com/a71314?from=ArticleList&lt;/p&gt;
+&lt;/blockquote&gt;
+">银河后期</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://gilgamel.github.io/post/Removeduplicate/"" data-c="
+          &lt;p&gt;最近一直在做活动，报名方式为麦客单表，但由于经常性会出现重复性报名情况，所以需要在统计之前对数据进行清洗。&lt;/p&gt;
+&lt;p&gt;出现重复报名的情况一般如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;报名了 &lt;strong&gt;A活动&amp;amp;B活动&lt;/strong&gt;后，又再报名了 &lt;strong&gt;B活动&amp;amp;A活动&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;报名了 &lt;strong&gt;A活动&amp;amp;B活动&lt;/strong&gt;后，又再报名了 &lt;strong&gt;C活动&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;报名了 &lt;strong&gt;A活动&amp;amp;B活动&lt;/strong&gt;后，又再报名了 &lt;strong&gt;A活动&amp;amp;B活动&amp;amp;C活动&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;报名了 &lt;strong&gt;A活动&amp;amp;B活动&lt;/strong&gt;后，又再报名了 &lt;strong&gt;A活动&amp;amp;C活动&amp;amp;D活动&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;思路&#34;&gt;思路&lt;/h2&gt;
+&lt;h3 id=&#34;合并去掉重复行&#34;&gt;合并/去掉重复行&lt;/h3&gt;
+&lt;p&gt;根据报名表的设置，一般都会有 &lt;strong&gt;姓名、手机、微信、邮箱、参与活动&lt;/strong&gt; 这几项，而其中姓名跟手机是大概率是唯一，which means不会重复的，所以将使用姓名/手机作为检测项&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/08/22/vNIyXZYmdtxBoWS.png&#34; alt=&#34;Snipaste_2019-08-21_23-54-49.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;在以姓名作为检测项对齐进行排列后，可以看出这个叫 Ada 的少年一口气重复报名了三次，并且第二、三次报得是完全一样的，现在要做的就是 &lt;strong&gt;将同一个姓名的人选择参加的活动全部合并在一起&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在活动后面一列起个小标题 &lt;strong&gt;1&lt;/strong&gt; 写上以下code：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Excel&#34;&gt;=if(A2=A1, F1&amp;amp;&amp;quot;;&amp;quot;&amp;amp;E2, E2)
+
+# 如果 A2=A1，就将F1跟E2内容合并到一块，中间用；来表示，否则就显示E2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;完事儿将公式拉完这一列。 在 &lt;strong&gt;列1&lt;/strong&gt; 后面再弄一个 &lt;strong&gt;列2&lt;/strong&gt;，写上以下code：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Excel&#34;&gt;=if(A2&amp;lt;&amp;gt;A3, &amp;quot;Merged Value&amp;quot;, &amp;quot; &amp;quot;)
+
+# 如果 A2 不等于 A3，那么就显示为 Merged Value，否则显示空白
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;同理，将公式拉满 &lt;strong&gt;列2&lt;/strong&gt;；接着将 &lt;strong&gt;列1&amp;amp;列2&lt;/strong&gt; 都选上，然后 &lt;strong&gt;copy &amp;amp; paste value only&lt;/strong&gt;，将这两列的数值都变为plain text&lt;/p&gt;
+&lt;p&gt;接下来将 &lt;strong&gt;列2&lt;/strong&gt; 选中，并且进行 &lt;strong&gt;自定义排序&lt;/strong&gt;&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/08/22/rQgEpokvaZxhbYt.png&#34; alt=&#34;image.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;选择 &lt;strong&gt;扩展选定区域&lt;/strong&gt;，然后将主要关键字选为 &lt;strong&gt;2&lt;/strong&gt;，次序为 &lt;strong&gt;降序&lt;/strong&gt;&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/08/22/NkeDbcPUOSME1xY.png&#34; alt=&#34;image.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;最后将 &lt;strong&gt;列2&lt;/strong&gt; 最下方显示为 &lt;strong&gt;空白&lt;/strong&gt;的几行删掉即可。&lt;/p&gt;
+&lt;h3 id=&#34;去掉重复活动remove-duplicate&#34;&gt;去掉重复活动（Remove Duplicate）&lt;/h3&gt;
+&lt;p&gt;在VBA上新建Module，输入以下code：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Excel&#34;&gt;Function RemoveDupes2(txt As String, Optional delim As String = &amp;quot; &amp;quot;) As String
+    Dim x
+    &#39;Updateby20140924
+    With CreateObject(&amp;quot;Scripting.Dictionary&amp;quot;)
+        .CompareMode = vbTextCompare
+        For Each x In Split(txt, delim)
+            If Trim(x) &amp;lt;&amp;gt; &amp;quot;&amp;quot; And Not .exists(Trim(x)) Then .Add Trim(x), Nothing
+        Next
+        If .Count &amp;gt; 0 Then RemoveDupes2 = Join(.keys, delim)
+    End With
+End Function
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Module创建完毕后，在新的空白列上输入以下code：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Excel&#34;&gt;=removedupes2(E2,&amp;quot;;&amp;quot;)
+
+# remove deplicate from E2, ; is seperator
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;最后将新列上的数据 &lt;em&gt;&lt;em&gt;copy &amp;amp;&lt;/em&gt; paste value only&lt;/em&gt;*以后，即可删掉之前合并的重复活动列。&lt;/p&gt;
+">Excel Remove Duplicate</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://gilgamel.github.io/post/google-sheet-query/"" data-c="
+          &lt;p&gt;因为工作的缘故，需要将各个平台的宣传日期都放在一张google sheet上，然后 &lt;strong&gt;通过检测关键词，将关键的event自动pop up到总表上&lt;/strong&gt;。得到这个需求的时候，脑海里立刻想到的是VBA，然而google sheet上压根没VBA啊！&lt;br&gt;
+&lt;/br&gt;&lt;br&gt;
+于是想着是否能用 vlookup/hlookup/index &amp;amp; match解决问题，最后发现果然还是解决不了：）最后在朋友的提醒下，开始摸索着使用 &lt;strong&gt;query&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;query&#34;&gt;Query&lt;/h2&gt;
+&lt;p&gt;根据 Google 简陋的说明，query 是对数据运行一项采用 Google Visualization API 查询语言的查询。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h3 id=&#34;用法示例&#34;&gt;用法示例&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Excel&#34;&gt;QUERY(A2:E6,&amp;quot;select avg(A) pivot B&amp;quot;)
+
+QUERY(A2:E6,F2,FALSE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;语法&#34;&gt;语法&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Query（数据，查询，[标题数]）&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据&lt;/strong&gt; - 要执行查询的单元格范围。
+&lt;ul&gt;
+&lt;li&gt;每列&lt;strong&gt;数据&lt;/strong&gt;中的数值类型只能是布尔值、数字（包括日期/时间类型）或字符串。&lt;/li&gt;
+&lt;li&gt;如果有多种数据类型掺杂在单个列中，为便于查询，该列的数据类型由其中大多数数据的类型决定。其他少数数据的类型则被视为空值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;查询&lt;/strong&gt; - 要执行的查询操作，以 &lt;strong&gt;Google Visualization API查询语言&lt;/strong&gt;编写。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;查询&lt;/strong&gt;的值必须括在&lt;strong&gt;引号&lt;/strong&gt;中，否则该值必须是指向包含相关文本的单元格的引用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;标题数&lt;/strong&gt; - [可选]- &lt;code&gt;数据&lt;/code&gt;上方的标题行的数目。如果省略或设置为&lt;code&gt;-1&lt;/code&gt;，将根据&lt;strong&gt;数据&lt;/strong&gt;的内容估算该值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;可以怎么用&#34;&gt;可以怎么用？&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;name&lt;/th&gt;
+&lt;th&gt;dept&lt;/th&gt;
+&lt;th&gt;lunchTime&lt;/th&gt;
+&lt;th&gt;salary&lt;/th&gt;
+&lt;th&gt;hireDate&lt;/th&gt;
+&lt;th&gt;age&lt;/th&gt;
+&lt;th&gt;isSenior&lt;/th&gt;
+&lt;th&gt;seniorityStartTime&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;John&lt;/td&gt;
+&lt;td&gt;Eng&lt;/td&gt;
+&lt;td&gt;12:00:00&lt;/td&gt;
+&lt;td&gt;1000&lt;/td&gt;
+&lt;td&gt;3/19/2005&lt;/td&gt;
+&lt;td&gt;35&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;td&gt;12/2/2007 15:56:00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Dave&lt;/td&gt;
+&lt;td&gt;Eng&lt;/td&gt;
+&lt;td&gt;12:00:00&lt;/td&gt;
+&lt;td&gt;500&lt;/td&gt;
+&lt;td&gt;4/19/2006&lt;/td&gt;
+&lt;td&gt;27&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;td&gt;null&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sally&lt;/td&gt;
+&lt;td&gt;Eng&lt;/td&gt;
+&lt;td&gt;13:00:00&lt;/td&gt;
+&lt;td&gt;600&lt;/td&gt;
+&lt;td&gt;10/10/2005&lt;/td&gt;
+&lt;td&gt;30&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;td&gt;null&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Ben&lt;/td&gt;
+&lt;td&gt;Sales&lt;/td&gt;
+&lt;td&gt;12:00:00&lt;/td&gt;
+&lt;td&gt;400&lt;/td&gt;
+&lt;td&gt;10/10/2002&lt;/td&gt;
+&lt;td&gt;32&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;td&gt;3/9/2005 12:30:00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Dana&lt;/td&gt;
+&lt;td&gt;Sales&lt;/td&gt;
+&lt;td&gt;12:00:00&lt;/td&gt;
+&lt;td&gt;350&lt;/td&gt;
+&lt;td&gt;9/8/2004&lt;/td&gt;
+&lt;td&gt;25&lt;/td&gt;
+&lt;td&gt;FALSE&lt;/td&gt;
+&lt;td&gt;null&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Mike&lt;/td&gt;
+&lt;td&gt;Marketing&lt;/td&gt;
+&lt;td&gt;13:00:00&lt;/td&gt;
+&lt;td&gt;800&lt;/td&gt;
+&lt;td&gt;1/10/2005&lt;/td&gt;
+&lt;td&gt;24&lt;/td&gt;
+&lt;td&gt;TRUE&lt;/td&gt;
+&lt;td&gt;12/30/2007 14:40:00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol&gt;
+&lt;li&gt;使用&lt;strong&gt;Select&lt;/strong&gt;和&lt;strong&gt;Where&lt;/strong&gt;返回满足指定条件的行。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Excel&#34;&gt;QUERY(&#39;Example Data&#39;!$A$2:$H$7, &amp;quot;select A where (B&amp;lt;&amp;gt;&#39;Eng&#39; and G=true) or (D &amp;gt; &amp;quot;&amp;amp;A2&amp;amp;&amp;quot;)&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;使用&lt;strong&gt;Select&lt;/strong&gt;和&lt;strong&gt;Group by&lt;/strong&gt;子句统计所有行的&lt;strong&gt;工资&lt;/strong&gt;数据&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Excel&#34;&gt;QUERY(&#39;Example Data&#39;!$A$2:$H$7, &amp;quot;select B, MAX(D) group by B&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;将各列不重复的值转换到新列中。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Excel&#34;&gt;QUERY(&#39;Example Data&#39;!$A$2:$H$7, &amp;quot;select avg(D) pivot B&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;统计各行的&lt;strong&gt;部门&lt;/strong&gt;值，并按&lt;strong&gt;工资&lt;/strong&gt;的最大值进行排序。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Excel&#34;&gt;QUERY(&#39;Example Data&#39;!$A$2:$H$7, &amp;quot;select B, MAX(D) group by B order by MAX(D)&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;指定输入范围中的标题行数目，这让函数能够将带多个标题行的输入转换为单个标题行的输入。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Excel&#34;&gt;# Male
+QUERY(A1:E4, &amp;quot;select B where (D&amp;gt;175 and E&amp;gt;53)&amp;quot;, 1)
+
+# Male height
+QUERY(A1:E4, &amp;quot;select B where (D&amp;gt;175 and E&amp;gt;53)&amp;quot;, 2)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;其实以上都不是重点，只是我想Mark一下而已。&lt;/p&gt;
+&lt;h2 id=&#34;利用-query-where-contains-自从筛选出符合条件的-event&#34;&gt;利用 Query 、Where、Contains 自从筛选出符合条件的 Event&lt;/h2&gt;
+&lt;p&gt;由于当时设计timeline只考虑到好看（easy to read）的问题，所以基本上将 Google Sheet 当成了画板使用，这也导致了 timeline 的设计从数据分析的逻辑上来看是十分辣鸡的；但木得办法，老板要“好看”，所以只能基于原有timeline的基础上去做到老板想要的需求。&lt;/p&gt;
+&lt;p&gt;以下为“好看”（easy to read) 的timeline示例：&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/08/23/OvHFniK8xLrat4f.png&#34; alt=&#34;image.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;考虑到 Google Sheet 只能默认某一列的日期是一致的，所以没办法一口气将所有区域选上并且进行筛选，所以只能用一个笨方法：将range设置为一周。&lt;/p&gt;
+&lt;p&gt;举个例子：假设12月23日 - 12月29日的 range 为 C174:I180，Monday 代表C列，我需要在总表上代表12月23日的一格输入以下代码：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Excel&#34;&gt;query(xxxx!$C$174:$I$180,&amp;quot;select C where C contains &#39;线下&#39;&amp;quot;)
+
+# 在$C$174:$I$180的范围内，自从标记出在C列里包含着线下这两个关键字的内容
+# 同理线下可以切换为线上或执行
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;到了这一步，问题得到了解决。&lt;/p&gt;
+&lt;p&gt;但新的问题又出现了&lt;/p&gt;
+&lt;h3 id=&#34;用-isna-if-function-将在没有关键性-event-的格子里会出现-na-提示去掉&#34;&gt;用 isna 、if function 将在没有关键性 Event 的格子里会出现 #N/A 提示去掉&lt;/h3&gt;
+&lt;p&gt;这个提示是由 query function 直接产生的，所以无法使用 conditional format 进行标白处理，因此在朋友的提示下，我选择使用 &lt;strong&gt;isna&lt;/strong&gt; function.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;isna&lt;/strong&gt; function 是用来检查某个值是否为错误值 #N/A 的。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ISNA（值）&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;值&lt;/strong&gt; - 要与错误值 #N/A 进行比较的值&lt;/li&gt;
+&lt;li&gt;如果&lt;strong&gt;值&lt;/strong&gt;为**#N/A&lt;strong&gt;或指向包含&lt;/strong&gt;#N/A&lt;strong&gt;的单元格的引用，则&lt;/strong&gt;ISNA**将返回TRUE，否则返回FALSE&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Excel&#34;&gt;isna(query(UTSG!$M$4:$S$10,&amp;quot;select O where O contains &#39;线下&#39;&amp;quot;))
+
+# 检测 query(UTSG!$M$4:$S$10,&amp;quot;select O where O contains &#39;线下&#39;&amp;quot;) 的返回值是否为 #N/A， 如果是返回TRUE， 否则返回 FALSE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;当 query function 指向 #N/A 时，会自动返回 TRUE， 此时已达到将 #N/A 去掉的目的。之后可配合 &lt;strong&gt;if function&lt;/strong&gt; 将TURE值转换为空格。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Excel&#34;&gt;if(isna(query(UTSG!$M$4:$S$10,&amp;quot;select O where O contains &#39;线下&#39;&amp;quot;)),&amp;quot; &amp;quot;, query(UTSG!$M$4:$S$10,&amp;quot;select O where O contains &#39;线下&#39;&amp;quot;))
+
+# 如果 ISNA 返回的值为TURE，则将TRUE 变为空格，否则显示qury function 返回值。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;至此，老板的需求已经完成。让我大吼一句 Google Sheet 真好玩。&lt;/p&gt;
+&lt;h3 id=&#34;其他&#34;&gt;其他&lt;/h3&gt;
+&lt;p&gt;在Google Sheet 上可使用 CTRL + ` 来显示出 formula，然后使用 formula replace 一键替换公式里的关键词。&lt;/p&gt;
+&lt;p&gt;Ref:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;https://support.google.com/docs/answer/3093343?hl=zh-Hans&lt;/p&gt;
+&lt;p&gt;https://support.google.com/docs/answer/3093293?hl=zh-Hans&lt;/p&gt;
+&lt;p&gt;https://infoinspired.com/google-docs/spreadsheet/contains-substring-match-in-google-sheets-query-for-partial-match/&lt;/p&gt;
+&lt;/blockquote&gt;
+">在Google Sheet上使用query、if、isna将符合条件的分表数据汇总到总表</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://gilgamel.github.io/post/Shanxi-day2/"" data-c="
+          &lt;p&gt;早上6点30左右在华林新天地靠城墙上车，对比起飞猪上的图案，马蜂窝这个团的车子显得有点一言难尽……例如还有座位是坏了的……&lt;/p&gt;
+&lt;p&gt;路上是一路睡过去的，就不多说了。&lt;/p&gt;
+&lt;h2 id=&#34;悬空寺&#34;&gt;悬空寺&lt;/h2&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/06/25/5d1197101a3ef91480.jpg&#34; alt=&#34;标准游客照&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一直以来关于悬空寺都流传着这样的俚语：&lt;strong&gt;悬空寺，半天高，三根马尾空中吊。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;悬空寺建于公元419年（北魏），是佛、道、儒三教合一的独特寺庙。悬空寺原本叫玄空阁，玄取自于中国传统宗教道教教理，空则来源于佛教的教理。&lt;/p&gt;
+&lt;p&gt;在唐开元23年（公元735年），李白留下壮观二字，现存建筑是明清两代时修缮的遗物。悬空寺乃一院两楼布局，楼阁殿宇40间，总长约32米。总体布局有寺院、禅房、佛堂、三佛殿、太乙殿、关帝庙、鼓楼、钟楼、珈蓝殿、送子观音殿、释迦殿、雷音殿、三宫殿、纯阳宫、栈道、三教殿、五佛殿等……&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/06/25/5d119aa071fef96033.jpg&#34; alt=&#34;皮皮瘦游客照&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;给皮皮瘦来一张游客照，感觉自从有了皮皮瘦，我对于用嘴唇去对焦这事情已经越发娴熟了……&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/06/25/5d119bc358f8576220.jpg&#34; alt=&#34;悬空寺侧面&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;去悬空寺的时候由于错开了五一高峰，基本不需要排队。然而真正站在上面时腿都在抖。因为真的很！晃！！！啊！！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;悬空寺全死初看上去只有几十根大约碗口粗的木柱支撑，最高处距离地面50来米；以半插横梁为基础，借助岩石的托付，回廊栏杆上下梁柱左右紧密相连成一整个木质框架式结构。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;一样是跟了一个不大靠谱的导游，一路上半知半解。回来照旧 google 一下你就知道，于是找到了以上解析，而且还来自于导游词稿；互联网万岁。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;4&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/06/25/5d119daf9050714377.jpg&#34; alt=&#34;楼梯&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;楼梯还超级陡的，几乎成90度的楼梯需要手脚并用才得去，上得时候因为背着书包，还差点一个不小心就卡在楼梯口。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;5&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/06/25/5d119effd1bf940652.jpg&#34; alt=&#34;萌萌哒佛像&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;这个也不知道是什么佛像，但是眼睛位置特别明亮，应该是用了琉璃之类的镶嵌上去的。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;6&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/06/25/5d119f028a3c721921.jpg&#34; alt=&#34;不知名佛庙&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;7&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/06/25/5d119f0387bbf41990.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;8&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/06/25/5d119f0548f3574439.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;9&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/06/25/5d119f0483bc793944.jpg&#34; alt=&#34;纯阳宫&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;这座纯阳宫是去了山西以后第一次看到，当时十分兴奋拍了下来准备发给岚狗看的，到了后来越发审美疲劳。&lt;/p&gt;
+&lt;p&gt;对了，悬空寺山下，不对应该是恒山山脚下还有一座小悬空寺，但目前由于路况问题已经暂时关闭了。一路走着的时候宗让我想起某不知名小说就是关于大小悬空寺的。&lt;/p&gt;
+&lt;h2 id=&#34;恒山&#34;&gt;恒山&lt;/h2&gt;
+">悬空寺：危楼高百尺</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://gilgamel.github.io/post/Shanxi-day1/"" data-c="
+          &lt;!-- more --&gt;
+&lt;p&gt;&lt;strong&gt;行程安排：&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;日期&lt;/th&gt;
+&lt;th&gt;行程&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;5.6&lt;/td&gt;
+&lt;td&gt;广州 - 太原 （崇善寺） - 大同&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;5.7&lt;/td&gt;
+&lt;td&gt;悬空寺 - 恒山 - 云冈石窟 - 大同古城墙&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;5.8&lt;/td&gt;
+&lt;td&gt;纯阳宫 - 关帝庙 - 九龙壁 - 四牌楼 - 清真大寺 - 华严寺 - 平遥（火车）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;5.9&lt;/td&gt;
+&lt;td&gt;日昇昌&amp;amp;蔚泰厚 - 武林汇 - 古县衙 - 珍奇报纸陈列馆 - 城隍庙&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;5.10&lt;/td&gt;
+&lt;td&gt;王家大院 - 平遥古城墙 - 二郎庙 - 庆同协 - 同兴公镖局 - 文庙 - 华北镖局 - 太原&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;5.11&lt;/td&gt;
+&lt;td&gt;中国煤炭博物馆 - 山西博物院 - 食品街&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;5.12&lt;/td&gt;
+&lt;td&gt;太原工人文化宫 - 广州&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;太原机场&#34;&gt;太原机场&lt;/h2&gt;
+&lt;p&gt;由于这次机票时间订得不上不下的，于是下了飞机以后上了机场大巴直奔火车站。在这里想吐槽一下机场大巴，终点站叫火车站，但下了车以后还需要坐一站公交车 -_-|||&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/06/22/5d0dbb584682f42830.jpg&#34; alt=&#34;2019-05-06 太原火车站&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;到了火车站以后将自己20寸的小箱子寄存，不晓得这么小的箱子怎么就成了寄存的 highest price rank， 收了15块而且还只能给现金！好不容易寄存了行李，傻乎乎的排队买了去大同的火车票，就顺着指示牌下了楼梯打的去&lt;strong&gt;崇善寺&lt;/strong&gt;了。结果司机听到我说去崇善寺，整个脸都黑了，说我这是坑人。原来负一层的打的站台起码得等30分钟……emmmm 虽然有点不大好意思，可是……都是指示牌先动的手啊！&lt;/p&gt;
+&lt;h2 id=&#34;崇善寺&#34;&gt;崇善寺&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;崇善寺建于唐代初，初名白马寺，后改为延寿寺、宗善寺，明代时改为崇善寺。明洪武14年时，朱元璋的三儿仔朱棢为几年孝慈高皇后马氏，将寺院扩建。清同治3年，寺院失火，主要建筑均被毁，留下来的只有大悲殿及一些附属建筑清光绪7年，山西巡抚张之洞在废墟上建造文庙，崇善寺从此一分为二，现寺庙只占原有面积的40分之1大、&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/06/22/5d0dbecfd54d452721.jpg&#34; alt=&#34;崇善寺&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;虽然进去寺庙以后发现崇善寺其实十分小，但处处透露着厚重的历史感。刚好当天还在庆祝佛诞，僧人与信众都在念梁王宝忏，让我想起很多年前的光孝寺。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/06/22/5d0dc13903e2d36337.jpg&#34; alt=&#34;猫咪听念经&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;大悲殿外信徒诚心参拜，一树之隔，猫咪旁听，似懂非懂。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;4&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/06/22/5d0dc033391e352519.jpg&#34; alt=&#34;钟&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;在寺里溜达的时候发现了一口古老的大钟，回来后查了一下，发现钟鼓楼为明代创建，楼悬大钟为明代正德元年(1506年)铸造，通高两米，外径1．8米，传说重9999斤。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;5&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/06/22/5d0dc0aaf37ac90377.jpg&#34; alt=&#34;暗中观察喵&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;在爬上钟楼时还看到一只猫在暗中观察我，甚是可爱。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;6&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/06/22/5d0dc1e607dc949404.jpg&#34; alt=&#34;草长屋顶啦&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;在往回走时，看了一眼大殿屋檐，发现长出了枝芽，让我想到一个词：枯木逢生。&lt;/p&gt;
+&lt;p&gt;看到这大殿屋檐如此古旧，回来后又查了一番，发现大殿大至梁架，小至门窗都未更换，基本还是明代初修的遗物。想用很多词去形容，但了最后出口的只一句：真的是太好看了。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;7&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/06/24/5d1000097a79d41131.jpg&#34; alt=&#34;晋源神景&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;返回门口的时候回头看到了&lt;strong&gt;晋源神景&lt;/strong&gt;四个字，于是又再查了一下，发现了崇善寺真的十分了不起：崇善寺自明代设僧纲司以来，又是掌管山西省佛教事务的机关，至今仍是山西省佛教协会的所在地。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;8&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/06/24/5d100004969bb57259.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;再补充点小历史：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;大悲殿又是我国著名的佛教藏经收藏地，它以收藏宏富、版本珍稀而闻名于世。据统计，殿中现存自宋代以来的各种刻印、抄写的经书达3万余卷，其中仅宋、元、明的经书就达2．1万卷，而且保存完整，这在全国都是罕见的。&lt;/p&gt;
+&lt;p&gt;就其收藏种类而言，从北宋到南宋、元、明、清、民国和建国以来的各种藏经都有收藏，几乎包罗了我国木版印刷藏经以来的各种重要版本。就其价值而言，其中不乏名贵版本，特别是宋版藏经。&lt;/p&gt;
+&lt;p&gt;如北宋时期刻印《崇宁万寿藏》，印本为折本式，天地宽广，疏密得当，刻工精良，是难得一见的珍本。&lt;/p&gt;
+&lt;p&gt;另一收藏珍品是南宋的《碛砂藏》，其始刻于南宋绍定四年(1231年)，直至元代至治二年(1322年)才全部刻完，共有591函，6362卷。大悲殿现存《碛砂藏》共有562函，4846卷，仅缺29函，1716卷。&lt;/p&gt;
+&lt;p&gt;其它还有元代《普宁藏》、明代《南藏》、《北藏》、《武林藏&amp;gt;&amp;gt;、清拓泰山经石峪《金刚般若经》、明代金书《华严经6、明代血书《华严经》等等。这批历代刻印、抄写、拓印的各种佛教经典是我国珍贵的佛教文化遗产，也是研究我国古代哲学、文学、书法、印刷术的历史文物。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;文庙&#34;&gt;文庙&lt;/h2&gt;
+&lt;p&gt;由张之洞着力在崇善寺废墟上创建的文庙，就在崇善寺隔壁的一条小巷里。一路走过去时不知道，还绕着外面的马路走了一圈，在路上看到了一堵堵红墙与木门。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;9&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/06/24/5d100007c749430596.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;不知道是不是地区原因，在崇善寺附近居住的人都十分地慢节奏，走在路上手上必定有菩提串又抑或是拿着两核桃。让我第一次真真切切地感受到那些小说上写着的的文化味。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;10&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/06/24/5d1000081426538371.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;一开始对这个民俗博物馆感兴趣仅仅因为在马蜂窝上看到，在马蜂窝上它被评为最有性格的博物馆：经常性爱开不开。&lt;/p&gt;
+&lt;p&gt;于是带着好奇心，就一路找了过来。然后发现：**果然没开：）**果然我不是天选之人，遇不上它开门的时候。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;11&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/06/24/5d100008acde950097.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;再往前走了两步，才发现这里有一座文庙，已经被纳为民俗博物院的一部分。由于之后没时间再来参观，特意又在找了一下资料。在宜宾客2015撰写的博客上记载道：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;国朝新立后，这里成为山西博物馆的一部，二部则是起凤街的纯阳宫。那时文庙展出的好像都是革命性的，纯阳宫则是历史性的东西，小学时，老师老领着我们参观，接受伟光正教育。如今山西博物院已在河西建了现代化大馆，文庙改成了“山西艺术博物馆”，纯阳宫则转型成“山西民俗博物馆”，虽都冠以“博物馆”名号，但无一免费。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;让人十分吃惊的是民俗博物馆的原身竟然是纯阳宫，但现在现在已与文庙纳为一块。儒家与道家的相结合，艺术与民俗的相结合，真真有意思。同时也印证了宜宾客在博客上所写的：&lt;strong&gt;历史都是过程，完美和缺陷都无法假设&lt;/strong&gt;。我们现在很难知道当时纯阳宫是如何建在了崇善寺的废墟上，也不知道在这过程中几个宗教的地位进行了几次变更。&lt;/p&gt;
+&lt;p&gt;仅仅在外面拍了张游客照，就打道回火车站了。&lt;/p&gt;
+&lt;h2 id=&#34;大同&#34;&gt;大同&lt;/h2&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;12&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/06/24/5d1024b589ab674995.jpg&#34; alt=&#34;大同火车站&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;坐了4个多小时的火车终于到达的大同火车站。在火车上我还在群里一脸懵逼的说：为什么现在的火车座位是面对面的，真心逼死强迫症。还被吐槽说我不知人间疾苦，出门只坐飞机。&lt;/p&gt;
+&lt;p&gt;坐在火车上想起好久以前坐绿皮火车去凤凰的情景，那时的绿皮火车还是开窗的。由于是长途火车，一路上人挤人，各种泡面味啥都有；害怕路上被偷东西，眼睛也不敢闭。&lt;/p&gt;
+&lt;p&gt;到了大同以后拉着箱子出来，果然不同的火车站，同样热情的的士司机。马路上都是的士司机拉客打车的，随便选了一个15块到客栈。司机还拉了两个在大同读书的小姑娘，听着两人的对话真好玩。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;13&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/06/24/5d10273b1257e19306.jpg&#34; alt=&#34;钟楼&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;最后由于仿古街是步行街的缘故，的士司机在钟楼隔壁就停下了。我拉着箱子在昏暗的街灯下晃悠着去找客栈。&lt;/p&gt;
+&lt;p&gt;这间客栈的名字叫琵琶老店客栈，感觉那位招待的阿姨真真的是太好了，人也热情给我指点了一下附近有啥吃的，还会在我晚上出去晃悠的时候让我早点回来。除了热水器有点神经病以外没啥毛病。&lt;/p&gt;
+&lt;p&gt;晚饭随便搜了一间兔头店尝试了一下。EMMM 兔头没啥肉，不晓得为啥受欢迎，喝了瓶贵价啤酒……只能说我大概还是适合吃点实惠点的吧……嗝&lt;/p&gt;
+&lt;p&gt;在去大同的路上在马蜂窝订了个散团，吃饱喝足就洗洗睡准备明天6点30集合了。&lt;/p&gt;
+">崇善寺：佛香青烟袅袅</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://gilgamel.github.io/post/aga-khan-meseum/"" data-c="
+          &lt;p&gt;最近经常在INS看到 Aga Khan Meseum （AKM）关于人类登月50周年纪念而设的特展推广，于是就趁着周末跑去刷了一次馆。学生票 $12刀，外加导游讲解 $5，一共 $17。买完票的一瞬间觉得作为一个学生真的是太幸福了。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/04/15/5cb3c9be67c57.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;去到的时候大概1点，特展导游讲解在1点45开始。所以就趁这段时间在CAFE买了点喝的顺手再翻了一下博物馆的相关情况。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Aga Khan Meseum&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;阿迦汗博物馆成立于2014年，，属于伊斯兰教什叶派伊斯玛仪派领袖阿迦汗四世（Prince Shah Karim Al Husseini）的私人财产。馆内藏品涵盖伊斯兰艺术、伊朗艺术和穆斯林文化等，重要展品包括伊本·西那（Ibn Sina）的《医典》副本、一张「蓝色古兰经」的书页、14世纪西班牙星盘等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;阿迦汗博物馆的主体建筑于1996年由阿迦汗四世购得。2002年阿迦汗四世买下相邻建筑，并宣布建造阿迦汗博物馆、伊斯兰中心和阿迦汗公园。&lt;/p&gt;
+&lt;p&gt;2014年9月，阿迦汗博物馆正式开馆，这座博物馆由普利兹克建筑奖获得者、日本建筑师槙文彦（Fumihiko Maki）设计，占地面积约1万平方米。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/04/15/5cb40b5d39958.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;照例先给好久没出现的皮皮瘦来一张照片，右上角的一张 moon lady 很重要，导游还特意带我们到 moon lady 的展品上好好讲解了一番。&lt;/p&gt;
+&lt;p&gt;博物馆分为两层，楼上二楼为特展 The Moon，一楼为永久展区。&lt;/p&gt;
+&lt;h3 id=&#34;the-moon-a-voyage-through-time&#34;&gt;The Moon: A Voyage Through Time&lt;/h3&gt;
+&lt;p&gt;The Moon 这个展览利用了灯效，在地面上映射出上弦月、半月、满月的灯光效果，在一开始的时候用巨幅照片给游客展览了月亮的各个形态；并且将从月球上掉落的一小片陨石放在地面，放上透明玻璃罩，利用“站在过月球上”作为噱头，作为一个开头特色亮点。&lt;/p&gt;
+&lt;p&gt;随后真真正正进入展区后则通过艺术、文化等方面讲述伊斯兰文明与月亮的关联。&lt;/p&gt;
+&lt;p&gt;例如：在一副画上描画着蔬果、以及阁楼，在阁楼的顶部有一名占星师对月观察，看是否已经到了蔬果丰收、可以进食的日子。&lt;/p&gt;
+&lt;p&gt;又例如在伊斯兰文字里一个像月亮的图案则代表眼睛，而两两结合则代表不知道什么（。 而后两两结合成一个疑似满月的图案，上面除了文字以外，还有着经纬度。从这里可以看出，在当时的伊斯兰文明来说并没有宗教、科学之分。&lt;/p&gt;
+&lt;p&gt;除此以外让人印象深刻的是一个叫Astrolabe 的东西。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/04/15/5cb4119dda2eb.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;Astrolabe，又称为星盘，最早来源自希腊，是平面球与窥管的结合。窥管，（希腊语：διόπτρα）是可以追溯到公元前三世纪的传统]天文和测量工具。窥管是一根两端都可以看或是固定的观测管，如果装有量角器，就可以用来测量角度。&lt;/p&gt;
+&lt;p&gt;星盘在中世纪伊斯兰世界进一步发展，穆斯林天文学家在设计中引入了角度尺，在地平线上添加了指示方位角的圆圈。它在整个穆斯林世界被广泛使用，主要是作为航行的辅助手段，以及寻找麦加方向的朝拜方式。八世纪的数学家Muhammad al-Fazari是第一个在伊斯兰世界建造星盘的人。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;4&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/04/21/5cbbc7db37777.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;星盘正反面均可使用，不仅能用来观星，还能用来看时间（真的感觉很牛逼了），在看到星盘的第一眼不知道为什么首先想到了中国的日晷；大概是因为两个物品有着一些些相同之处吧。除此以外星盘让人感觉到印象深刻的原因大概是源于现代人对于伊斯兰文明、穆斯林的stereotype。当我们想到中东、伊斯兰、穆斯林的时候第一反应想到的是绿绿，却忘了其实在很多年前伊斯兰文明有多棒。&lt;/p&gt;
+&lt;h3 id=&#34;the-permanent-exhibition&#34;&gt;The  Permanent Exhibition&lt;/h3&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;5&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/04/19/5cb95907c36e2.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This selection of jewelery has been lavishly ornamented using filigree and granulation, displaying the intricate and demanding goldsmithing techniques that showcase the skill and sophistication of craftsmanship during the Fatimid dynasty (973 - 1171).&lt;/p&gt;
+&lt;p&gt;The gold jewellery of the Fatmids was well-known in its time, and was linked to the luxurious objects of the Byzantine Empire (ca. 330 - 1453), reflecting the importance of the relationship between the two cultures.&lt;/p&gt;
+&lt;p&gt;From Cairo, the cosmopolitan capital they founded, the Fatimids traded commodities, skills, and ideas across and extensive commercial network that reached from the Mediterranean into Africa and across the Read Sea and the Indian Ocean to China.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在伊斯兰文明中的首饰多数与月亮相关，且非常精致。即使中国古代的首饰里不乏制作异常精致的首饰，但是两者给人的感觉完全不同。如果需要用很粗暴的语言去描述两者的区别，那大概是中国古代的首饰精致中带着大气与写意，而伊斯兰文明的首饰则是精致中带着刻进骨子里的严谨（强迫）。事实上在博物馆看到的不管首饰、书籍、又抑或是瓷器，都带着让强迫症极度舒适的对称形状。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;6&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/04/21/5cbb97641ccf3.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Tiraz Textile&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Damietta, Egypt, 411 AH/ 1021&lt;/p&gt;
+&lt;p&gt;Linen, with silk tapestry-woven inscription&lt;/p&gt;
+&lt;p&gt;This tiraz fragment was made during the reign of Caliph al-Hakim (r. 996 - 1021), the sixth ruler of the Fatimid Dynasty. The fine quality of the weave is an indication that this is a luxury fabric. The bold kufic inscription is tapestry-woven in undyed linen against a blue ground with yellow tendrils floating above the letters.&lt;/p&gt;
+&lt;p&gt;The fragment is an excellent example that illustrates the historical importance of tiraz textiles. It contains the name of the Caliph, the last year of his reign, as well as the name of the factory, the city, and the date that it was made.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;伊斯兰文明时代的人似乎认为文字是非常神圣的东西，所以他们会在所有绣品、瓷砖等等都绣上、印上文字，就像中国古代人民会在瓷器、墙砖上放各种祥云纹又或许一些其他的图案。&lt;/p&gt;
+&lt;p&gt;而上面这张图是一块 &lt;strong&gt;Tiraz&lt;/strong&gt;，直接英译中大概叫提拉兹；是中世纪的伊斯兰刺绣，通常会以臂章的形式封在荣誉长袍上（khilat）。就像博物馆的展品描述所说的一样： tiraz 会被用于授予表现出对哈里发（Caliph）忠诚的高级官员，以及会被作为礼物送给某些身份极其尊贵的人。 Tiraz 上通常会绣有统治者的名字，有贵重的金属线，有复杂的图案；它是一种权力的象征，生产和出口都会受到严格监管，并由政府任命的官员进行监督。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;7&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/04/21/5cbbc158e3089.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;8&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/04/21/5cbbc24871152.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;相传颈长而细的瓶子都是用来存放比较重要的液体，同时也方便倒出。两张图片中的右侧瓶子都同属一个类型。特别是跟青色琉璃瓶的制式有8成相似，可惜这个瓶子的瓶颈处细节看得不大清楚&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;9&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/04/21/5cbbc2490a3a6.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;而这个钟同样印证了伊斯兰文明时代的人对文字十分看中，所以会喜欢将文字放在不同的器具上这么一个说法。与此同时，他们非常喜欢在器具上作花以及鸟的图案。如果将这个钟的图片放大则可以看到字体之间的图案便是花。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;10&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/04/21/5cbbc3a584fbe.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;不知道是什么年代的花瓶（热水瓶？？？），花纹上是典型的伊斯兰文明风格，但是从颜色上却让人想到了中国的青花瓷&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;11&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/04/21/5cbbc249367a5.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;12&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/04/21/5cbbc7db221e3.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Oliphant&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Oliphant: Sicily, Italy, 12th century. Ivory, carved&lt;/p&gt;
+&lt;p&gt;Mount: England, 17th century. Silver, moulded and engraved&lt;/p&gt;
+&lt;p&gt;Ivory hunting horns, or oliphants, were made between the mid-eleventh to the thirteenth centuries and are exquisite examples of cultural exchange between Muslim and Christian societies in the Mediterranean world.&lt;/p&gt;
+&lt;p&gt;The size of this oliphant, its richly carved figurative decoration, and its excellent condition are suggestive of a ceremonial function in courtly societies, associated with the hunt, combat, and banquets.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这个象牙雕保存情况十分好，被推断为是用作庆典用途的物品。大概人们在出去打猎、战斗、大型宴会前都会用到它。从装饰上看，银制的鹰爪从某些程度上代表了图腾文化。而雕刻的形状也十分写实而有规律感。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;13&#34;&gt;&lt;img src=&#34;https://i.loli.net/2019/04/21/5cbbca6768a71.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Iran&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;circa 1150 - 1500&lt;/p&gt;
+&lt;p&gt;A distinctive feature of Iranian art in this period is the use of ever more complex patterns, whether in the art of the book or on bronzes. A parallel evolution takes place in Persian literature, which saw the images and metaphors of poetry become richer, even arcane, and the development of &amp;quot;ornate prose&amp;quot; (nasr-e mozayyan).&lt;/p&gt;
+&lt;p&gt;Painting undergoes a metamorphosis between the 1250s and the 1350s. Archetypal figures, such as those painted in polychromy or in golden (&amp;quot;lustre&amp;quot;) colors on thirteenth-century pottery, give way to narrative scenes.&lt;/p&gt;
+&lt;p&gt;Persian poetry, common on certain categories of thirteenth-century pottery, is systematically used on metal vessels from the mid-fifteenth century on. By contrast, Arabic almost entirely disappeared from objects not destined for shrines or warfare.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在这一时期，伊朗艺术的一个显着特征是使用更复杂的图案，无论是在书籍的艺术中还是在青铜器上。 在波斯文学中发生了一种平行的演变，其中诗歌的图像和隐喻变得更加丰富，甚至是神秘的，并且发展了“华丽的散文”（nasr-e mozayyan）。&lt;/p&gt;
+&lt;p&gt;绘画经历了1250年代和1350年代之间的变态。 原型人物，例如十三世纪陶器中的多色或金色（“光泽”）色彩，让位于叙事场景。&lt;/p&gt;
+&lt;p&gt;波斯诗歌，在十三世纪陶器的某些类别中很常见，系统地用于十五世纪中期的金属器皿上。 相比之下，阿拉伯语几乎完全从没有用于神社或战争的物体中消失。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;关于展品的相关内容就告一段落了。在补这篇游记的时候其实都处于一种一边Google，一边继续写的状态，却感觉学到了很多有意思的东西。&lt;/p&gt;
+&lt;p&gt;博物馆真的是一个十分美好的地方，大概也是现代人能够从中学习到历史文化最便捷的地方了。看再多的书，也必须看一眼实物去加以验证。&lt;/p&gt;
+&lt;p&gt;读万卷书不如行万里路。&lt;/p&gt;
+">Aga Khan Meseum</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://gilgamel.github.io/post/about/"" data-c="
+          &lt;blockquote&gt;
+&lt;p&gt;欢迎来到我的小站呀，很高兴遇见你！🤝&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;关于本站&#34;&gt;🏠 关于本站&lt;/h2&gt;
+&lt;h2 id=&#34;博主是谁&#34;&gt;👨‍💻 博主是谁&lt;/h2&gt;
+&lt;h2 id=&#34;兴趣爱好&#34;&gt;⛹ 兴趣爱好&lt;/h2&gt;
+&lt;h2 id=&#34;联系我呀&#34;&gt;📬 联系我呀&lt;/h2&gt;
+">关于</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://gilgamel.github.io/post/hello-gridea/"" data-c="
+          &lt;p&gt;👏  欢迎使用 &lt;strong&gt;Gridea&lt;/strong&gt; ！&lt;br&gt;
+✍️  &lt;strong&gt;Gridea&lt;/strong&gt; 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/getgridea/gridea&#34;&gt;Github&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://gridea.dev/&#34;&gt;Gridea 主页&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://fehey.com/&#34;&gt;示例网站&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;特性&#34;&gt;特性👇&lt;/h2&gt;
+&lt;p&gt;📝  你可以使用最酷的 &lt;strong&gt;Markdown&lt;/strong&gt; 语法，进行快速创作&lt;/p&gt;
+&lt;p&gt;🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片&lt;/p&gt;
+&lt;p&gt;🏷️  你可以对文章进行标签分组&lt;/p&gt;
+&lt;p&gt;📋  你可以自定义菜单，甚至可以创建外部链接菜单&lt;/p&gt;
+&lt;p&gt;💻  你可以在 &lt;strong&gt;Windows&lt;/strong&gt;，&lt;strong&gt;MacOS&lt;/strong&gt; 或 &lt;strong&gt;Linux&lt;/strong&gt; 设备上使用此客户端&lt;/p&gt;
+&lt;p&gt;🌎  你可以使用 &lt;strong&gt;𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌&lt;/strong&gt; 或 &lt;strong&gt;Coding Pages&lt;/strong&gt; 向世界展示，未来将支持更多平台&lt;/p&gt;
+&lt;p&gt;💬  你可以进行简单的配置，接入 &lt;a href=&#34;https://github.com/gitalk/gitalk&#34;&gt;Gitalk&lt;/a&gt; 或 &lt;a href=&#34;https://github.com/SukkaW/DisqusJS&#34;&gt;DisqusJS&lt;/a&gt; 评论系统&lt;/p&gt;
+&lt;p&gt;🇬🇧  你可以使用&lt;strong&gt;中文简体&lt;/strong&gt;或&lt;strong&gt;英语&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力&lt;/p&gt;
+&lt;p&gt;🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步&lt;/p&gt;
+&lt;p&gt;🌱 当然 &lt;strong&gt;Gridea&lt;/strong&gt; 还很年轻，有很多不足，但请相信，它会不停向前 🏃&lt;/p&gt;
+&lt;p&gt;未来，它一定会成为你离不开的伙伴&lt;/p&gt;
+&lt;p&gt;尽情发挥你的才华吧！&lt;/p&gt;
+&lt;p&gt;😘 Enjoy~&lt;/p&gt;
+">Hello Gridea</a>
+      </div>
+      
+    </div>
+    <div class="page">
+      <div id="page_ul"></div>
+    </div>
+  </div>
+</div>
+<script>
+  !function () {
+    let searchMask = document.querySelector('#search_mask');
+    let result = document.querySelector('#result');
+    let items = document.querySelectorAll('.item');
+    let searchBox = document.querySelector('#search');
+    let statCount = document.querySelector('#stat_count');
+    let statTimes = document.querySelector('#stat_times');
+    let pageUl = document.querySelector('#page_ul');
+    let close = document.querySelector('#close');
+    
+    close.addEventListener('click', function() {
+      searchMask.style = 'display: none;'
+    })
+
+    let finds = [];
+    let contents = [];
+    let pageSize = 10;
+    items.forEach(item => {
+      let a = item.querySelector('a');
+      contents.push({
+        title: a.innerText,
+        details: a.dataset.c,
+        link: a.href
+      })
+      item.remove();
+    })
+
+    function insertStr(soure, start, count) {
+      let newStr = soure.substr(start, count);
+      return soure.slice(0, start) + '<em>' + newStr + '</em>' + soure.slice(start + count);
+    }
+
+    pageUl.addEventListener('click', function(event) {
+      let target = event.target;
+      if (target.__proto__ === HTMLSpanElement.prototype) {
+        appendResults(parseInt(target.dataset.i));
+      }
+    })
+
+    function appendResults(index) {
+      let htmlResult = '';
+      let start = index || 0;
+      let end = Math.min(start + pageSize, finds.length);
+      for (let i = start; i < end; i++) {
+        const current = finds[i];
+        let html = current.title;
+        let sum = 0;
+        let positions = current.positions;
+        positions.forEach(position => {
+          html = insertStr(html, position.start + sum, position.count);
+          sum += 9;
+        })
+        htmlResult += `<div class="item"><a class="result-title" href="${current.link}">${html}</a></div>`;
+      }
+      result.innerHTML = htmlResult;
+      pageUl.innerHTML = '';
+      let count = finds.length / pageSize;
+      let lis = '';
+      if (start !== 0) {
+        lis += `<span class="fa fa-angle-left" data-i='${start - 1}'></span>`;
+      }
+      for (let i = 0; i < count; i++) {
+        lis += `<span class='${i === start?'current':''}' data-i='${i}'>${i+1}</span>`;     
+      }
+      if (start+1 < count) {
+        lis += `<span class="fa fa-angle-right" data-i='${start+1}'></span>`;  
+      }
+      pageUl.innerHTML = lis;
+    }
+
+    function search(delay) {
+      let timer = null
+      return function () {
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+          let start = Date.now();
+          let segments = searchBox.value.split(' ').filter(c => c != '');
+          if (segments.length <= 0) {
+            return;
+          }
+          finds = [];
+          let htmlResult = '';
+          contents.forEach(content => {
+            let title = content.title;
+            let positions = [];
+            let find = false;
+            segments.forEach((segment) => {
+              if (content.title.includes(segment)) {
+                find = true;
+                positions.push({
+                  start: content.title.indexOf(segment),
+                  count: segment.length
+                })
+              } else if (content.details.includes(segment)) {
+                find = true;
+              }
+            });
+            if (find) {
+              finds.push({
+                title: content.title,
+                link: content.link,
+                positions
+              });
+            }
+          })
+          appendResults(0);
+          statCount.textContent = finds.length;
+          statTimes.textContent = Date.now() - start;
+        }, delay)
+      }
+    }
+    searchBox.addEventListener('input', search(200));
+  }()
+</script>
 
 <input hidden id="copy" />
 <script>
