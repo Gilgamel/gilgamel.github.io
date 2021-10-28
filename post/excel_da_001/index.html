@@ -1,0 +1,347 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>[EXCEL DA] 用 Excel 进行时间、分类统计 | Gilgamel&#39;s Notepad</title>
+<link rel="shortcut icon" href="https://gilgamel.github.io/favicon.ico?v=1635402895770">
+<link href="https://cdn.remixicon.com/releases/v2.1.0/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://gilgamel.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="[EXCEL DA] 用 Excel 进行时间、分类统计 | Gilgamel&#39;s Notepad - Atom Feed" href="https://gilgamel.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="在分析过程中使用到的相关函数及功能
+
+Pivottable
+Split Cells
+Date 函数
+DATEDIF 函数
+IF 函数
+
+分析需求
+根据要求，需要针对数据提供以下几项分析：
+
+Submit 时间分析：每个月的数据量，分析出来高..." />
+    <meta name="keywords" content="Excel/VBA" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://gilgamel.github.io">
+  <img class="avatar" src="https://gilgamel.github.io/images/avatar.png?v=1635402895770" alt="">
+  </a>
+  <h1 class="site-title">
+    Gilgamel&#39;s Notepad
+  </h1>
+  <p class="site-description">
+    
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              [EXCEL DA] 用 Excel 进行时间、分类统计
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-10-25
+              </span>
+              <span>
+                6 min read
+              </span>
+              
+                <a href="https://gilgamel.github.io/tag/pkhd1tFa_q/" class="post-tag">
+                  # Excel/VBA
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://i.loli.net/2021/10/28/jIV89cflQ6DHoN1.jpg" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h2 id="在分析过程中使用到的相关函数及功能">在分析过程中使用到的相关函数及功能</h2>
+<ol>
+<li>Pivottable</li>
+<li>Split Cells</li>
+<li>Date 函数</li>
+<li>DATEDIF 函数</li>
+<li>IF 函数</li>
+</ol>
+<h2 id="分析需求">分析需求</h2>
+<p>根据要求，需要针对数据提供以下几项分析：</p>
+<ul>
+<li>Submit 时间分析：每个月的数据量，分析出来高峰期在什么时候</li>
+<li>Shipment 时间分析：可以关注下 submit-shipment 直接的时间先后顺序 lead time</li>
+<li>区域分析：区域数据量</li>
+<li>患者年龄段：
+<ul>
+<li>genz：1997 之后</li>
+<li>sophiscated：1986 - 1997 之间</li>
+<li>senior：1986 之前</li>
+</ul>
+</li>
+<li>客户性别比例</li>
+<li>治疗步数分析：
+<ul>
+<li>20步</li>
+<li>20-40</li>
+<li>40-60</li>
+<li>60以上</li>
+</ul>
+</li>
+</ul>
+</br>
+<h2 id="excel-操作">EXCEL 操作</h2>
+<h3 id="submit-date-时间分析">Submit Date 时间分析</h3>
+<p>根据提供的算法，在 RAW DATA 里找到 submit date，并发现已提供了 <strong>submit year &amp; submit month</strong>，不需要再做任何的数据处理，直接即可应用</p>
+<figure data-type="image" tabindex="1"><img src="https://gilgamel.github.io/post-images/1635392316886.png" alt="" loading="lazy"></figure>
+<p><font color=LightSeaGreen> submit month value 每出现一次，则代表一次订单产生，因此要知道每个月的订单数量，只需要通过 pivottable 统计 submit month 出现的次数即可。</font></p>
+<p>方法如下：</p>
+<ol>
+<li>选中 submit month &amp; submit year 两列</li>
+<li>选择菜单栏上的 插入 → 数据透视表 （英文版则为 Insert → PivotTable）</li>
+<li>弹出“来自表格或区域的数据透视表”框后，选择新工作表，然后点确定 （见下图）<br>
+<img src="https://gilgamel.github.io/post-images/1635392984103.png" alt="" loading="lazy"></li>
+<li>在新建工作表上点击“数据透视表”，右侧会出现数据透视表字段，将 submit year &amp; submit month 拖拽到相应位置即可<br>
+<img src="https://gilgamel.github.io/post-images/1635393091985.png" alt="" loading="lazy"></li>
+<li>此时新的工作表上即出现了关于 submit date 的相关统计数据</li>
+</ol>
+</br>
+<h3 id="shipment-date-时间分析">Shipment Date 时间分析</h3>
+<p>根据提出的需求，关于 shipment date 的时间分析有两个方面：</p>
+<ol>
+<li>shipment 高峰期</li>
+<li>submit date - shipment date 的间隔时间 （一般这方面的分析用于研究、衡量公司从接收到订单到出货的时间，从间距时间可以反映出公司内部的流程是否通顺，也可在精细化运营时使用。</li>
+</ol>
+<p>通过 DATEDIF 公式可以计算出两个日期的相差值，DATEDIF(submit_date,shipment_date,&quot;d&quot;)，d = day<br>
+<img src="https://gilgamel.github.io/post-images/1635396999931.png" alt="" loading="lazy"></p>
+<h4 id="日期格式无法修改">日期格式无法修改</h4>
+<p>针对修改格式但没反应的情况，在确认单元格已经去掉锁定后，<strong>用分列 → 合并的思路进行处理</strong>，具体操作如下；</p>
+<ol>
+<li>
+<p>选择<strong>数据 → 分列</strong>，分隔符选其他，输入“-”，点击下一步<br>
+<img src="https://gilgamel.github.io/post-images/1635399718240.png" alt="" loading="lazy"></p>
+</li>
+<li>
+<p>列数据格式选择日期，并根据原有的日期格式选择 DMY，目标区域需要选择一个新的空列，然后选择完成<br>
+<img src="https://gilgamel.github.io/post-images/1635399794604.png" alt="" loading="lazy"></p>
+</li>
+</ol>
+<p>在这个部分处理时，我直接新建了3个空列，避免拆分出来的数据将其他已有数据覆盖掉。</p>
+<ol start="3">
+<li>通过 DATE 函数将拆分出来的日期重新合并。<br>
+<img src="https://gilgamel.github.io/post-images/1635399883980.png" alt="" loading="lazy"></li>
+</ol>
+</br>
+<h3 id="区域分析-患者性别比例分析">区域分析、患者性别比例分析</h3>
+<p>这两个部分由于不需要针对数据进行处理，直接插入 pivottable 进行统计即可，方法跟 submit date 部分一样。</p>
+</br>
+<h3 id="患者年龄段">患者年龄段</h3>
+<p>根据需求需要将所有客户的年龄分为 3 个种类：<br>
+- genz：1997 之后<br>
+- sophiscated：1986 - 1997 之间<br>
+- senior：1986 之前</p>
+<p>由于 RAW DATE 里客户出生日期是具体到天的，因此需要将出生年份拆分出来。<br>
+这个时候可以直接<strong>用 RIGHT 函数选取客户出生日期的后 4 位。</strong></p>
+<p><img src="https://gilgamel.github.io/post-images/1635400640771.png" alt="" loading="lazy"><br>
+<strong>记得将公式值复制黏贴为数字格式</strong></p>
+<p>之后可以用 IF 函数对客户的出生年份进行判断，即：</p>
+<ul>
+<li>genz：x &gt; 1997 （因为在1997之后出生的日期，如 1998、1999 均大于 1997）</li>
+<li>sophiscated： 1986 &lt; x &lt; 1997</li>
+<li>senior：x &lt; 1986 （在1986之前出生的日期，加 1985、1984 均小于 1986）</li>
+</ul>
+<p>由于判断条件有3个，因此需要用 IF 函数进行套娃，而 IF 函数是采取递进关系的，因此年龄的判断先后 MATTERS。</p>
+<pre><code>=IF(X&gt;1997,&quot;genz&quot;,IF(X&gt;1985,&quot;sophiscated&quot;,&quot;senior&quot;))
+
+# 如果 X &gt; 1997，将它命名为 genz；
+# 否则如果 X &gt; 1985，将它命名为 sophiscated；
+# 否则则将它命名为 senior
+</code></pre>
+<p><strong>因为 RAW DATA 中有少量 null 值，在分类后复制黏贴值以后直接将关于 null 的错误种类手动修改，避免疯狂使用 IF函数进行套娃出现错误。</strong></p>
+<p>分类完成后使用 pivottable 进行统计即可。</p>
+</br>
+<h3 id="治疗步数分析">治疗步数分析</h3>
+<p><strong>已知：</strong></p>
+<ol>
+<li>步数后面是单颌，需要*2=上下颌才是整体步数</li>
+<li>RAW DATA 中有上下颌分类说明</li>
+<li>RAW DATA 中的步数为单颌步数 （即非完整步数）</li>
+</ol>
+<p><strong>所以：</strong></p>
+<ol>
+<li>需要将整体的步数通过上下颌计算出来</li>
+<li>针对完整步数对步数进行分类</li>
+</ol>
+<h4 id="计算整体步数">计算整体步数</h4>
+<p>通过 IF 函数将上下颌列为筛选条件：</p>
+<pre><code>=IF(X=&quot;BOTH&quot;,X*2,X)
+
+# 如果是 BOTH，则步数*2，否则则保持原样
+</code></pre>
+<p><strong>随后将函数值复制黏贴为值即可针对整体步数进行分类。</strong></p>
+<p>根据需求可以将分类逻辑整理如下：<br>
+- 20及以下：x &lt; 20<br>
+- 20-40：19 &lt; x &lt; 41<br>
+- 40-60：39 &lt; x &lt; 61<br>
+- 60以上：x &gt; 60</p>
+<p>再通过 IF 函数疯狂套娃：</p>
+<pre><code>=IF(X&gt;60,&quot;60以上&quot;,IF(X&gt;39,&quot;40-60&quot;,IF(X&gt;19,&quot;20-40&quot;,&quot;20及以下&quot;)))
+
+# 如果 X &gt; 60，则将它命名为 60以上
+# 如果 X &gt; 39，则将它命名为 40 - 60
+# 如果 X &gt; 19， 则将它命名为 20 - 40
+# 否则将名为 20及以下
+</code></pre>
+<p>同理最后复制黏贴值后，将 null 值手动替换则完成所有分类<br>
+最后再通过 pitvottable 统计即可。</p>
+</br>
+<h2 id="ref">Ref</h2>
+<p>https://support.microsoft.com/en-us/office/datedif-function-25dba1a4-2812-480b-84dd-8b32a451b35c<br>
+https://support.microsoft.com/zh-cn/office/date-%E5%87%BD%E6%95%B0-e36c0c8c-4104-49da-ab83-82328b832349</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%9C%A8%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%88%B0%E7%9A%84%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0%E5%8F%8A%E5%8A%9F%E8%83%BD">在分析过程中使用到的相关函数及功能</a></li>
+<li><a href="#%E5%88%86%E6%9E%90%E9%9C%80%E6%B1%82">分析需求</a></li>
+<li><a href="#excel-%E6%93%8D%E4%BD%9C">EXCEL 操作</a>
+<ul>
+<li><a href="#submit-date-%E6%97%B6%E9%97%B4%E5%88%86%E6%9E%90">Submit Date 时间分析</a></li>
+<li><a href="#shipment-date-%E6%97%B6%E9%97%B4%E5%88%86%E6%9E%90">Shipment Date 时间分析</a>
+<ul>
+<li><a href="#%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E6%97%A0%E6%B3%95%E4%BF%AE%E6%94%B9">日期格式无法修改</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8C%BA%E5%9F%9F%E5%88%86%E6%9E%90-%E6%82%A3%E8%80%85%E6%80%A7%E5%88%AB%E6%AF%94%E4%BE%8B%E5%88%86%E6%9E%90">区域分析、患者性别比例分析</a></li>
+<li><a href="#%E6%82%A3%E8%80%85%E5%B9%B4%E9%BE%84%E6%AE%B5">患者年龄段</a></li>
+<li><a href="#%E6%B2%BB%E7%96%97%E6%AD%A5%E6%95%B0%E5%88%86%E6%9E%90">治疗步数分析</a>
+<ul>
+<li><a href="#%E8%AE%A1%E7%AE%97%E6%95%B4%E4%BD%93%E6%AD%A5%E6%95%B0">计算整体步数</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#ref">Ref</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://gilgamel.github.io/post/ru-he-yong-excel-jin-xing-jian-dan-de-shu-ju-fen-xi/">
+              <h3 class="post-title">
+                如何用 EXCEL 进行简单的数据分析
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://gilgamel.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
