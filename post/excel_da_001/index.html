@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>[EXCEL DA] 用 Excel 进行时间、分类统计 | Gilgamel&#39;s Notepad</title>
-<link rel="shortcut icon" href="https://gilgamel.github.io/favicon.ico?v=1635403056558">
+<link rel="shortcut icon" href="https://gilgamel.github.io/favicon.ico?v=1635403214375">
 <link href="https://cdn.remixicon.com/releases/v2.1.0/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://gilgamel.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="[EXCEL DA] 用 Excel 进行时间、分类统计 | Gilgamel&#39;s Notepad - Atom Feed" href="https://gilgamel.github.io/atom.xml">
@@ -32,7 +32,7 @@ Submit 时间分析：每个月的数据量，分析出来高..." />
       <div class="main-content">
         <div class="site-header">
   <a href="https://gilgamel.github.io">
-  <img class="avatar" src="https://gilgamel.github.io/images/avatar.png?v=1635403056558" alt="">
+  <img class="avatar" src="https://gilgamel.github.io/images/avatar.png?v=1635403214375" alt="">
   </a>
   <h1 class="site-title">
     Gilgamel&#39;s Notepad
@@ -89,7 +89,7 @@ Submit 时间分析：每个月的数据量，分析出来高..." />
             </h2>
             <div class="post-info">
               <span>
-                2021-10-25
+                2021-10-24
               </span>
               <span>
                 6 min read
@@ -159,8 +159,13 @@ Submit 时间分析：每个月的数据量，分析出来高..." />
 <li>shipment 高峰期</li>
 <li>submit date - shipment date 的间隔时间 （一般这方面的分析用于研究、衡量公司从接收到订单到出货的时间，从间距时间可以反映出公司内部的流程是否通顺，也可在精细化运营时使用。</li>
 </ol>
-<p>通过 DATEDIF 公式可以计算出两个日期的相差值，DATEDIF(submit_date,shipment_date,&quot;d&quot;)，d = day<br>
-<img src="https://gilgamel.github.io/post-images/1635396999931.png" alt="" loading="lazy"></p>
+<p>通过 DATEDIF 公式可以计算出两个日期的相差值</p>
+<pre><code>DATEDIF(submit_date,shipment_date,&quot;d&quot;)
+
+# d = day
+
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://gilgamel.github.io/post-images/1635396999931.png" alt="" loading="lazy"></figure>
 <h4 id="日期格式无法修改">日期格式无法修改</h4>
 <p>针对修改格式但没反应的情况，在确认单元格已经去掉锁定后，<strong>用分列 → 合并的思路进行处理</strong>，具体操作如下；</p>
 <ol>
@@ -243,8 +248,10 @@ Submit 时间分析：每个月的数据量，分析出来高..." />
 最后再通过 pitvottable 统计即可。</p>
 </br>
 <h2 id="ref">Ref</h2>
+<blockquote>
 <p>https://support.microsoft.com/en-us/office/datedif-function-25dba1a4-2812-480b-84dd-8b32a451b35c<br>
 https://support.microsoft.com/zh-cn/office/date-%E5%87%BD%E6%95%B0-e36c0c8c-4104-49da-ab83-82328b832349</p>
+</blockquote>
 
               </div>
               <div class="toc-container">
